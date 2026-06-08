@@ -1,15 +1,15 @@
 <?php
+ob_start();
 session_start();
-require_once _DIR_ . '/config/clave.php’;
+require_once _DIR_ . '/config/clave.php';
 
 $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $ingresada = $_POST['clave'] ?? '';
     if (password_verify($ingresada, $CLAVE_HASH)) {
-        $_SESSION['griff_auth'] = true;
-        $_SESSION['griff_ts']   = time();
-        header('Location: /INICIO.php');
+        $_SESSION['logueado'] = true;
+        header('Location: INICIO.php');
         exit;
     } else {
         $error = 'Contraseña incorrecta.';
@@ -42,10 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             justify-content: center;
             padding: 24px;
         }
-        .wrap {
-            width: 100%;
-            max-width: 420px;
-        }
+        .wrap { width: 100%; max-width: 420px; }
         .card {
             background: var(--card);
             border: 1px solid var(--line);
@@ -61,20 +58,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             padding-bottom: 24px;
             border-bottom: 1px solid var(--line);
         }
-        .head img {
-            height: 52px;
-            width: auto;
-        }
-        .head h1 {
-            font-size: 17px;
-            font-weight: 700;
-            color: var(--azul);
-        }
-        .head p {
-            font-size: 12px;
-            color: var(--muted);
-            margin-top: 3px;
-        }
+        .head img { height: 52px; width: auto; }
+        .head h1 { font-size: 17px; font-weight: 700; color: var(--azul); }
+        .head p { font-size: 12px; color: var(--muted); margin-top: 3px; }
         label {
             display: block;
             font-size: 13px;
@@ -93,10 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             outline: none;
             transition: border-color .15s;
         }
-        input[type=password]:focus {
-            border-color: var(--celeste);
-            background: #fff;
-        }
+        input[type=password]:focus { border-color: var(--celeste); background: #fff; }
         button {
             width: 100%;
             margin-top: 18px;
