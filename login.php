@@ -1,7 +1,7 @@
 <?php
 ob_start();
 session_start();
-require_once _DIR_ . '/config/clave.php';
+require_once __DIR__ . '/config/clave.php';
 
 $error = '';
 

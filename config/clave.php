@@ -1,4 +1,4 @@
-“<?php
+<?php
 // Este archivo nunca se muestra al navegador.
 // Contiene solo el hash bcrypt de la contraseña.
 //
@@ -10,4 +10,4 @@
 // Contraseña actual: griff2026
 
 $CLAVE_HASH = '$2y$10$74C2PnSqbOupnocTTGWIzOORcXsTVST.gdSwlrYObCH.Ic6rlY.3.';
-?>"
+?>
