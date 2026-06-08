@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once _DIR_ . '/config/clave.php';
+require_once _DIR_ . '/config/clave.php’;
 
 $error = '';
 
