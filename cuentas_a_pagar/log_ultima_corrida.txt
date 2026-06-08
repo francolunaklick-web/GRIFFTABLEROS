@@ -1,0 +1,16 @@
+Corrida: 04/06/2026 14:01:47
+
+PLANILLA OK: Planilla_Prestadores_01-2026.xlsx -> 01-2026 (Enero) (199 fact, $ 237,711,527.52)
+PLANILLA OK: Planilla_Prestadores_02-2026.xlsx -> 02-2026 (Febrero) (211 fact, $ 272,507,850.10)
+PLANILLA OK: Planilla_Prestadores_03-2026.xlsx -> 03-2026 (Marzo) (331 fact, $ 351,744,718.30)
+PLANILLA OK: Planilla_Prestadores_04-2026.xlsx -> 04-2026 (Abril) (254 fact, $ 347,074,895.28)
+CHEQUES OK: Cheques emitidos (3).csv (1200 cheq, $ 3,163,406,144.85)
+
+OPs: 416 prestador, 34 descartadas, 20 no cuadran
+  OPs procesadas: 267 / a revisar: 149
+
+A VENCER: 275 cheques · $ 907,229,383.45
+  Imputado: $ 793,938,717.83
+  Sin asignar: $ 127,235,754.17 (14.0%)
+  Modos imputacion: {'OP': 168, 'ESTRICTO': 93, 'FUERA': 14}
+
