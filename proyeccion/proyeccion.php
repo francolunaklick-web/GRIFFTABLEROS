@@ -112,6 +112,8 @@ tr.prow.open td:first-child::before{content:"\25BE";}
 .mes-tg{display:inline-block;background:#e7eaff;color:var(--azul);font-size:10px;
 font-weight:700;padding:2px 7px;border-radius:5px;margin:1px 2px;}
 .foot{text-align:center;font-size:11px;color:var(--muted);margin-top:18px;}
+.btn-inicio{display:inline-block;padding:8px 16px;border:1px solid var(--azul);border-radius:8px;color:var(--azul);text-decoration:none;font-size:13px;font-weight:600;white-space:nowrap;transition:background .15s ease,color .15s ease;margin-left:auto;}
+.btn-inicio:hover{background:var(--azul);color:#fff;}
 </style></head><body><div class="wrap">
 
 <div class="head">
@@ -119,6 +121,7 @@ font-weight:700;padding:2px 7px;border-radius:5px;margin:1px 2px;}
 <div class="sep"></div>
 <div><h1>Proyeccion de Pagos</h1>
 <div class="sub">Simulador de pagos + historico de cheques emitidos &middot; generado 04/06/2026 14:09</div></div>
+<a href="../INICIO.php" class="btn-inicio">&larr; Volver al Inicio</a>
 </div>
 
 <div class="tabs">

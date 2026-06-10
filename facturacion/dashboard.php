@@ -106,6 +106,8 @@ canvas { max-height: 280px; }
 .checklist-table .row-cli:hover { background: #E0F2FE; }
 .checklist-table .row-fact { background: #FAFAFA; }
 .checklist-table .chevron { display: inline-block; margin-right: 6px; width: 12px; }
+.btn-inicio { display: inline-block; padding: 8px 16px; border: 1px solid rgba(255,255,255,0.4); border-radius: 8px; color: #fff; text-decoration: none; font-size: 13px; font-weight: 600; white-space: nowrap; transition: background 0.15s ease, color 0.15s ease; }
+.btn-inicio:hover { background: #fff; color: #1A2D9C; }
 @media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); } .row { grid-template-columns: 1fr; } }
 </style>
 </head>
@@ -133,6 +135,7 @@ canvas { max-height: 280px; }
       <select id="cliSel"><option value="">Todos</option></select>
       <span class="timestamp" id="timestamp"></span>
     </div>
+    <a href="../INICIO.php" class="btn-inicio">&larr; Volver al Inicio</a>
   </header>
 
   <div id="error" style="display:none;" class="error-box">
