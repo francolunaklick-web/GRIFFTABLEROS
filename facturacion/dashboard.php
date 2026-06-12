@@ -30,9 +30,10 @@ document.addEventListener('DOMContentLoaded', () => { window._domCargado = true;
 </script>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Segoe UI', Arial, sans-serif; background: #F4F6F8; color: #1F2937; padding: 20px; }
+:root{--azul:#1A2D9C;--celeste:#29ABE2;--bg:#eef2f9;--card:#fff;--line:#e2e7f0;--muted:#6b7793;--txt:#15246E;--ambar:#E0A100;--verde:#1E8E5A;}
+body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--bg); color: var(--txt); padding: 20px; }
 .container { max-width: 1500px; margin: 0 auto; }
-header { background: linear-gradient(135deg, #1A2D9C 0%, #29ABE2 100%); color: white; padding: 24px 32px; border-radius: 12px; margin-bottom: 16px; box-shadow: 0 4px 16px rgba(26,45,156,0.2); display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+header { background: linear-gradient(135deg, var(--azul) 0%, var(--celeste) 100%); color: white; padding: 24px 32px; border-radius: 12px; margin-bottom: 16px; box-shadow: 0 4px 16px rgba(26,45,156,0.2); display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
 .logo-wrap { display:flex; align-items:center; gap:14px; }
 .logo { width: 60px; height: 60px; background: white; border-radius: 14px; padding: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; }
 header h1 { font-size: 22px; margin-bottom: 2px; }
@@ -43,11 +44,11 @@ header .sub { font-size: 13px; opacity: 0.9; }
 .tabs { display: flex; gap: 4px; margin-bottom: 16px; background: white; padding: 6px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); flex-wrap: wrap; }
 .tab { padding: 10px 18px; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 500; color: #6B7280; transition: all 0.15s; border: none; background: transparent; }
 .tab:hover { background: #F3F4F6; color: #1F2937; }
-.tab.active { background: #1A2D9C; color: white; }
+.tab.active { background: var(--azul); color: white; }
 .tab-content { display: none; }
 .tab-content.active { display: block; }
 .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
-.kpi { background: white; padding: 18px 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-left: 4px solid #1A2D9C; }
+.kpi { background: white; padding: 18px 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-left: 4px solid var(--azul); }
 .kpi.warn { border-left-color: #F59E0B; }
 .kpi.danger { border-left-color: #DC2626; }
 .kpi.good { border-left-color: #10B981; }
@@ -56,7 +57,7 @@ header .sub { font-size: 13px; opacity: 0.9; }
 .kpi .sub { font-size: 11px; color: #9CA3AF; margin-top: 4px; }
 .row { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-bottom: 24px; }
 .card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-.card h3 { font-size: 15px; color: #1A2D9C; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 2px solid #E5E7EB; }
+.card h3 { font-size: 15px; color: var(--azul); margin-bottom: 14px; padding-bottom: 8px; border-bottom: 2px solid #E5E7EB; }
 .alert { padding: 12px 14px; border-radius: 8px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
 .alert.danger { background: #FEE2E2; color: #991B1B; border-left: 3px solid #DC2626; }
 .alert.warn { background: #FEF3C7; color: #92400E; border-left: 3px solid #F59E0B; }
@@ -74,7 +75,7 @@ tr:hover { background: #F9FAFB; }
 .badge.blue { background: #DBEAFE; color: #1E40AF; }
 canvas { max-height: 280px; }
 .detalle-table th:first-child, .detalle-table td:first-child { text-align: left; min-width: 320px; }
-.row-section { background: #1A2D9C !important; color: white; font-weight: 600; cursor: pointer; user-select: none; }
+.row-section { background: var(--azul) !important; color: white; font-weight: 600; cursor: pointer; user-select: none; }
 .row-section td { color: white; }
 .row-section .chevron { display: inline-block; margin-right: 8px; transition: transform 0.2s; }
 .row-section.collapsed .chevron { transform: rotate(-90deg); }
@@ -84,13 +85,13 @@ canvas { max-height: 280px; }
 .row-hidden { display: none; }
 .sub-tabs { display: flex; gap: 4px; padding: 12px 20px 0 20px; }
 .sub-tab { padding: 8px 14px; border-radius: 6px 6px 0 0; cursor: pointer; font-size: 12px; font-weight: 500; color: #6B7280; border: none; background: #F3F4F6; }
-.sub-tab.active { background: white; color: #1A2D9C; border-bottom: 2px solid #1A2D9C; font-weight: 700; }
+.sub-tab.active { background: white; color: var(--azul); border-bottom: 2px solid var(--azul); font-weight: 700; }
 .sub-tab-content { display: none; }
 .sub-tab-content.active { display: block; }
 .controls-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; gap: 12px; flex-wrap: wrap; }
 .btn { padding: 8px 14px; border-radius: 6px; border: 1px solid #D1D5DB; background: white; cursor: pointer; font-size: 12px; color: #374151; font-weight: 500; }
 .btn:hover { background: #F3F4F6; }
-.btn-primary { background: #1A2D9C; color: white; border-color: #1A2D9C; }
+.btn-primary { background: var(--azul); color: white; border-color: var(--azul); }
 .btn-primary:hover { background: #2D7588; }
 .cobranzas-table input[type=number], .cobranzas-table input[type=date], .cobranzas-table select,
 .checklist-table input[type=number], .checklist-table select { padding: 4px 6px; border: 1px solid #D1D5DB; border-radius: 4px; font-size: 12px; font-family: inherit; }
@@ -107,7 +108,7 @@ canvas { max-height: 280px; }
 .checklist-table .row-fact { background: #FAFAFA; }
 .checklist-table .chevron { display: inline-block; margin-right: 6px; width: 12px; }
 .btn-inicio { display: inline-block; padding: 8px 16px; border: 1px solid rgba(255,255,255,0.4); border-radius: 8px; color: #fff; text-decoration: none; font-size: 13px; font-weight: 600; white-space: nowrap; transition: background 0.15s ease, color 0.15s ease; }
-.btn-inicio:hover { background: #fff; color: #1A2D9C; }
+.btn-inicio:hover { background: #fff; color: var(--azul); }
 @media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); } .row { grid-template-columns: 1fr; } }
 </style>
 </head>
@@ -116,12 +117,7 @@ canvas { max-height: 280px; }
   <header>
     <div class="logo-wrap">
       <div class="logo">
-        <svg viewBox="0 0 60 60" width="44" height="44" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="30" cy="30" r="28" fill="#1A2D9C"/>
-          <path d="M30 14 C25 14, 22 18, 22 23 C22 30, 30 38, 30 38 C30 38, 38 30, 38 23 C38 18, 35 14, 30 14 Z" fill="#FFFFFF"/>
-          <rect x="27" y="40" width="6" height="10" fill="#FFFFFF" rx="1"/>
-          <rect x="22" y="43" width="16" height="4" fill="#FFFFFF" rx="1"/>
-        </svg>
+        <img src="../assets/griff.png" alt="Griff Salud" style="max-width:100%;max-height:100%;object-fit:contain;">
       </div>
       <div>
         <h1>GRIFF SALUD SA</h1>

@@ -1,9 +1,9 @@
-Corrida: 11/06/2026 14:05:40
+Corrida: 12/06/2026 10:32:06
 
 PLANILLA OK: Planilla_Prestadores_01-2026.xlsx -> 01-2026 (Enero) (238 fact, $ 258,013,813.48)
 PLANILLA OK: Planilla_Prestadores_02-2026.xlsx -> 02-2026 (Febrero) (240 fact, $ 294,156,377.08)
-PLANILLA OK: Planilla_Prestadores_03-2026.xlsx -> 03-2026 (Marzo) (336 fact, $ 355,219,906.82)
-PLANILLA OK: Planilla_Prestadores_04-2026.xlsx -> 04-2026 (Abril) (254 fact, $ 347,074,895.28)
+PLANILLA OK: Planilla_Prestadores_03-2026.xlsx -> 03-2026 (Marzo) (325 fact, $ 339,569,177.81)
+PLANILLA OK: Planilla_Prestadores_04-2026.xlsx -> 04-2026 (Abril) (246 fact, $ 334,192,455.27)
 FACTURA DUPLICADA descartada: CLINICA PRIVADA CARAFFA SRL CUIT 30596272165 factura 12-118 01-2026 (Enero) (Planilla_Prestadores_01-2026.xlsx)
 FACTURA DUPLICADA descartada: ASOCIACION PRESTADORES DE HEMODIALISIS Y TRANSPLANTES RENALES DEL CENTRO (APHE Y TRC) CUIT 30644610256 factura 0003-00008345 02-2026 (Febrero) (Planilla_Prestadores_02-2026.xlsx)
 FACTURA DUPLICADA descartada: BARIATRICA S.A. S. A. CUIT 30709634964 factura 00002-00001210 03-2026 (Marzo) (Planilla_Prestadores_03-2026.xlsx)
@@ -11,18 +11,17 @@ FACTURA DUPLICADA descartada: SICOT MELINA PAULA CUIT 27344018451 factura 00003-
 FACTURA DUPLICADA descartada: UNIDAD DIGESTIVA BAISTROCCHI S.R.L. CUIT 30711999074 factura 00003-00001999 03-2026 (Marzo) (Planilla_Prestadores_03-2026.xlsx)
 FACTURA DUPLICADA descartada: UNIDAD DIGESTIVA BAISTROCCHI S.R.L. CUIT 30711999074 factura 00003-00002000 03-2026 (Marzo) (Planilla_Prestadores_03-2026.xlsx)
 FACTURA DUPLICADA descartada: BARIATRICA S.A. S. A. CUIT 30709634964 factura 00002-00001226 04-2026 (Abril) (Planilla_Prestadores_04-2026.xlsx)
-FACTURA DUPLICADA descartada: CIRCULO MEDICO REGIONAL RIO TERCERO CUIT 30566278207 factura 00060-00000600 04-2026 (Abril) (Planilla_Prestadores_04-2026.xlsx)
 FACTURA DUPLICADA descartada: EDUARDO JORGE LOYEAU CUIT 20101728820 factura 2-178 04-2026 (Abril) (Planilla_Prestadores_04-2026.xlsx)
 FACTURA DUPLICADA descartada: SOP S R L CUIT 30681218285 factura 00009-00011649 04-2026 (Abril) (Planilla_Prestadores_04-2026.xlsx)
 CHEQUES OK: Cheques emitidos (3).csv (1200 cheq, $ 3,163,406,144.85)
 CHEQUES OK: Cheques emitidos (8).csv (86 cheq, $ 257,347,286.44)
 
 OPs: 414 prestador, 34 descartadas, 20 no cuadran
-  OPs procesadas: 265 / a revisar: 149
+  OPs procesadas: 267 / a revisar: 147
 
 A VENCER: 244 cheques · $ 763,840,046.88
   Imputado: $ 654,620,917.72
   Sin asignar: $ 109,219,129.16 (14.3%)
   Modos imputacion: {'OP': 148, 'ESTRICTO': 81, 'FUERA': 15}
 
-Duracion: 5.0s
+Duracion: 4.9s
