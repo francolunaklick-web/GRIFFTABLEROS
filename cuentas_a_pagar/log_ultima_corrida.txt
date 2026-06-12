@@ -1,9 +1,9 @@
-Corrida: 12/06/2026 12:37:46
+Corrida: 12/06/2026 14:22:43
 
 PLANILLA OK: Planilla_Prestadores_01-2026.xlsx -> 01-2026 (Enero) (238 fact, $ 258,013,813.48)
 PLANILLA OK: Planilla_Prestadores_02-2026.xlsx -> 02-2026 (Febrero) (240 fact, $ 294,156,377.08)
-PLANILLA OK: Planilla_Prestadores_03-2026.xlsx -> 03-2026 (Marzo) (325 fact, $ 339,569,177.81)
-PLANILLA OK: Planilla_Prestadores_04-2026.xlsx -> 04-2026 (Abril) (246 fact, $ 334,192,455.27)
+PLANILLA OK: Planilla_Prestadores_03-2026.xlsx -> 03-2026 (Marzo) (325 fact, $ 343,269,544.13)
+PLANILLA OK: Planilla_Prestadores_04-2026.xlsx -> 04-2026 (Abril) (246 fact, $ 340,040,571.43)
 FACTURA DUPLICADA descartada: CLINICA PRIVADA CARAFFA SRL CUIT 30596272165 factura 12-118 01-2026 (Enero) (Planilla_Prestadores_01-2026.xlsx)
 FACTURA DUPLICADA descartada: ASOCIACION PRESTADORES DE HEMODIALISIS Y TRANSPLANTES RENALES DEL CENTRO (APHE Y TRC) CUIT 30644610256 factura 0003-00008345 02-2026 (Febrero) (Planilla_Prestadores_02-2026.xlsx)
 FACTURA DUPLICADA descartada: BARIATRICA S.A. S. A. CUIT 30709634964 factura 00002-00001210 03-2026 (Marzo) (Planilla_Prestadores_03-2026.xlsx)
@@ -24,4 +24,4 @@ A VENCER: 244 cheques · $ 763,840,046.88
   Sin asignar: $ 109,219,129.16 (14.3%)
   Modos imputacion: {'OP': 148, 'ESTRICTO': 81, 'FUERA': 15}
 
-Duracion: 9.4s
+Duracion: 4.6s

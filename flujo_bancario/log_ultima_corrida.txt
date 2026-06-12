@@ -1,4 +1,4 @@
-Corrida: 12/06/2026 12:39:30
+Corrida: 12/06/2026 14:22:57
 
 SALDOS OK: saldos.csv (1 regs)
 CHEQUES OK: Cheques emitidos (3).csv (1200 cheq, $ 3,163,406,144.85)
@@ -7,4 +7,4 @@ CHEQUES OK: Cheques emitidos (8).csv (86 cheq, $ 257,347,286.44)
   Deficit primero: 2026-06-30 $ 153,105,388.20
   Ventanas excedente: 1
 
-Duracion: 2.6s
+Duracion: 1.6s
