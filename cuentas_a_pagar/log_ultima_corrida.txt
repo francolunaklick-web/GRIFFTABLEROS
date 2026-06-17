@@ -1,4 +1,4 @@
-Corrida: 17/06/2026 11:47:30
+Corrida: 17/06/2026 12:08:39
 
 PLANILLA OK: Planilla_Prestadores_01-2026.xlsx -> 01-2026 (Enero) (238 fact, $ 258,013,813.48)
 PLANILLA OK: Planilla_Prestadores_02-2026.xlsx -> 02-2026 (Febrero) (240 fact, $ 294,156,377.08)
@@ -31,4 +31,4 @@ A VENCER: 229 cheques · $ 719,343,630.37
   Sin asignar: $ 109,193,806.12 (15.2%)
   Modos imputacion: {'OP': 134, 'ESTRICTO': 79, 'FUERA': 16}
 
-Duracion: 8.0s
+Duracion: 4.3s
