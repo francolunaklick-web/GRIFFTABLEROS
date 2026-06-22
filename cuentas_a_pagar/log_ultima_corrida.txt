@@ -1,33 +1,37 @@
-Corrida: 18/06/2026 15:11:58
+Corrida: 22/06/2026 08:45:53
 
 PLANILLA OK: Planilla_Prestadores_01-2026.xlsx -> 01-2026 (Enero) (238 fact, $ 258,013,813.48)
 PLANILLA OK: Planilla_Prestadores_02-2026.xlsx -> 02-2026 (Febrero) (240 fact, $ 294,156,377.08)
-PLANILLA OK: Planilla_Prestadores_03-2026.xlsx -> 03-2026 (Marzo) (325 fact, $ 342,504,100.33)
-PLANILLA OK: Planilla_Prestadores_04-2026.xlsx -> 04-2026 (Abril) (245 fact, $ 337,890,321.43)
-PLANILLA OK: Planilla_Prestadores_05-2026.xlsx -> 05-2026 (Mayo) (259 fact, $ 241,792,128.27)
+PLANILLA OK: Planilla_Prestadores_03-2026.xlsx -> 03-2026 (Marzo) (324 fact, $ 344,300,866.33)
+PLANILLA OK: Planilla_Prestadores_04-2026.xlsx -> 04-2026 (Abril) (300 fact, $ 307,914,146.21)
+PLANILLA OK: Planilla_Prestadores_05-2026.xlsx -> 05-2026 (Mayo) (261 fact, $ 243,954,378.27)
+FACTURA DUPLICADA descartada: CLINICA CHUTRO S R L CUIT 30545996991 factura 5981-04-01 00:00:00 01-2026 (Enero) (Planilla_Prestadores_01-2026.xlsx)
 FACTURA DUPLICADA descartada: CLINICA PRIVADA CARAFFA SRL CUIT 30596272165 factura 12-118 01-2026 (Enero) (Planilla_Prestadores_01-2026.xlsx)
 FACTURA DUPLICADA descartada: ASOCIACION PRESTADORES DE HEMODIALISIS Y TRANSPLANTES RENALES DEL CENTRO (APHE Y TRC) CUIT 30644610256 factura 0003-00008345 02-2026 (Febrero) (Planilla_Prestadores_02-2026.xlsx)
 FACTURA DUPLICADA descartada: BARIATRICA S.A. CUIT 30709634964 factura 00002-00001210 03-2026 (Marzo) (Planilla_Prestadores_03-2026.xlsx)
 FACTURA DUPLICADA descartada: SICOT MELINA PAULA CUIT 27344018451 factura 00003-00000962 03-2026 (Marzo) (Planilla_Prestadores_03-2026.xlsx)
 FACTURA DUPLICADA descartada: UNIDAD DIGESTIVA BAISTROCCHI S.R.L. CUIT 30711999074 factura 00003-00001999 03-2026 (Marzo) (Planilla_Prestadores_03-2026.xlsx)
 FACTURA DUPLICADA descartada: UNIDAD DIGESTIVA BAISTROCCHI S.R.L. CUIT 30711999074 factura 00003-00002000 03-2026 (Marzo) (Planilla_Prestadores_03-2026.xlsx)
-FACTURA DUPLICADA descartada: BARIATRICA S.A. CUIT 30709634964 factura 00002-00001226 04-2026 (Abril) (Planilla_Prestadores_04-2026.xlsx)
-FACTURA DUPLICADA descartada: LOYEAU EDUARDO JORGE CUIT 20101728820 factura 2-178 04-2026 (Abril) (Planilla_Prestadores_04-2026.xlsx)
+FACTURA DUPLICADA descartada: AMPARAR S.R.L CUIT 30708686499 factura 00008-00002207 04-2026 (Abril) (Planilla_Prestadores_04-2026.xlsx)
+FACTURA DUPLICADA descartada: AMPARAR S.R.L CUIT 30708686499 factura 00008-00002471 04-2026 (Abril) (Planilla_Prestadores_04-2026.xlsx)
+FACTURA DUPLICADA descartada: AMPARAR S.R.L CUIT 30708686499 factura 00008-00002241 04-2026 (Abril) (Planilla_Prestadores_04-2026.xlsx)
+FACTURA DUPLICADA descartada: BARIATRICA S.A. S. A. CUIT 30709634964 factura 00002-00001226 04-2026 (Abril) (Planilla_Prestadores_04-2026.xlsx)
+FACTURA DUPLICADA descartada: ECCO S. A. U. CUIT 30602764032 factura 00203-00162147 04-2026 (Abril) (Planilla_Prestadores_04-2026.xlsx)
+FACTURA DUPLICADA descartada: OXECOR CUIT 30714245399 factura 00003-00001180 04-2026 (Abril) (Planilla_Prestadores_04-2026.xlsx)
 FACTURA DUPLICADA descartada: CAMARA DE ENTIDADES DE SALUD - CES CUIT 30715649159 factura 00005-00001719 05-2026 (Mayo) (Planilla_Prestadores_05-2026.xlsx)
 FACTURA DUPLICADA descartada: CAMARA DE ENTIDADES DE SALUD - CES CUIT 30715649159 factura 00005-00001720 05-2026 (Mayo) (Planilla_Prestadores_05-2026.xlsx)
 FACTURA DUPLICADA descartada: CLINICA FUSAVIM PRIVADA S R L CUIT 30708409185 factura 00006-00004588 05-2026 (Mayo) (Planilla_Prestadores_05-2026.xlsx)
 FACTURA DUPLICADA descartada: HUERGO FEDERICO CUIT 20282468787 factura 00001-00000073 05-2026 (Mayo) (Planilla_Prestadores_05-2026.xlsx)
 FACTURA DUPLICADA descartada: INSTITUTO PRIVADO DE NEONATOLOGIA Y PEDIATRIA S.A. CUIT 30659560093 factura 00500-00044426 05-2026 (Mayo) (Planilla_Prestadores_05-2026.xlsx)
-CHEQUES OK: Cheques emitidos (3).csv (1200 cheq, $ 3,163,406,144.85)
-CHEQUES OK: Cheques emitidos (8).csv (86 cheq, $ 257,347,286.44)
+CHEQUES OK: Cheques emitidos (10).csv (300 cheq, $ 1,033,229,521.84)
 CHEQUES OK: Cheques emitidos (9).csv (300 cheq, $ 948,933,780.27)
 
 OPs: 414 prestador, 34 descartadas, 20 no cuadran
-  OPs procesadas: 268 / a revisar: 146
+  OPs procesadas: 223 / a revisar: 191
 
-A VENCER: 229 cheques · $ 719,343,630.37
-  Imputado: $ 610,149,824.25
-  Sin asignar: $ 109,193,806.12 (15.2%)
-  Modos imputacion: {'OP': 134, 'ESTRICTO': 79, 'FUERA': 16}
+A VENCER: 185 cheques · $ 660,435,843.15
+  Imputado: $ 564,937,800.31
+  Sin asignar: $ 95,498,042.84 (14.5%)
+  Modos imputacion: {'OP': 118, 'ESTRICTO': 51, 'FUERA': 16}
 
-Duracion: 5.0s
+Duracion: 6.0s
