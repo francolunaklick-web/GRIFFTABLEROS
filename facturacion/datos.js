@@ -1,6 +1,6 @@
 // Auto-generado por actualizar.py - No editar manualmente
 window.DATOS = {
-  "timestamp": "2026-06-22 08:46",
+  "timestamp": "2026-06-23 16:23",
   "facturas": [
     {
       "fecha": "2026-05-01 00:00:00",
@@ -18,7 +18,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 5,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 1320000.0,
@@ -44,7 +44,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 5,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 2827915.2,
@@ -70,7 +70,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 5,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 2965651.92,
@@ -122,7 +122,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 5,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 4492890.86,
@@ -148,7 +148,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 5,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 7893768.06,
@@ -174,7 +174,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 5,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 18001763.01,
@@ -200,7 +200,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 5,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 468049.54,
@@ -226,7 +226,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 5,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 7374506.62,
@@ -252,7 +252,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 5,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 1320000.0,
@@ -278,7 +278,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 5,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 3250000.0,
@@ -304,7 +304,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 5,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 4585560.0,
@@ -382,7 +382,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 5,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 12480000.0,
@@ -408,7 +408,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 5,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 1898075.75,
@@ -434,7 +434,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 5,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 4585560.0,
@@ -460,7 +460,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 5,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 4974900.0,
@@ -486,7 +486,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 5,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 1973112.0,
@@ -512,7 +512,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 5,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 6000000.0,
@@ -538,7 +538,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 5,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 6000000.0,
@@ -902,7 +902,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 5,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 20000000.0,
@@ -928,7 +928,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 5,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 17000000.0,
@@ -954,7 +954,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 5,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 283893.6,
@@ -980,7 +980,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 5,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 272076.2,
@@ -1006,7 +1006,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 5,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 4216721.0,
@@ -1032,7 +1032,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 5,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 7246383.4,
@@ -1136,7 +1136,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 6,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 2827915.2,
@@ -1162,7 +1162,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 6,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 2965651.92,
@@ -1188,7 +1188,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 6,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 18621205.2,
@@ -1214,7 +1214,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 6,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 7521420.51,
@@ -1240,7 +1240,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 6,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 4492890.86,
@@ -1266,7 +1266,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 6,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 199756242.0,
@@ -1292,7 +1292,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 6,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 2827915.2,
@@ -1318,7 +1318,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 6,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 2965651.92,
@@ -1344,7 +1344,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 6,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 3236230.76,
@@ -1370,7 +1370,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 6,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 3085927.28,
@@ -1396,7 +1396,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 6,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 1973112.0,
@@ -1422,7 +1422,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 6,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 1677954.6,
@@ -1526,7 +1526,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 6,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 3250000.0,
@@ -1552,7 +1552,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 6,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 7374506.62,
@@ -1578,7 +1578,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 6,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 12480000.0,
@@ -1630,7 +1630,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 6,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 3760800.0,
@@ -1656,7 +1656,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 6,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 4381500.0,
@@ -1682,7 +1682,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 6,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 487218.85,
@@ -1734,7 +1734,7 @@ window.DATOS = {
       "anio": 2026,
       "mes": 6,
       "estado_afip": "Emitida",
-      "estado_cobro": "Pendiente",
+      "estado_cobro": "Cobrada",
       "fecha_cobro": "",
       "monto_cobrado": 0.0,
       "saldo_pendiente": 6000000.0,
@@ -1769,6 +1769,240 @@ window.DATOS = {
       "no_grav_efec": 6000000.0,
       "iva21_efec": 0,
       "total_efec": 6000000.0
+    },
+    {
+      "fecha": "2026-06-16 00:00:00",
+      "tipo": "B",
+      "pto_vta": 1,
+      "numero": 653,
+      "cliente": "FUNDACION BIENESTAR SIRELYF",
+      "concepto": "Servicios prestacionales",
+      "actividad": 702010,
+      "neto": 0.0,
+      "no_grav": 17000000.0,
+      "iva21": 0,
+      "iva105": 0.0,
+      "total": 17000000.0,
+      "anio": 2026,
+      "mes": 6,
+      "estado_afip": "Emitida",
+      "estado_cobro": "Cobrada",
+      "fecha_cobro": "",
+      "monto_cobrado": 0.0,
+      "saldo_pendiente": 17000000.0,
+      "signo": 1,
+      "neto_efec": 0.0,
+      "no_grav_efec": 17000000.0,
+      "iva21_efec": 0,
+      "total_efec": 17000000.0
+    },
+    {
+      "fecha": "2026-06-17 00:00:00",
+      "tipo": "A",
+      "pto_vta": 1,
+      "numero": 99,
+      "cliente": "OSPIF",
+      "concepto": "Extra Capita OSPIF_BRITOS DYLAN GABRIEL",
+      "actividad": 651110,
+      "neto": 0.0,
+      "no_grav": 4635044.36,
+      "iva21": 0,
+      "iva105": 0.0,
+      "total": 4635044.36,
+      "anio": 2026,
+      "mes": 6,
+      "estado_afip": "Emitida",
+      "estado_cobro": "Pendiente",
+      "fecha_cobro": "",
+      "monto_cobrado": 0.0,
+      "saldo_pendiente": 4635044.36,
+      "signo": 1,
+      "neto_efec": 0.0,
+      "no_grav_efec": 4635044.36,
+      "iva21_efec": 0,
+      "total_efec": 4635044.36
+    },
+    {
+      "fecha": "2026-06-17 00:00:00",
+      "tipo": "A",
+      "pto_vta": 1,
+      "numero": 100,
+      "cliente": "OSPIF",
+      "concepto": "Extra Capita OSPIF_ACUNA RAMONA-",
+      "actividad": 651110,
+      "neto": 0.0,
+      "no_grav": 3887000.0,
+      "iva21": 0,
+      "iva105": 0.0,
+      "total": 3887000.0,
+      "anio": 2026,
+      "mes": 6,
+      "estado_afip": "Emitida",
+      "estado_cobro": "Pendiente",
+      "fecha_cobro": "",
+      "monto_cobrado": 0.0,
+      "saldo_pendiente": 3887000.0,
+      "signo": 1,
+      "neto_efec": 0.0,
+      "no_grav_efec": 3887000.0,
+      "iva21_efec": 0,
+      "total_efec": 3887000.0
+    },
+    {
+      "fecha": "2026-06-17 00:00:00",
+      "tipo": "A",
+      "pto_vta": 1,
+      "numero": 101,
+      "cliente": "OSPIF",
+      "concepto": "Capita correspondiente al mes de Mayo de",
+      "actividad": 651110,
+      "neto": 0.0,
+      "no_grav": 96255000.0,
+      "iva21": 0,
+      "iva105": 0.0,
+      "total": 96255000.0,
+      "anio": 2026,
+      "mes": 6,
+      "estado_afip": "Emitida",
+      "estado_cobro": "Pendiente",
+      "fecha_cobro": "",
+      "monto_cobrado": 0.0,
+      "saldo_pendiente": 96255000.0,
+      "signo": 1,
+      "neto_efec": 0.0,
+      "no_grav_efec": 96255000.0,
+      "iva21_efec": 0,
+      "total_efec": 96255000.0
+    },
+    {
+      "fecha": "2026-06-17 00:00:00",
+      "tipo": "B",
+      "pto_vta": 1,
+      "numero": 654,
+      "cliente": "OSPLYF",
+      "concepto": "Extra Capita - Sanatorio Allende",
+      "actividad": 651110,
+      "neto": 0.0,
+      "no_grav": 313910.4,
+      "iva21": 0,
+      "iva105": 0.0,
+      "total": 313910.4,
+      "anio": 2026,
+      "mes": 6,
+      "estado_afip": "Emitida",
+      "estado_cobro": "Cobrada",
+      "fecha_cobro": "",
+      "monto_cobrado": 0.0,
+      "saldo_pendiente": 313910.4,
+      "signo": 1,
+      "neto_efec": 0.0,
+      "no_grav_efec": 313910.4,
+      "iva21_efec": 0,
+      "total_efec": 313910.4
+    },
+    {
+      "fecha": "2026-06-17 00:00:00",
+      "tipo": "B",
+      "pto_vta": 1,
+      "numero": 655,
+      "cliente": "OSPLYF",
+      "concepto": "Extra Capita - TRASLADO POR",
+      "actividad": 651110,
+      "neto": 0.0,
+      "no_grav": 25185000.0,
+      "iva21": 0,
+      "iva105": 0.0,
+      "total": 25185000.0,
+      "anio": 2026,
+      "mes": 6,
+      "estado_afip": "Emitida",
+      "estado_cobro": "Cobrada",
+      "fecha_cobro": "",
+      "monto_cobrado": 0.0,
+      "saldo_pendiente": 25185000.0,
+      "signo": 1,
+      "neto_efec": 0.0,
+      "no_grav_efec": 25185000.0,
+      "iva21_efec": 0,
+      "total_efec": 25185000.0
+    },
+    {
+      "fecha": "2026-06-18 00:00:00",
+      "tipo": "A",
+      "pto_vta": 1,
+      "numero": 102,
+      "cliente": "OSPIF",
+      "concepto": "Extra Capita OSPIF_RIOS SCHEFER",
+      "actividad": 651110,
+      "neto": 0.0,
+      "no_grav": 6814250.0,
+      "iva21": 0,
+      "iva105": 0.0,
+      "total": 6814250.0,
+      "anio": 2026,
+      "mes": 6,
+      "estado_afip": "Emitida",
+      "estado_cobro": "Pendiente",
+      "fecha_cobro": "",
+      "monto_cobrado": 0.0,
+      "saldo_pendiente": 6814250.0,
+      "signo": 1,
+      "neto_efec": 0.0,
+      "no_grav_efec": 6814250.0,
+      "iva21_efec": 0,
+      "total_efec": 6814250.0
+    },
+    {
+      "fecha": "2026-06-18 00:00:00",
+      "tipo": "B",
+      "pto_vta": 1,
+      "numero": 656,
+      "cliente": "COLEGIO DE FARMACEUTICOS DE LA",
+      "concepto": "Servicios prestacionales",
+      "actividad": 702010,
+      "neto": 0.0,
+      "no_grav": 6244235.0,
+      "iva21": 0,
+      "iva105": 0.0,
+      "total": 6244235.0,
+      "anio": 2026,
+      "mes": 6,
+      "estado_afip": "Emitida",
+      "estado_cobro": "Cobrada",
+      "fecha_cobro": "",
+      "monto_cobrado": 0.0,
+      "saldo_pendiente": 6244235.0,
+      "signo": 1,
+      "neto_efec": 0.0,
+      "no_grav_efec": 6244235.0,
+      "iva21_efec": 0,
+      "total_efec": 6244235.0
+    },
+    {
+      "fecha": "2026-06-18 00:00:00",
+      "tipo": "B",
+      "pto_vta": 1,
+      "numero": 657,
+      "cliente": "COLEGIO DE FARMACEUTICOS DE LA",
+      "concepto": "Servicios prestacionales",
+      "actividad": 702010,
+      "neto": 0.0,
+      "no_grav": 6591884.0,
+      "iva21": 0,
+      "iva105": 0.0,
+      "total": 6591884.0,
+      "anio": 2026,
+      "mes": 6,
+      "estado_afip": "Emitida",
+      "estado_cobro": "Cobrada",
+      "fecha_cobro": "",
+      "monto_cobrado": 0.0,
+      "saldo_pendiente": 6591884.0,
+      "signo": 1,
+      "neto_efec": 0.0,
+      "no_grav_efec": 6591884.0,
+      "iva21_efec": 0,
+      "total_efec": 6591884.0
     }
   ],
   "impuestos_mensual": {
@@ -1779,14 +2013,14 @@ window.DATOS = {
       "m3": 0.0,
       "m4": 0.0,
       "m5": 639818318.0900002,
-      "m6": 364231620.98999995,
+      "m6": 531157944.74999994,
       "m7": 0.0,
       "m8": 0.0,
       "m9": 0.0,
       "m10": 0.0,
       "m11": 0.0,
       "m12": 0.0,
-      "anio": 1004049939.0800002
+      "anio": 1170976262.8400002
     },
     "  → Actividad 702010 (Gerenciamiento)": {
       "label": "  → Actividad 702010 (Gerenciamiento)",
@@ -1795,14 +2029,14 @@ window.DATOS = {
       "m3": 0.0,
       "m4": 0.0,
       "m5": 139985802.19,
-      "m6": 92887921.79,
+      "m6": 122724040.79,
       "m7": 0.0,
       "m8": 0.0,
       "m9": 0.0,
       "m10": 0.0,
       "m11": 0.0,
       "m12": 0.0,
-      "anio": 232873723.98000002
+      "anio": 262709842.98000002
     },
     "  → Actividad 651110 (Seguros)": {
       "label": "  → Actividad 651110 (Seguros)",
@@ -1811,14 +2045,14 @@ window.DATOS = {
       "m3": 0.0,
       "m4": 0.0,
       "m5": 499832515.90000004,
-      "m6": 271343699.1999999,
+      "m6": 408433903.9599999,
       "m7": 0.0,
       "m8": 0.0,
       "m9": 0.0,
       "m10": 0.0,
       "m11": 0.0,
       "m12": 0.0,
-      "anio": 771176215.0999999
+      "anio": 908266419.8599999
     },
     "Neto Gravado 21%": {
       "label": "Neto Gravado 21%",
@@ -1891,14 +2125,14 @@ window.DATOS = {
       "m3": 0.0,
       "m4": 0.0,
       "m5": 6061385.234827,
-      "m6": 4022047.013507,
+      "m6": 5313950.966207,
       "m7": 0.0,
       "m8": 0.0,
       "m9": 0.0,
       "m10": 0.0,
       "m11": 0.0,
       "m12": 0.0,
-      "anio": 10083432.248334
+      "anio": 11375336.201034
     },
     "Base distribuida CABA - 651110": {
       "label": "Base distribuida CABA - 651110",
@@ -1907,14 +2141,14 @@ window.DATOS = {
       "m3": 0.0,
       "m4": 0.0,
       "m5": 21642747.938470002,
-      "m6": 11749182.175359996,
+      "m6": 17685188.041467994,
       "m7": 0.0,
       "m8": 0.0,
       "m9": 0.0,
       "m10": 0.0,
       "m11": 0.0,
       "m12": 0.0,
-      "anio": 33391930.11383
+      "anio": 39327935.979938
     },
     "Impuesto IIBB CABA - 702010 (3%)": {
       "label": "Impuesto IIBB CABA - 702010 (3%)",
@@ -1923,14 +2157,14 @@ window.DATOS = {
       "m3": 0.0,
       "m4": 0.0,
       "m5": 181841.55704480998,
-      "m6": 120661.41040521,
+      "m6": 159418.52898621,
       "m7": 0.0,
       "m8": 0.0,
       "m9": 0.0,
       "m10": 0.0,
       "m11": 0.0,
       "m12": 0.0,
-      "anio": 302502.96745001996
+      "anio": 341260.08603102
     },
     "Impuesto IIBB CABA - 651110 (5,5%)": {
       "label": "Impuesto IIBB CABA - 651110 (5,5%)",
@@ -1939,14 +2173,14 @@ window.DATOS = {
       "m3": 0.0,
       "m4": 0.0,
       "m5": 1190351.13661585,
-      "m6": 646205.0196447998,
+      "m6": 972685.3422807397,
       "m7": 0.0,
       "m8": 0.0,
       "m9": 0.0,
       "m10": 0.0,
       "m11": 0.0,
       "m12": 0.0,
-      "anio": 1836556.1562606497
+      "anio": 2163036.47889659
     },
     "IIBB CABA - Total Determinado": {
       "label": "IIBB CABA - Total Determinado",
@@ -1955,14 +2189,14 @@ window.DATOS = {
       "m3": 0.0,
       "m4": 0.0,
       "m5": 1372192.69366066,
-      "m6": 766866.4300500097,
+      "m6": 1132103.8712669497,
       "m7": 0.0,
       "m8": 0.0,
       "m9": 0.0,
       "m10": 0.0,
       "m11": 0.0,
       "m12": 0.0,
-      "anio": 2139059.1237106696
+      "anio": 2504296.5649276096
     },
     "IIBB CABA - A pagar (estimado)": {
       "label": "IIBB CABA - A pagar (estimado)",
@@ -1971,14 +2205,14 @@ window.DATOS = {
       "m3": 0.0,
       "m4": 0.0,
       "m5": 1372192.69366066,
-      "m6": 766866.4300500097,
+      "m6": 1132103.8712669497,
       "m7": 0.0,
       "m8": 0.0,
       "m9": 0.0,
       "m10": 0.0,
       "m11": 0.0,
       "m12": 0.0,
-      "anio": 2139059.1237106696
+      "anio": 2504296.5649276096
     },
     "Base distribuida Córdoba - 702010": {
       "label": "Base distribuida Córdoba - 702010",
@@ -1987,14 +2221,14 @@ window.DATOS = {
       "m3": 0.0,
       "m4": 0.0,
       "m5": 133924416.955173,
-      "m6": 88865874.77649301,
+      "m6": 117410089.82379301,
       "m7": 0.0,
       "m8": 0.0,
       "m9": 0.0,
       "m10": 0.0,
       "m11": 0.0,
       "m12": 0.0,
-      "anio": 222790291.73166603
+      "anio": 251334506.778966
     },
     "Base distribuida Córdoba - 651110": {
       "label": "Base distribuida Córdoba - 651110",
@@ -2003,14 +2237,14 @@ window.DATOS = {
       "m3": 0.0,
       "m4": 0.0,
       "m5": 478189767.96153,
-      "m6": 259594517.02463993,
+      "m6": 390748715.9185319,
       "m7": 0.0,
       "m8": 0.0,
       "m9": 0.0,
       "m10": 0.0,
       "m11": 0.0,
       "m12": 0.0,
-      "anio": 737784284.9861699
+      "anio": 868938483.8800619
     },
     "Impuesto IIBB Cba - 702010 (5,5%)": {
       "label": "Impuesto IIBB Cba - 702010 (5,5%)",
@@ -2019,14 +2253,14 @@ window.DATOS = {
       "m3": 0.0,
       "m4": 0.0,
       "m5": 7365842.932534515,
-      "m6": 4887623.112707116,
+      "m6": 6457554.940308616,
       "m7": 0.0,
       "m8": 0.0,
       "m9": 0.0,
       "m10": 0.0,
       "m11": 0.0,
       "m12": 0.0,
-      "anio": 12253466.045241632
+      "anio": 13823397.872843131
     },
     "Impuesto IIBB Cba - 651110 (3%)": {
       "label": "Impuesto IIBB Cba - 651110 (3%)",
@@ -2035,14 +2269,14 @@ window.DATOS = {
       "m3": 0.0,
       "m4": 0.0,
       "m5": 14345693.0388459,
-      "m6": 7787835.510739198,
+      "m6": 11722461.477555957,
       "m7": 0.0,
       "m8": 0.0,
       "m9": 0.0,
       "m10": 0.0,
       "m11": 0.0,
       "m12": 0.0,
-      "anio": 22133528.549585097
+      "anio": 26068154.516401857
     },
     "IIBB Cba - Total Determinado": {
       "label": "IIBB Cba - Total Determinado",
@@ -2051,14 +2285,14 @@ window.DATOS = {
       "m3": 0.0,
       "m4": 0.0,
       "m5": 21711535.971380416,
-      "m6": 12675458.623446314,
+      "m6": 18180016.417864572,
       "m7": 0.0,
       "m8": 0.0,
       "m9": 0.0,
       "m10": 0.0,
       "m11": 0.0,
       "m12": 0.0,
-      "anio": 34386994.59482673
+      "anio": 39891552.38924499
     },
     "IIBB Cba - A pagar (estimado)": {
       "label": "IIBB Cba - A pagar (estimado)",
@@ -2067,14 +2301,14 @@ window.DATOS = {
       "m3": 0.0,
       "m4": 0.0,
       "m5": 21711535.971380416,
-      "m6": 12675458.623446314,
+      "m6": 18180016.417864572,
       "m7": 0.0,
       "m8": 0.0,
       "m9": 0.0,
       "m10": 0.0,
       "m11": 0.0,
       "m12": 0.0,
-      "anio": 34386994.59482673
+      "anio": 39891552.38924499
     },
     "IIBB Córdoba": {
       "label": "IIBB Córdoba",
@@ -2083,14 +2317,14 @@ window.DATOS = {
       "m3": 0.0,
       "m4": 0.0,
       "m5": 21711535.971380416,
-      "m6": 12675458.623446314,
+      "m6": 18180016.417864572,
       "m7": 0.0,
       "m8": 0.0,
       "m9": 0.0,
       "m10": 0.0,
       "m11": 0.0,
       "m12": 0.0,
-      "anio": 34386994.59482673
+      "anio": 39891552.38924499
     },
     "Base imponible (Facturación Cba)": {
       "label": "Base imponible (Facturación Cba)",
@@ -2099,14 +2333,14 @@ window.DATOS = {
       "m3": 0.0,
       "m4": 0.0,
       "m5": 612114184.916703,
-      "m6": 348460391.8011329,
+      "m6": 508158805.7423249,
       "m7": 0.0,
       "m8": 0.0,
       "m9": 0.0,
       "m10": 0.0,
       "m11": 0.0,
       "m12": 0.0,
-      "anio": 960574576.7178359
+      "anio": 1120272990.6590278
     },
     "Tasa Comercio - Determinado": {
       "label": "Tasa Comercio - Determinado",
@@ -2115,14 +2349,14 @@ window.DATOS = {
       "m3": 0.0,
       "m4": 0.0,
       "m5": 29993595.060918447,
-      "m6": 17074559.198255513,
+      "m6": 24899781.48137392,
       "m7": 0.0,
       "m8": 0.0,
       "m9": 0.0,
       "m10": 0.0,
       "m11": 0.0,
       "m12": 0.0,
-      "anio": 47068154.25917396
+      "anio": 54893376.54229237
     },
     "Tasa Comercio - A pagar (estimado)": {
       "label": "Tasa Comercio - A pagar (estimado)",
@@ -2131,14 +2365,14 @@ window.DATOS = {
       "m3": 0.0,
       "m4": 0.0,
       "m5": 29993595.060918447,
-      "m6": 17074559.198255513,
+      "m6": 24899781.48137392,
       "m7": 0.0,
       "m8": 0.0,
       "m9": 0.0,
       "m10": 0.0,
       "m11": 0.0,
       "m12": 0.0,
-      "anio": 47068154.25917396
+      "anio": 54893376.54229237
     },
     "IVA": {
       "label": "IVA",
@@ -2163,14 +2397,14 @@ window.DATOS = {
       "m3": 0.0,
       "m4": 0.0,
       "m5": 1372192.69366066,
-      "m6": 766866.4300500097,
+      "m6": 1132103.8712669497,
       "m7": 0.0,
       "m8": 0.0,
       "m9": 0.0,
       "m10": 0.0,
       "m11": 0.0,
       "m12": 0.0,
-      "anio": 2139059.1237106696
+      "anio": 2504296.5649276096
     },
     "Tasa Comercio Cba": {
       "label": "Tasa Comercio Cba",
@@ -2179,14 +2413,14 @@ window.DATOS = {
       "m3": 0.0,
       "m4": 0.0,
       "m5": 29993595.060918447,
-      "m6": 17074559.198255513,
+      "m6": 24899781.48137392,
       "m7": 0.0,
       "m8": 0.0,
       "m9": 0.0,
       "m10": 0.0,
       "m11": 0.0,
       "m12": 0.0,
-      "anio": 47068154.25917396
+      "anio": 54893376.54229237
     },
     "TOTAL IMPUESTOS DEL MES": {
       "label": "TOTAL IMPUESTOS DEL MES",
@@ -2195,14 +2429,14 @@ window.DATOS = {
       "m3": 0.0,
       "m4": 0.0,
       "m5": 53623154.269959524,
-      "m6": 31062714.795751836,
+      "m6": 44757732.31450544,
       "m7": 0.0,
       "m8": 0.0,
       "m9": 0.0,
       "m10": 0.0,
       "m11": 0.0,
       "m12": 0.0,
-      "anio": 84685869.06571136
+      "anio": 98380886.58446497
     }
   },
   "checklist": [
@@ -2215,14 +2449,14 @@ window.DATOS = {
       "m3": 0,
       "m4": 0,
       "m5": 38181718.15,
-      "m6": 36835117.2,
+      "m6": 62334027.6,
       "m7": 0,
       "m8": 0,
       "m9": 0,
       "m10": 0,
       "m11": 0,
       "m12": 0,
-      "total": 75016835.35
+      "total": 100515745.75
     },
     {
       "cliente": "OSSURRBAC",
@@ -2287,14 +2521,14 @@ window.DATOS = {
       "m3": 0,
       "m4": 0,
       "m5": 335232284.25,
-      "m6": 76205061.45,
+      "m6": 187796355.81,
       "m7": 0,
       "m8": 0,
       "m9": 0,
       "m10": 0,
       "m11": 0,
       "m12": 0,
-      "total": 411437345.7
+      "total": 523028640.06
     },
     {
       "cliente": "UOM",
@@ -2341,14 +2575,14 @@ window.DATOS = {
       "m3": 0,
       "m4": 0,
       "m5": 37000000.0,
-      "m6": 0,
+      "m6": 17000000.0,
       "m7": 0,
       "m8": 0,
       "m9": 0,
       "m10": 0,
       "m11": 0,
       "m12": 0,
-      "total": 37000000.0
+      "total": 54000000.0
     },
     {
       "cliente": "CFC",
@@ -2388,15 +2622,15 @@ window.DATOS = {
     }
   ],
   "kpis": {
-    "total_facturado": 1005609454.92,
+    "total_facturado": 1172535778.68,
     "total_iva": 1559515.84,
-    "total_con_iva": 1005609454.92,
-    "cant_facturas": 68,
+    "total_con_iva": 1172535778.68,
+    "cant_facturas": 77,
     "iva_anio": 1091661.088,
-    "iibb_caba": 2139059.1237106696,
-    "iibb_cba": 34386994.59482673,
-    "tasa_cba": 47068154.25917396,
-    "total_impuestos": 84685869.06571136,
+    "iibb_caba": 2504296.5649276096,
+    "iibb_cba": 39891552.38924499,
+    "tasa_cba": 54893376.54229237,
+    "total_impuestos": 98380886.58446497,
     "cobrado": 0,
     "pendiente": 0,
     "vencido": 0,
@@ -2542,7 +2776,7 @@ window.DATOS = {
             "tipo": "num"
           },
           {
-            "v": 360518488.04999995,
+            "v": 527444811.80999994,
             "tipo": "num"
           },
           {
@@ -2571,7 +2805,7 @@ window.DATOS = {
           }
         ],
         "total": {
-          "v": 996623673.2,
+          "v": 1163549996.96,
           "tipo": "num"
         }
       },
@@ -2599,7 +2833,7 @@ window.DATOS = {
             "tipo": "num"
           },
           {
-            "v": 364231620.98999995,
+            "v": 531157944.74999994,
             "tipo": "num"
           },
           {
@@ -2628,7 +2862,7 @@ window.DATOS = {
           }
         ],
         "total": {
-          "v": 1004049939.0800002,
+          "v": 1170976262.8400002,
           "tipo": "num"
         }
       },
@@ -3513,7 +3747,7 @@ window.DATOS = {
             "tipo": "num"
           },
           {
-            "v": 348460391.8011329,
+            "v": 508158805.7423249,
             "tipo": "num"
           },
           {
@@ -3542,7 +3776,7 @@ window.DATOS = {
           }
         ],
         "total": {
-          "v": 960574576.7178359,
+          "v": 1120272990.6590278,
           "tipo": "num"
         }
       },
@@ -3570,7 +3804,7 @@ window.DATOS = {
             "tipo": "num"
           },
           {
-            "v": 17074559.198255513,
+            "v": 24899781.48137392,
             "tipo": "num"
           },
           {
@@ -3599,7 +3833,7 @@ window.DATOS = {
           }
         ],
         "total": {
-          "v": 47068154.25917396,
+          "v": 54893376.54229237,
           "tipo": "num"
         }
       },
@@ -3627,7 +3861,7 @@ window.DATOS = {
             "tipo": "num"
           },
           {
-            "v": 17074559.198255513,
+            "v": 24899781.48137392,
             "tipo": "num"
           },
           {
@@ -3656,7 +3890,7 @@ window.DATOS = {
           }
         ],
         "total": {
-          "v": 47068154.25917396,
+          "v": 54893376.54229237,
           "tipo": "num"
         }
       },
@@ -3684,7 +3918,7 @@ window.DATOS = {
             "tipo": "num"
           },
           {
-            "v": 17074559.198255513,
+            "v": 24899781.48137392,
             "tipo": "num"
           },
           {
@@ -3713,7 +3947,7 @@ window.DATOS = {
           }
         ],
         "total": {
-          "v": 47068154.25917396,
+          "v": 54893376.54229237,
           "tipo": "num"
         }
       },
@@ -4028,7 +4262,7 @@ window.DATOS = {
             "tipo": "num"
           },
           {
-            "v": 92887921.79,
+            "v": 122724040.79,
             "tipo": "num"
           },
           {
@@ -4057,7 +4291,7 @@ window.DATOS = {
           }
         ],
         "total": {
-          "v": 232873723.98000002,
+          "v": 262709842.98000002,
           "tipo": "num"
         }
       },
@@ -4085,7 +4319,7 @@ window.DATOS = {
             "tipo": "num"
           },
           {
-            "v": 271343699.1999999,
+            "v": 408433903.9599999,
             "tipo": "num"
           },
           {
@@ -4114,7 +4348,7 @@ window.DATOS = {
           }
         ],
         "total": {
-          "v": 771176215.0999999,
+          "v": 908266419.8599999,
           "tipo": "num"
         }
       },
@@ -4199,7 +4433,7 @@ window.DATOS = {
             "tipo": "num"
           },
           {
-            "v": 4022047.013507,
+            "v": 5313950.966207,
             "tipo": "num"
           },
           {
@@ -4228,7 +4462,7 @@ window.DATOS = {
           }
         ],
         "total": {
-          "v": 10083432.248334,
+          "v": 11375336.201034,
           "tipo": "num"
         }
       },
@@ -4256,7 +4490,7 @@ window.DATOS = {
             "tipo": "num"
           },
           {
-            "v": 11749182.175359996,
+            "v": 17685188.041467994,
             "tipo": "num"
           },
           {
@@ -4285,7 +4519,7 @@ window.DATOS = {
           }
         ],
         "total": {
-          "v": 33391930.11383,
+          "v": 39327935.979938,
           "tipo": "num"
         }
       },
@@ -4313,7 +4547,7 @@ window.DATOS = {
             "tipo": "num"
           },
           {
-            "v": 15771229.188866995,
+            "v": 22999139.007674996,
             "tipo": "num"
           },
           {
@@ -4342,7 +4576,7 @@ window.DATOS = {
           }
         ],
         "total": {
-          "v": 43475362.362164,
+          "v": 50703272.180971995,
           "tipo": "num"
         }
       },
@@ -4598,7 +4832,7 @@ window.DATOS = {
             "tipo": "num"
           },
           {
-            "v": 120661.41040521,
+            "v": 159418.52898621,
             "tipo": "num"
           },
           {
@@ -4627,7 +4861,7 @@ window.DATOS = {
           }
         ],
         "total": {
-          "v": 302502.96745001996,
+          "v": 341260.08603102,
           "tipo": "num"
         }
       },
@@ -4655,7 +4889,7 @@ window.DATOS = {
             "tipo": "num"
           },
           {
-            "v": 646205.0196447998,
+            "v": 972685.3422807397,
             "tipo": "num"
           },
           {
@@ -4684,7 +4918,7 @@ window.DATOS = {
           }
         ],
         "total": {
-          "v": 1836556.1562606497,
+          "v": 2163036.47889659,
           "tipo": "num"
         }
       },
@@ -4712,7 +4946,7 @@ window.DATOS = {
             "tipo": "num"
           },
           {
-            "v": 766866.4300500097,
+            "v": 1132103.8712669497,
             "tipo": "num"
           },
           {
@@ -4741,7 +4975,7 @@ window.DATOS = {
           }
         ],
         "total": {
-          "v": 2139059.1237106696,
+          "v": 2504296.5649276096,
           "tipo": "num"
         }
       },
@@ -4769,7 +5003,7 @@ window.DATOS = {
             "tipo": "num"
           },
           {
-            "v": 766866.4300500097,
+            "v": 1132103.8712669497,
             "tipo": "num"
           },
           {
@@ -4798,7 +5032,7 @@ window.DATOS = {
           }
         ],
         "total": {
-          "v": 2139059.1237106696,
+          "v": 2504296.5649276096,
           "tipo": "num"
         }
       },
@@ -4826,7 +5060,7 @@ window.DATOS = {
             "tipo": "num"
           },
           {
-            "v": 766866.4300500097,
+            "v": 1132103.8712669497,
             "tipo": "num"
           },
           {
@@ -4855,7 +5089,7 @@ window.DATOS = {
           }
         ],
         "total": {
-          "v": 2139059.1237106696,
+          "v": 2504296.5649276096,
           "tipo": "num"
         }
       },
@@ -5170,7 +5404,7 @@ window.DATOS = {
             "tipo": "num"
           },
           {
-            "v": 92887921.79,
+            "v": 122724040.79,
             "tipo": "num"
           },
           {
@@ -5199,7 +5433,7 @@ window.DATOS = {
           }
         ],
         "total": {
-          "v": 232873723.98000002,
+          "v": 262709842.98000002,
           "tipo": "num"
         }
       },
@@ -5227,7 +5461,7 @@ window.DATOS = {
             "tipo": "num"
           },
           {
-            "v": 271343699.1999999,
+            "v": 408433903.9599999,
             "tipo": "num"
           },
           {
@@ -5256,7 +5490,7 @@ window.DATOS = {
           }
         ],
         "total": {
-          "v": 771176215.0999999,
+          "v": 908266419.8599999,
           "tipo": "num"
         }
       },
@@ -5341,7 +5575,7 @@ window.DATOS = {
             "tipo": "num"
           },
           {
-            "v": 88865874.77649301,
+            "v": 117410089.82379301,
             "tipo": "num"
           },
           {
@@ -5370,7 +5604,7 @@ window.DATOS = {
           }
         ],
         "total": {
-          "v": 222790291.73166603,
+          "v": 251334506.778966,
           "tipo": "num"
         }
       },
@@ -5398,7 +5632,7 @@ window.DATOS = {
             "tipo": "num"
           },
           {
-            "v": 259594517.02463993,
+            "v": 390748715.9185319,
             "tipo": "num"
           },
           {
@@ -5427,7 +5661,7 @@ window.DATOS = {
           }
         ],
         "total": {
-          "v": 737784284.9861699,
+          "v": 868938483.8800619,
           "tipo": "num"
         }
       },
@@ -5455,7 +5689,7 @@ window.DATOS = {
             "tipo": "num"
           },
           {
-            "v": 348460391.8011329,
+            "v": 508158805.7423249,
             "tipo": "num"
           },
           {
@@ -5484,7 +5718,7 @@ window.DATOS = {
           }
         ],
         "total": {
-          "v": 960574576.7178359,
+          "v": 1120272990.6590278,
           "tipo": "num"
         }
       },
@@ -5740,7 +5974,7 @@ window.DATOS = {
             "tipo": "num"
           },
           {
-            "v": 4887623.112707116,
+            "v": 6457554.940308616,
             "tipo": "num"
           },
           {
@@ -5769,7 +6003,7 @@ window.DATOS = {
           }
         ],
         "total": {
-          "v": 12253466.045241632,
+          "v": 13823397.872843131,
           "tipo": "num"
         }
       },
@@ -5797,7 +6031,7 @@ window.DATOS = {
             "tipo": "num"
           },
           {
-            "v": 7787835.510739198,
+            "v": 11722461.477555957,
             "tipo": "num"
           },
           {
@@ -5826,7 +6060,7 @@ window.DATOS = {
           }
         ],
         "total": {
-          "v": 22133528.549585097,
+          "v": 26068154.516401857,
           "tipo": "num"
         }
       },
@@ -5854,7 +6088,7 @@ window.DATOS = {
             "tipo": "num"
           },
           {
-            "v": 12675458.623446314,
+            "v": 18180016.417864572,
             "tipo": "num"
           },
           {
@@ -5883,7 +6117,7 @@ window.DATOS = {
           }
         ],
         "total": {
-          "v": 34386994.59482673,
+          "v": 39891552.38924499,
           "tipo": "num"
         }
       },
@@ -5911,7 +6145,7 @@ window.DATOS = {
             "tipo": "num"
           },
           {
-            "v": 12675458.623446314,
+            "v": 18180016.417864572,
             "tipo": "num"
           },
           {
@@ -5940,7 +6174,7 @@ window.DATOS = {
           }
         ],
         "total": {
-          "v": 34386994.59482673,
+          "v": 39891552.38924499,
           "tipo": "num"
         }
       },
@@ -5968,7 +6202,7 @@ window.DATOS = {
             "tipo": "num"
           },
           {
-            "v": 12675458.623446314,
+            "v": 18180016.417864572,
             "tipo": "num"
           },
           {
@@ -5997,7 +6231,7 @@ window.DATOS = {
           }
         ],
         "total": {
-          "v": 34386994.59482673,
+          "v": 39891552.38924499,
           "tipo": "num"
         }
       },
