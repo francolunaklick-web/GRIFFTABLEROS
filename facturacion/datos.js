@@ -1,6 +1,6 @@
 // Auto-generado por actualizar.py - No editar manualmente
 window.DATOS = {
-  "timestamp": "2026-06-24 14:30",
+  "timestamp": "2026-06-24 15:25",
   "facturas": [
     {
       "fecha": "2026-05-01 00:00:00",
@@ -1593,7 +1593,7 @@ window.DATOS = {
       "tipo": "B",
       "pto_vta": 1,
       "numero": 646,
-      "cliente": "OBRA SOCIAL DEL PERSONAL MOSAI",
+      "cliente": "MOSAISTAS",
       "concepto": "Servicios prestacionales",
       "actividad": 702010,
       "neto": 0.0,
@@ -1957,7 +1957,7 @@ window.DATOS = {
       "tipo": "B",
       "pto_vta": 1,
       "numero": 656,
-      "cliente": "COLEGIO DE FARMACEUTICOS DE LA",
+      "cliente": "CFC",
       "concepto": "Servicios prestacionales",
       "actividad": 702010,
       "neto": 0.0,
@@ -1983,7 +1983,7 @@ window.DATOS = {
       "tipo": "B",
       "pto_vta": 1,
       "numero": 657,
-      "cliente": "COLEGIO DE FARMACEUTICOS DE LA",
+      "cliente": "CFC",
       "concepto": "Servicios prestacionales",
       "actividad": 702010,
       "neto": 0.0,
@@ -2557,14 +2557,14 @@ window.DATOS = {
       "m3": 0,
       "m4": 0,
       "m5": 0,
-      "m6": 0,
+      "m6": 4707308.78,
       "m7": 0,
       "m8": 0,
       "m9": 0,
       "m10": 0,
       "m11": 0,
       "m12": 0,
-      "total": 0
+      "total": 4707308.78
     },
     {
       "cliente": "FUNDACION BIENESTAR SIRELYF",
@@ -2593,14 +2593,14 @@ window.DATOS = {
       "m3": 0,
       "m4": 0,
       "m5": 0,
-      "m6": 0,
+      "m6": 12836119.0,
       "m7": 0,
       "m8": 0,
       "m9": 0,
       "m10": 0,
       "m11": 0,
       "m12": 0,
-      "total": 0
+      "total": 12836119.0
     },
     {
       "cliente": "Suma de facturas a clientes que NO están en la lista de fijos arriba.",
