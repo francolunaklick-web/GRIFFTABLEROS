@@ -1,4 +1,4 @@
-Corrida: 24/07/2026 15:51:37
+Corrida: 28/07/2026 10:57:42
 
 ER OK: Estado de Resultado 01-2026.xlsx -> Enero 2026 (15374 afil, $ 415,655,309.10)
 ER OK: Estado de Resultado 02-2026.xlsx -> Febrero 2026 (14951 afil, $ 434,798,294.72)
@@ -20,4 +20,4 @@ PERIODO 05-2026: ER $36,317,934 | CP $257,979,587
 
 Excel generado: TABLERO_Resumen.xlsx
 
-Duracion: 2.0s
+Duracion: 2.2s
