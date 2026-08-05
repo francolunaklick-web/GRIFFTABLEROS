@@ -1,10 +1,10 @@
-Corrida: 28/07/2026 10:57:48
+Corrida: 05/08/2026 15:43:35
 
 SALDOS OK: saldos.csv (1 regs)
 CHEQUES OK: ListadoChequesEmitidos - 2026-07-21T091141.596.csv (300 cheq, $ 1,102,006,744.11)
 CHEQUES OK: ListadoChequesEmitidos - 2026-07-28T105302.736.csv (300 cheq, $ 961,560,910.09)
   Estados: {'pendiente': 213, 'acreditado': 105, 'anulado': 36, 'en_proceso_deposito': 3, 'rechazado': 3}
-  Deficit primero: 2026-07-31 $ 74,611,303.02
-  Ventanas excedente: 1
+  Deficit primero: 2026-08-05 $ 83,261,303.02
+  Ventanas excedente: 0
 
-Duracion: 1.7s
+Duracion: 2.6s
