@@ -137,6 +137,20 @@
       <div class="clink" style="color:#E0A100;">Abrir tablero &rarr;</div>
     </a>
 
+    <a class="card" href="comercial/dashboard.php">
+      <div class="crow">
+        <div class="ico" style="background:#1E8449;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/><path d="M8 12h1"/><path d="M15 12h1"/><path d="M12 7v1"/><path d="M12 16v1"/></svg>
+        </div>
+        <div>
+          <div class="cname">Comercial</div>
+          <div class="ctag">Ventas y prospectos</div>
+        </div>
+      </div>
+      <div class="cdesc">Embudo de ventas GS100/GS200, KPIs por asesora, conversion y seguimiento de contactos.</div>
+      <div class="clink" style="color:#1E8449;">Abrir tablero &rarr;</div>
+    </a>
+
   </div>
 
   <div class="foot">Para refrescar los datos: doble clic en <b>ACTUALIZAR_TODO.bat</b></div>
