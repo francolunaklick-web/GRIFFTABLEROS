@@ -125,7 +125,7 @@ tbody tr:hover{background:#F8FAFE}
     <button class="main-tab" onclick="showTab('cobros',this)">Cobros</button>
     <button class="main-tab" onclick="showTab('costos',this)">Costos</button>
     <button class="main-tab" onclick="showTab('actualizaciones',this)">
-      Actualizaciones<span class="notif">3</span>
+      Actualizaciones
     </button>
   </div>
 </div>
@@ -437,25 +437,23 @@ tbody tr:hover{background:#F8FAFE}
   <div class="section-title">Cambios Detectados vs Corrida Anterior</div>
   <div class="kpi-grid" style="margin-bottom:20px">
     <div class="kpi-card"><div class="kpi-label">Corrida actual</div>
-      <div class="kpi-value" style="font-size:16px">06/08/2026 16:23</div></div>
+      <div class="kpi-value" style="font-size:16px">12/08/2026 14:37</div></div>
     <div class="kpi-card"><div class="kpi-label">Corrida anterior</div>
-      <div class="kpi-value" style="font-size:16px">06/08/2026 15:55</div></div>
-    <div class="kpi-card red">
+      <div class="kpi-value" style="font-size:16px">06/08/2026 16:23</div></div>
+    <div class="kpi-card cyan">
       <div class="kpi-label">Cambios detectados</div>
-      <div class="kpi-value">3</div></div>
+      <div class="kpi-value">0</div></div>
   </div>
   <div class="panel" style="overflow-x:auto">
     <table>
       <thead><tr><th style="width:36px"></th><th>Descripción</th><th>Fecha</th></tr></thead>
-      <tbody><tr class="changelog-row-estado"><td>🔄</td><td><strong>BARRAZA, JORGE GASTON</strong>: Cerrado → <strong>En Contacto</strong></td><td>06/08/2026 16:23</td></tr>
-<tr class="changelog-row-estado"><td>🔄</td><td><strong>SUAREZ, ZANDRI MORA</strong>: Cerrado → <strong>En Contacto</strong></td><td>06/08/2026 16:23</td></tr>
-<tr class="changelog-row-estado"><td>🔄</td><td><strong>CAVALLO, MAURICIO HECTOR</strong>: Cerrado → <strong>En Contacto</strong></td><td>06/08/2026 16:23</td></tr></tbody>
+      <tbody><tr><td colspan="3" style="text-align:center;color:var(--muted)">Sin cambios detectados</td></tr></tbody>
     </table>
   </div>
 </div>
 
 </div><!-- /container -->
-<div class="foot">Generado: 06/08/2026 16:23 &mdash; Fuente: BBDD_COMERCIAL.xlsx</div>
+<div class="foot">Generado: 12/08/2026 14:37 &mdash; Fuente: BBDD_COMERCIAL.xlsx</div>
 
 <script>
 const ESTADOS_LIST = ["Lead", "En Contacto", "Cotizado", "Cerrado", "Descartado"];
