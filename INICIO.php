@@ -123,18 +123,18 @@
       <div class="clink" style="color:#1E6FA8;">Abrir tablero &rarr;</div>
     </a>
 
-    <a class="card" href="proyeccion/proyeccion.php">
+    <a class="card" href="flujo_bancario/tablero.php#cashflow" onclick="sessionStorage.setItem('fb_tab','cashflow')">
       <div class="crow">
-        <div class="ico" style="background:#E0A100;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><path d="M3 10h18"/><path d="M3 6h18v15H3z"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/></svg>
+        <div class="ico" style="background:#0A8A5E;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v18H3z"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
         </div>
         <div>
-          <div class="cname">Proyeccion de Pagos</div>
-          <div class="ctag">Estimativo de egresos</div>
+          <div class="cname">Cash Flow</div>
+          <div class="ctag">Línea de tiempo · 3 meses</div>
         </div>
       </div>
-      <div class="cdesc">Linea de tiempo de pagos: cheques comprometidos mas facturas sin pagar, por fecha.</div>
-      <div class="clink" style="color:#E0A100;">Abrir tablero &rarr;</div>
+      <div class="cdesc">Semana a semana: cheques a vencer, facturas por cobrar, costos fijos y balance proyectado.</div>
+      <div class="clink" style="color:#0A8A5E;">Abrir Cash Flow &rarr;</div>
     </a>
 
     <a class="card" href="comercial/dashboard.php">

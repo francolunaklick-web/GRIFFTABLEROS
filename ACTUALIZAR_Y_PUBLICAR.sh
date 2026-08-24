@@ -28,9 +28,8 @@ echo "[3/5] Facturacion..."
 echo "[4/5] Flujo Bancario..."
 ( cd "2_TABLEROS/TABLERO FLUJO BANCARIO" && python 2_scripts/actualizar.py )
 
-# Proyeccion de Pagos
-echo "[5/5] Proyeccion de Pagos..."
-( cd "2_TABLEROS/TABLERO PROYECCION DE PAGOS" && python 2_scripts/actualizar.py )
+# [OCULTO] Proyeccion de Pagos — desactivado, archivos conservados
+# ( cd "2_TABLEROS/TABLERO PROYECCION DE PAGOS" && python 2_scripts/actualizar.py )
 
 echo "============================================================"
 echo "  2) PUBLICAR (copiar outputs a carpetas publicas)"
