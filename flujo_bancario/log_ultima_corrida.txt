@@ -1,12 +1,11 @@
-Corrida: 24/08/2026 13:15:22
+Corrida: 24/08/2026 13:33:17
 
 SALDOS OK: saldos.csv (1 regs)
-CHEQUES OK: ListadoChequesEmitidos - 2026-08-07T103839.320.csv (293 cheq, $ 990,885,587.42)
 CHEQUES OK: ListadoChequesEmitidos - 2026-08-12T143427.040.csv (295 cheq, $ 1,007,085,197.22)
 CHEQUES OK: ListadoChequesEmitidos - 2026-08-20T111229.974.csv (282 cheq, $ 1,032,457,218.50)
-CHEQUES OK: ListadoChequesEmitidos - 2026-08-24T121610.475.csv (290 cheq, $ 1,021,480,885.36)
-  Estados: {'pendiente': 161, 'acreditado': 116, 'anulado': 24, 'en_proceso_deposito': 7, 'rechazado': 3}
+CHEQUES OK: ListadoChequesEmitidos - 2026-08-24T132856.055.csv (290 cheq, $ 1,021,480,885.36)
+  Estados: {'pendiente': 161, 'acreditado': 114, 'anulado': 24, 'en_proceso_deposito': 7, 'rechazado': 3}
   Deficit primero: 2026-08-24 $ 49,502,243.38
   Ventanas excedente: 0
 
-Duracion: 1.7s
+Duracion: 2.5s
