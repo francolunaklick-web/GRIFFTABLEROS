@@ -1,4 +1,4 @@
-Corrida: 26/08/2026 13:43:06
+Corrida: 26/08/2026 14:20:23
 
 PLANILLA OK: Planilla_Prestadores_01-2026.xlsx -> 01-2026 (Enero) (238 fact, $ 258,013,813.48)
 PLANILLA OK: Planilla_Prestadores_02-2026.xlsx -> 02-2026 (Febrero) (240 fact, $ 294,156,377.08)
@@ -23,7 +23,7 @@ FACTURA DUPLICADA descartada: OXECOR CUIT 30714245399 factura 00003-00001180 04-
 FACTURA DUPLICADA descartada: ARTRO SA CUIT 30623845881 factura 00006-00003431 04-2026 (Abril) (Planilla_Prestadores_04-2026.xlsx)
 FACTURA DUPLICADA descartada: CAMARA DE ENTIDADES DE SALUD - CES CUIT 30715649159 factura 00005-00001719 05-2026 (Mayo) (Planilla_Prestadores_05-2026.xlsx)
 FACTURA DUPLICADA descartada: CAMARA DE ENTIDADES DE SALUD - CES CUIT 30715649159 factura 00005-00001720 05-2026 (Mayo) (Planilla_Prestadores_05-2026.xlsx)
-FACTURA DUPLICADA descartada: CLINICA FUSAVIM PRIVADA S R L CUIT 30708409185 factura 00006-00004588 05-2026 (Mayo) (Planilla_Prestadores_05-2026.xlsx)
+FACTURA DUPLICADA descartada: CLINICA FUSAVIM PRIVADA SRL CUIT 30708409185 factura 00006-00004588 05-2026 (Mayo) (Planilla_Prestadores_05-2026.xlsx)
 FACTURA DUPLICADA descartada: HUERGO FEDERICO CUIT 20282468787 factura 00001-00000073 05-2026 (Mayo) (Planilla_Prestadores_05-2026.xlsx)
 FACTURA DUPLICADA descartada: INSTITUTO PRIVADO DE NEONATOLOGIA Y PEDIATRIA S.A. CUIT 30659560093 factura 00500-00044426 05-2026 (Mayo) (Planilla_Prestadores_05-2026.xlsx)
 FACTURA DUPLICADA descartada:  CUIT  factura nan 05-2026 (Mayo) (Planilla_Prestadores_05-2026.xlsx)
@@ -276,4 +276,4 @@ A VENCER: 171 cheques · $ 602,750,370.42
   Sin asignar: $ 120,680,080.21 (20.0%)
   Modos imputacion: {'ESTRICTO': 83, 'OP': 58, 'FUERA': 30}
 
-Duracion: 8.8s
+Duracion: 4.9s
