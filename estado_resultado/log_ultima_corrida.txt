@@ -1,4 +1,4 @@
-Corrida: 31/08/2026 09:34:55
+Corrida: 01/09/2026 08:51:43
 
 ER OK: Estado de Resultado 01-2026.xlsx -> Enero 2026 (15374 afil, $ 414,610,785.10)
 ER OK: Estado de Resultado 02-2026.xlsx -> Febrero 2026 (14951 afil, $ 442,431,094.72)
