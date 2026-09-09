@@ -125,6 +125,7 @@ tbody tr:hover{background:#F8FAFE}
     <button class="main-tab" onclick="showTab('padron',this)">Padrón</button>
     <button class="main-tab" onclick="showTab('cobros',this)">Cobros</button>
     <button class="main-tab" onclick="showTab('costos',this)">Costos</button>
+    <button class="main-tab" onclick="showTab('general',this)">Informe General</button>
     <button class="main-tab" onclick="showTab('actualizaciones',this)">
       Actualizaciones
     </button>
@@ -504,9 +505,9 @@ tbody tr:hover{background:#F8FAFE}
   <div class="section-title">Cambios Detectados vs Corrida Anterior</div>
   <div class="kpi-grid" style="margin-bottom:20px">
     <div class="kpi-card"><div class="kpi-label">Corrida actual</div>
-      <div class="kpi-value" style="font-size:16px">08/09/2026 10:30</div></div>
+      <div class="kpi-value" style="font-size:16px">09/09/2026 14:33</div></div>
     <div class="kpi-card"><div class="kpi-label">Corrida anterior</div>
-      <div class="kpi-value" style="font-size:16px">03/09/2026 12:31</div></div>
+      <div class="kpi-value" style="font-size:16px">09/09/2026 13:36</div></div>
     <div class="kpi-card cyan">
       <div class="kpi-label">Cambios detectados</div>
       <div class="kpi-value">0</div></div>
@@ -519,8 +520,72 @@ tbody tr:hover{background:#F8FAFE}
   </div>
 </div>
 
+<!-- ════════════════════════════════ TAB INFORME GENERAL -->
+<div id="tab-general" class="tab-content">
+  <div class="section-title">Informe General — Superadores</div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card blue">
+      <div class="kpi-label">Activos Septiembre</div>
+      <div class="kpi-value">17</div>
+      <div class="kpi-meta">Superadores pagando</div>
+    </div>
+    <div class="kpi-card red">
+      <div class="kpi-label">Bajas en Septiembre</div>
+      <div class="kpi-value">5</div>
+      <div class="kpi-meta">Pagaban en agosto</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Cobrado Agosto</div>
+      <div class="kpi-value" style="font-size:18px">$ 1.583.284</div>
+      <div class="kpi-meta">Mes anterior</div>
+    </div>
+    <div class="kpi-card cyan">
+      <div class="kpi-label">Cobrado Septiembre</div>
+      <div class="kpi-value" style="font-size:18px">$ 3.808.312</div>
+      <div class="kpi-meta">Mes en curso</div>
+    </div>
+  </div>
+
+  <div class="panel" style="margin-top:20px;overflow-x:auto">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+      <div class="panel-title" style="margin:0">Detalle Superadores
+        <span id="sup-count" style="font-weight:400;font-size:13px;color:var(--muted)"></span>
+      </div>
+      <div>
+        <button class="period-btn active" id="btn-sup-activos" onclick="filtrarSup('activos',this)">Solo Activos</button>
+        <button class="period-btn" id="btn-sup-todos" onclick="filtrarSup('todos',this)">Todos</button>
+      </div>
+    </div>
+    <table id="tbl-superadores" style="font-size:12px">
+      <thead><tr>
+        <th>Nombre</th><th>Plan</th><th class="right">Integ.</th>
+        <th class="right">Valor Base</th>
+        <th class="right">Ene</th><th class="right">Feb</th><th class="right">Mar</th>
+        <th class="right">Abr</th><th class="right">May</th><th class="right">Jun</th>
+        <th class="right">Jul</th><th class="right">Ago</th>
+        <th class="right" style="background:rgba(0,200,250,.08)">Sep</th>
+        <th class="right">Total</th>
+      </tr></thead>
+      <tbody id="tbody-superadores"></tbody>
+    </table>
+  </div>
+
+  <div class="panel" style="margin-top:20px;overflow-x:auto">
+    <div class="panel-title">Cobros por Mes</div>
+    <table>
+      <thead><tr>
+        <th>Mes</th>
+        <th class="right">Activos</th>
+        <th class="right">Total Cobrado</th>
+      </tr></thead>
+      <tbody><tr><td>Enero</td><td class="right">18</td><td class="right bold-val">$ 1.078.687</td></tr><tr><td>Febrero</td><td class="right">22</td><td class="right bold-val">$ 1.656.291</td></tr><tr><td>Marzo</td><td class="right">23</td><td class="right bold-val">$ 1.792.398</td></tr><tr><td>Abril</td><td class="right">24</td><td class="right bold-val">$ 1.819.721</td></tr><tr><td>Mayo</td><td class="right">25</td><td class="right bold-val">$ 1.923.580</td></tr><tr><td>Junio</td><td class="right">24</td><td class="right bold-val">$ 1.905.948</td></tr><tr><td>Julio</td><td class="right">22</td><td class="right bold-val">$ 1.801.501</td></tr><tr><td>Agosto</td><td class="right">19</td><td class="right bold-val">$ 1.583.284</td></tr><tr><td>Septiembre</td><td class="right">17</td><td class="right bold-val">$ 3.808.312</td></tr></tbody>
+    </table>
+  </div>
+</div>
+
 </div><!-- /container -->
-<div class="foot">Generado: 08/09/2026 10:30 &mdash; Fuente: BBDD_COMERCIAL.xlsx</div>
+<div class="foot">Generado: 09/09/2026 14:33 &mdash; Fuente: BBDD_COMERCIAL.xlsx</div>
 
 <script>
 const ESTADOS_LIST = ["Lead", "En Contacto", "Cotizado", "Cerrado", "Descartado"];
@@ -539,7 +604,10 @@ const COBROS_TABLA = [{"mes": "06-2026", "proyectado": 0, "cobrado_bruto": 96391
 const DETALLE_C    = [];
 const PADRON_DATA  = [];
 const MOTIVOS_DESCARTE = {"Preexistencia": 7, "Costos": 24, "Cambio de cobertura reciente": 8, "No le interesa el producto": 6, "No contacto": 6};
-const KPI_HIST = [{"fecha": "13/08/2026 13:02", "lead": 7, "en_contacto": 589, "cotizado": 30, "cerrado": 12, "descartado": 53, "total": 691}, {"fecha": "13/08/2026 13:20", "lead": 7, "en_contacto": 589, "cotizado": 30, "cerrado": 12, "descartado": 53, "total": 691}, {"fecha": "20/08/2026 11:14", "lead": 7, "en_contacto": 499, "cotizado": 30, "cerrado": 13, "descartado": 442, "total": 991}, {"fecha": "24/08/2026 12:34", "lead": 7, "en_contacto": 499, "cotizado": 30, "cerrado": 13, "descartado": 442, "total": 991}, {"fecha": "24/08/2026 12:55", "lead": 7, "en_contacto": 499, "cotizado": 30, "cerrado": 13, "descartado": 442, "total": 991}, {"fecha": "24/08/2026 13:15", "lead": 7, "en_contacto": 499, "cotizado": 30, "cerrado": 13, "descartado": 442, "total": 991}, {"fecha": "24/08/2026 13:33", "lead": 7, "en_contacto": 499, "cotizado": 30, "cerrado": 13, "descartado": 442, "total": 991}, {"fecha": "24/08/2026 14:08", "lead": 7, "en_contacto": 499, "cotizado": 30, "cerrado": 13, "descartado": 442, "total": 991}, {"fecha": "25/08/2026 11:41", "lead": 7, "en_contacto": 499, "cotizado": 30, "cerrado": 13, "descartado": 442, "total": 991}, {"fecha": "25/08/2026 11:59", "lead": 7, "en_contacto": 499, "cotizado": 30, "cerrado": 13, "descartado": 442, "total": 991}, {"fecha": "25/08/2026 13:50", "lead": 7, "en_contacto": 499, "cotizado": 30, "cerrado": 13, "descartado": 442, "total": 991}, {"fecha": "25/08/2026 16:47", "lead": 7, "en_contacto": 499, "cotizado": 30, "cerrado": 13, "descartado": 442, "total": 991}, {"fecha": "26/08/2026 13:43", "lead": 7, "en_contacto": 499, "cotizado": 30, "cerrado": 13, "descartado": 442, "total": 991}, {"fecha": "26/08/2026 14:20", "lead": 7, "en_contacto": 499, "cotizado": 30, "cerrado": 13, "descartado": 442, "total": 991}, {"fecha": "26/08/2026 14:51", "lead": 7, "en_contacto": 499, "cotizado": 30, "cerrado": 13, "descartado": 442, "total": 991}, {"fecha": "26/08/2026 15:38", "lead": 7, "en_contacto": 499, "cotizado": 30, "cerrado": 13, "descartado": 442, "total": 991}, {"fecha": "26/08/2026 16:08", "lead": 7, "en_contacto": 499, "cotizado": 30, "cerrado": 13, "descartado": 442, "total": 991}, {"fecha": "26/08/2026 16:31", "lead": 7, "en_contacto": 499, "cotizado": 30, "cerrado": 13, "descartado": 442, "total": 991}, {"fecha": "27/08/2026 10:40", "lead": 7, "en_contacto": 258, "cotizado": 30, "cerrado": 15, "descartado": 668, "total": 978}, {"fecha": "27/08/2026 11:24", "lead": 7, "en_contacto": 258, "cotizado": 30, "cerrado": 15, "descartado": 668, "total": 978}, {"fecha": "28/08/2026 13:54", "lead": 7, "en_contacto": 258, "cotizado": 30, "cerrado": 15, "descartado": 668, "total": 978}, {"fecha": "31/08/2026 09:35", "lead": 7, "en_contacto": 258, "cotizado": 30, "cerrado": 15, "descartado": 668, "total": 978}, {"fecha": "01/09/2026 08:52", "lead": 7, "en_contacto": 258, "cotizado": 30, "cerrado": 15, "descartado": 668, "total": 978}, {"fecha": "03/09/2026 12:31", "lead": 7, "en_contacto": 281, "cotizado": 32, "cerrado": 19, "descartado": 1012, "total": 1351}, {"fecha": "08/09/2026 10:30", "lead": 7, "en_contacto": 281, "cotizado": 32, "cerrado": 19, "descartado": 1012, "total": 1351}];
+const KPI_HIST = [{"fecha": "13/08/2026 13:02", "lead": 7, "en_contacto": 589, "cotizado": 30, "cerrado": 12, "descartado": 53, "total": 691}, {"fecha": "13/08/2026 13:20", "lead": 7, "en_contacto": 589, "cotizado": 30, "cerrado": 12, "descartado": 53, "total": 691}, {"fecha": "20/08/2026 11:14", "lead": 7, "en_contacto": 499, "cotizado": 30, "cerrado": 13, "descartado": 442, "total": 991}, {"fecha": "24/08/2026 12:34", "lead": 7, "en_contacto": 499, "cotizado": 30, "cerrado": 13, "descartado": 442, "total": 991}, {"fecha": "24/08/2026 12:55", "lead": 7, "en_contacto": 499, "cotizado": 30, "cerrado": 13, "descartado": 442, "total": 991}, {"fecha": "24/08/2026 13:15", "lead": 7, "en_contacto": 499, "cotizado": 30, "cerrado": 13, "descartado": 442, "total": 991}, {"fecha": "24/08/2026 13:33", "lead": 7, "en_contacto": 499, "cotizado": 30, "cerrado": 13, "descartado": 442, "total": 991}, {"fecha": "24/08/2026 14:08", "lead": 7, "en_contacto": 499, "cotizado": 30, "cerrado": 13, "descartado": 442, "total": 991}, {"fecha": "25/08/2026 11:41", "lead": 7, "en_contacto": 499, "cotizado": 30, "cerrado": 13, "descartado": 442, "total": 991}, {"fecha": "25/08/2026 11:59", "lead": 7, "en_contacto": 499, "cotizado": 30, "cerrado": 13, "descartado": 442, "total": 991}, {"fecha": "25/08/2026 13:50", "lead": 7, "en_contacto": 499, "cotizado": 30, "cerrado": 13, "descartado": 442, "total": 991}, {"fecha": "25/08/2026 16:47", "lead": 7, "en_contacto": 499, "cotizado": 30, "cerrado": 13, "descartado": 442, "total": 991}, {"fecha": "26/08/2026 13:43", "lead": 7, "en_contacto": 499, "cotizado": 30, "cerrado": 13, "descartado": 442, "total": 991}, {"fecha": "26/08/2026 14:20", "lead": 7, "en_contacto": 499, "cotizado": 30, "cerrado": 13, "descartado": 442, "total": 991}, {"fecha": "26/08/2026 14:51", "lead": 7, "en_contacto": 499, "cotizado": 30, "cerrado": 13, "descartado": 442, "total": 991}, {"fecha": "26/08/2026 15:38", "lead": 7, "en_contacto": 499, "cotizado": 30, "cerrado": 13, "descartado": 442, "total": 991}, {"fecha": "26/08/2026 16:08", "lead": 7, "en_contacto": 499, "cotizado": 30, "cerrado": 13, "descartado": 442, "total": 991}, {"fecha": "26/08/2026 16:31", "lead": 7, "en_contacto": 499, "cotizado": 30, "cerrado": 13, "descartado": 442, "total": 991}, {"fecha": "27/08/2026 10:40", "lead": 7, "en_contacto": 258, "cotizado": 30, "cerrado": 15, "descartado": 668, "total": 978}, {"fecha": "27/08/2026 11:24", "lead": 7, "en_contacto": 258, "cotizado": 30, "cerrado": 15, "descartado": 668, "total": 978}, {"fecha": "28/08/2026 13:54", "lead": 7, "en_contacto": 258, "cotizado": 30, "cerrado": 15, "descartado": 668, "total": 978}, {"fecha": "31/08/2026 09:35", "lead": 7, "en_contacto": 258, "cotizado": 30, "cerrado": 15, "descartado": 668, "total": 978}, {"fecha": "01/09/2026 08:52", "lead": 7, "en_contacto": 258, "cotizado": 30, "cerrado": 15, "descartado": 668, "total": 978}, {"fecha": "03/09/2026 12:31", "lead": 7, "en_contacto": 281, "cotizado": 32, "cerrado": 19, "descartado": 1012, "total": 1351}, {"fecha": "08/09/2026 10:30", "lead": 7, "en_contacto": 281, "cotizado": 32, "cerrado": 19, "descartado": 1012, "total": 1351}, {"fecha": "09/09/2026 13:36", "lead": 7, "en_contacto": 281, "cotizado": 32, "cerrado": 19, "descartado": 1012, "total": 1351}, {"fecha": "09/09/2026 14:33", "lead": 7, "en_contacto": 281, "cotizado": 32, "cerrado": 19, "descartado": 1012, "total": 1351}];
+const SUPERADORES    = [{"nombre": "CASTELLANO MANUEL ARIEL", "plan": "GS200", "integ": 3, "base": 169225.31, "activo": false, "meses": {"ENERO": {"status": "baja", "amount": 0}, "FEBRERO": {"status": "ok", "amount": 169225.31}, "MARZO": {"status": "ok", "amount": 169225.31}, "ABRIL": {"status": "ok", "amount": 169225.31}, "MAYO": {"status": "ok", "amount": 169225.31}, "JUNIO": {"status": "ok", "amount": 169225.31}, "JULIO": {"status": "ok", "amount": 169225.31}, "AGOSTO": {"status": "ok", "amount": 169225.31}, "SEPTIEMBRE": {"status": "baja", "amount": 0}}}, {"nombre": "MOLINA MARIO ROBERTO", "plan": "GS200", "integ": 3, "base": 92021.33, "activo": false, "meses": {"ENERO": {"status": "baja", "amount": 0}, "FEBRERO": {"status": "ok", "amount": 92021.33}, "MARZO": {"status": "ok", "amount": 92021.33}, "ABRIL": {"status": "ok", "amount": 92021.33}, "MAYO": {"status": "ok", "amount": 92021.33}, "JUNIO": {"status": "ok", "amount": 92021.33}, "JULIO": {"status": "ok", "amount": 92021.33}, "AGOSTO": {"status": "baja", "amount": 0}, "SEPTIEMBRE": {"status": "baja", "amount": 0}}}, {"nombre": "MAGRA, MARTIN ALEJANDRO", "plan": "GS200", "integ": 4, "base": 100740.0, "activo": true, "meses": {"ENERO": {"status": "baja", "amount": 0}, "FEBRERO": {"status": "ok", "amount": 100740.0}, "MARZO": {"status": "ok", "amount": 100740.0}, "ABRIL": {"status": "ok", "amount": 100740.0}, "MAYO": {"status": "ok", "amount": 100740.0}, "JUNIO": {"status": "ok", "amount": 100740.0}, "JULIO": {"status": "ok", "amount": 100740.0}, "AGOSTO": {"status": "ok", "amount": 100740.0}, "SEPTIEMBRE": {"status": "custom", "amount": 325000.0}}}, {"nombre": "RIOS, LEANDRO DANIEL", "plan": "GS200", "integ": 3, "base": 168053.0, "activo": true, "meses": {"ENERO": {"status": "baja", "amount": 0}, "FEBRERO": {"status": "ok", "amount": 168053.0}, "MARZO": {"status": "ok", "amount": 168053.0}, "ABRIL": {"status": "ok", "amount": 168053.0}, "MAYO": {"status": "ok", "amount": 168053.0}, "JUNIO": {"status": "ok", "amount": 168053.0}, "JULIO": {"status": "ok", "amount": 168053.0}, "AGOSTO": {"status": "ok", "amount": 168053.0}, "SEPTIEMBRE": {"status": "custom", "amount": 181500.0}}}, {"nombre": "ALEMANO, LEONARDO HORACIO", "plan": "GS200", "integ": 4, "base": 17632.14, "activo": false, "meses": {"ENERO": {"status": "baja", "amount": 0}, "FEBRERO": {"status": "ok", "amount": 17632.14}, "MARZO": {"status": "ok", "amount": 17632.14}, "ABRIL": {"status": "ok", "amount": 17632.14}, "MAYO": {"status": "ok", "amount": 17632.14}, "JUNIO": {"status": "baja", "amount": 0}, "JULIO": {"status": "baja", "amount": 0}, "AGOSTO": {"status": "baja", "amount": 0}, "SEPTIEMBRE": {"status": "baja", "amount": 0}}}, {"nombre": "GALVAN, LAUREANO DANIEL", "plan": "GS200", "integ": 3, "base": 136107.0, "activo": false, "meses": {"ENERO": {"status": "baja", "amount": 0}, "FEBRERO": {"status": "baja", "amount": 0}, "MARZO": {"status": "ok", "amount": 136107.0}, "ABRIL": {"status": "ok", "amount": 136107.0}, "MAYO": {"status": "ok", "amount": 136107.0}, "JUNIO": {"status": "ok", "amount": 136107.0}, "JULIO": {"status": "ok", "amount": 136107.0}, "AGOSTO": {"status": "ok", "amount": 136107.0}, "SEPTIEMBRE": {"status": "baja", "amount": 0}}}, {"nombre": "CAVALLO, MAURICIO HECTOR", "plan": "GS200", "integ": 3, "base": 26687.0, "activo": true, "meses": {"ENERO": {"status": "ok", "amount": 26687.0}, "FEBRERO": {"status": "ok", "amount": 26687.0}, "MARZO": {"status": "ok", "amount": 26687.0}, "ABRIL": {"status": "ok", "amount": 26687.0}, "MAYO": {"status": "ok", "amount": 26687.0}, "JUNIO": {"status": "ok", "amount": 26687.0}, "JULIO": {"status": "ok", "amount": 26687.0}, "AGOSTO": {"status": "ok", "amount": 26687.0}, "SEPTIEMBRE": {"status": "custom", "amount": 129500.0}}}, {"nombre": "ACHAVAL, LUCIANO ANTONIO", "plan": "GS200", "integ": 3, "base": 72205.0, "activo": true, "meses": {"ENERO": {"status": "ok", "amount": 72205.0}, "FEBRERO": {"status": "ok", "amount": 72205.0}, "MARZO": {"status": "ok", "amount": 72205.0}, "ABRIL": {"status": "ok", "amount": 72205.0}, "MAYO": {"status": "ok", "amount": 72205.0}, "JUNIO": {"status": "ok", "amount": 72205.0}, "JULIO": {"status": "ok", "amount": 72205.0}, "AGOSTO": {"status": "ok", "amount": 72205.0}, "SEPTIEMBRE": {"status": "custom", "amount": 277600.0}}}, {"nombre": "PAGNAN, EZEQUIEL HUGO", "plan": "GS100", "integ": 2, "base": 51586.0, "activo": false, "meses": {"ENERO": {"status": "ok", "amount": 51586.0}, "FEBRERO": {"status": "baja", "amount": 0}, "MARZO": {"status": "baja", "amount": 0}, "ABRIL": {"status": "baja", "amount": 0}, "MAYO": {"status": "baja", "amount": 0}, "JUNIO": {"status": "baja", "amount": 0}, "JULIO": {"status": "baja", "amount": 0}, "AGOSTO": {"status": "baja", "amount": 0}, "SEPTIEMBRE": {"status": "baja", "amount": 0}}}, {"nombre": "PUYUELO LUCAS EDUARDO", "plan": "GS100", "integ": 3, "base": 41215.0, "activo": false, "meses": {"ENERO": {"status": "ok", "amount": 41215.0}, "FEBRERO": {"status": "ok", "amount": 41215.0}, "MARZO": {"status": "ok", "amount": 41215.0}, "ABRIL": {"status": "ok", "amount": 41215.0}, "MAYO": {"status": "ok", "amount": 41215.0}, "JUNIO": {"status": "ok", "amount": 41215.0}, "JULIO": {"status": "ok", "amount": 41215.0}, "AGOSTO": {"status": "ok", "amount": 41215.0}, "SEPTIEMBRE": {"status": "baja", "amount": 0}}}, {"nombre": "RAMOS CORINA MARICEL", "plan": "GS100", "integ": 2, "base": 48457.0, "activo": true, "meses": {"ENERO": {"status": "ok", "amount": 48457.0}, "FEBRERO": {"status": "ok", "amount": 48457.0}, "MARZO": {"status": "ok", "amount": 48457.0}, "ABRIL": {"status": "ok", "amount": 48457.0}, "MAYO": {"status": "ok", "amount": 48457.0}, "JUNIO": {"status": "ok", "amount": 48457.0}, "JULIO": {"status": "ok", "amount": 48457.0}, "AGOSTO": {"status": "ok", "amount": 48457.0}, "SEPTIEMBRE": {"status": "custom", "amount": 75600.0}}}, {"nombre": "QUAGLIA, ARMANDO ANGEL", "plan": "GS100", "integ": 3, "base": 42385.0, "activo": true, "meses": {"ENERO": {"status": "ok", "amount": 42385.0}, "FEBRERO": {"status": "ok", "amount": 42385.0}, "MARZO": {"status": "ok", "amount": 42385.0}, "ABRIL": {"status": "ok", "amount": 42385.0}, "MAYO": {"status": "ok", "amount": 42385.0}, "JUNIO": {"status": "ok", "amount": 42385.0}, "JULIO": {"status": "ok", "amount": 42385.0}, "AGOSTO": {"status": "ok", "amount": 42385.0}, "SEPTIEMBRE": {"status": "custom", "amount": 201000.0}}}, {"nombre": "BARRAZA, JORGE GASTON", "plan": "GS200", "integ": 2, "base": 74430.0, "activo": true, "meses": {"ENERO": {"status": "ok", "amount": 74430.0}, "FEBRERO": {"status": "ok", "amount": 74430.0}, "MARZO": {"status": "ok", "amount": 74430.0}, "ABRIL": {"status": "ok", "amount": 74430.0}, "MAYO": {"status": "ok", "amount": 74430.0}, "JUNIO": {"status": "ok", "amount": 74430.0}, "JULIO": {"status": "ok", "amount": 74430.0}, "AGOSTO": {"status": "ok", "amount": 74430.0}, "SEPTIEMBRE": {"status": "custom", "amount": 242200.0}}}, {"nombre": "PELLEGRINI ALDO FABIO", "plan": "GS200", "integ": 2, "base": 102145.0, "activo": true, "meses": {"ENERO": {"status": "ok", "amount": 102145.0}, "FEBRERO": {"status": "ok", "amount": 102145.0}, "MARZO": {"status": "ok", "amount": 102145.0}, "ABRIL": {"status": "ok", "amount": 102145.0}, "MAYO": {"status": "ok", "amount": 102145.0}, "JUNIO": {"status": "ok", "amount": 102145.0}, "JULIO": {"status": "ok", "amount": 102145.0}, "AGOSTO": {"status": "ok", "amount": 102145.0}, "SEPTIEMBRE": {"status": "custom", "amount": 220000.0}}}, {"nombre": "PERALTA AZUCENA GRACIELA", "plan": "GS200", "integ": 2, "base": 83368.0, "activo": true, "meses": {"ENERO": {"status": "baja", "amount": 0}, "FEBRERO": {"status": "ok", "amount": 83368.0}, "MARZO": {"status": "ok", "amount": 83368.0}, "ABRIL": {"status": "ok", "amount": 83368.0}, "MAYO": {"status": "ok", "amount": 83368.0}, "JUNIO": {"status": "ok", "amount": 83368.0}, "JULIO": {"status": "ok", "amount": 83368.0}, "AGOSTO": {"status": "ok", "amount": 83368.0}, "SEPTIEMBRE": {"status": "custom", "amount": 292600.0}}}, {"nombre": "FERNANDEZ MIGUEL ANGEL", "plan": "GS200", "integ": 2, "base": 125037.0, "activo": true, "meses": {"ENERO": {"status": "ok", "amount": 125037.0}, "FEBRERO": {"status": "ok", "amount": 125037.0}, "MARZO": {"status": "ok", "amount": 125037.0}, "ABRIL": {"status": "ok", "amount": 125037.0}, "MAYO": {"status": "ok", "amount": 125037.0}, "JUNIO": {"status": "ok", "amount": 125037.0}, "JULIO": {"status": "ok", "amount": 125037.0}, "AGOSTO": {"status": "ok", "amount": 125037.0}, "SEPTIEMBRE": {"status": "custom", "amount": 231000.0}}}, {"nombre": "TORRES MARCOS JAVIER", "plan": "GS100", "integ": 4, "base": 45924.0, "activo": true, "meses": {"ENERO": {"status": "ok", "amount": 45924.0}, "FEBRERO": {"status": "ok", "amount": 45924.0}, "MARZO": {"status": "ok", "amount": 45924.0}, "ABRIL": {"status": "ok", "amount": 45924.0}, "MAYO": {"status": "ok", "amount": 45924.0}, "JUNIO": {"status": "ok", "amount": 45924.0}, "JULIO": {"status": "ok", "amount": 45924.0}, "AGOSTO": {"status": "none", "amount": 0}, "SEPTIEMBRE": {"status": "custom", "amount": 155312.0}}}, {"nombre": "DAGHERO RUBEN OSVALDO", "plan": "GS200", "integ": 1, "base": 102000.0, "activo": true, "meses": {"ENERO": {"status": "ok", "amount": 102000.0}, "FEBRERO": {"status": "ok", "amount": 102000.0}, "MARZO": {"status": "ok", "amount": 102000.0}, "ABRIL": {"status": "ok", "amount": 102000.0}, "MAYO": {"status": "ok", "amount": 102000.0}, "JUNIO": {"status": "ok", "amount": 102000.0}, "JULIO": {"status": "ok", "amount": 102000.0}, "AGOSTO": {"status": "ok", "amount": 102000.0}, "SEPTIEMBRE": {"status": "custom", "amount": 220000.0}}}, {"nombre": "PAZ JULIO EZEQUIEL", "plan": "GS200", "integ": 3, "base": 89290.0, "activo": true, "meses": {"ENERO": {"status": "ok", "amount": 89290.0}, "FEBRERO": {"status": "ok", "amount": 89290.0}, "MARZO": {"status": "ok", "amount": 89290.0}, "ABRIL": {"status": "ok", "amount": 89290.0}, "MAYO": {"status": "ok", "amount": 89290.0}, "JUNIO": {"status": "ok", "amount": 89290.0}, "JULIO": {"status": "ok", "amount": 89290.0}, "AGOSTO": {"status": "ok", "amount": 89290.0}, "SEPTIEMBRE": {"status": "custom", "amount": 404000.0}}}, {"nombre": "MARCHE SEPABLO ESTEBAN", "plan": "GS100", "integ": 4, "base": 77124.0, "activo": true, "meses": {"ENERO": {"status": "ok", "amount": 77124.0}, "FEBRERO": {"status": "ok", "amount": 77124.0}, "MARZO": {"status": "ok", "amount": 77124.0}, "ABRIL": {"status": "ok", "amount": 77124.0}, "MAYO": {"status": "ok", "amount": 77124.0}, "JUNIO": {"status": "ok", "amount": 77124.0}, "JULIO": {"status": "none", "amount": 0}, "AGOSTO": {"status": "none", "amount": 0}, "SEPTIEMBRE": {"status": "custom", "amount": 248000.0}}}, {"nombre": "BOSSI MARCOS GABRIEL", "plan": "GS200", "integ": 2, "base": 103859.0, "activo": true, "meses": {"ENERO": {"status": "none", "amount": 0}, "FEBRERO": {"status": "none", "amount": 0}, "MARZO": {"status": "none", "amount": 0}, "ABRIL": {"status": "none", "amount": 0}, "MAYO": {"status": "ok", "amount": 103859.0}, "JUNIO": {"status": "ok", "amount": 103859.0}, "JULIO": {"status": "ok", "amount": 103859.0}, "AGOSTO": {"status": "ok", "amount": 103859.0}, "SEPTIEMBRE": {"status": "custom", "amount": 165000.0}}}, {"nombre": "TURRI MARIO ANDRES TURRI", "plan": "GS200", "integ": 2, "base": 40661.0, "activo": false, "meses": {"ENERO": {"status": "ok", "amount": 40661.0}, "FEBRERO": {"status": "ok", "amount": 40661.0}, "MARZO": {"status": "ok", "amount": 40661.0}, "ABRIL": {"status": "ok", "amount": 40661.0}, "MAYO": {"status": "ok", "amount": 40661.0}, "JUNIO": {"status": "ok", "amount": 40661.0}, "JULIO": {"status": "ok", "amount": 40661.0}, "AGOSTO": {"status": "ok", "amount": 40661.0}, "SEPTIEMBRE": {"status": "baja", "amount": 0}}}, {"nombre": "ALI FABIAN ALBERTO", "plan": "GS200", "integ": 2, "base": 29890.0, "activo": false, "meses": {"ENERO": {"status": "ok", "amount": 29890.0}, "FEBRERO": {"status": "ok", "amount": 29890.0}, "MARZO": {"status": "ok", "amount": 29890.0}, "ABRIL": {"status": "ok", "amount": 29890.0}, "MAYO": {"status": "ok", "amount": 29890.0}, "JUNIO": {"status": "ok", "amount": 29890.0}, "JULIO": {"status": "ok", "amount": 29890.0}, "AGOSTO": {"status": "ok", "amount": 29890.0}, "SEPTIEMBRE": {"status": "baja", "amount": 0}}}, {"nombre": "CARNERO DIEGO SEBASTIAN", "plan": "GS200", "integ": 2, "base": 27323.0, "activo": false, "meses": {"ENERO": {"status": "ok", "amount": 27323.0}, "FEBRERO": {"status": "none", "amount": 0}, "MARZO": {"status": "none", "amount": 0}, "ABRIL": {"status": "ok", "amount": 27323.0}, "MAYO": {"status": "ok", "amount": 27323.0}, "JUNIO": {"status": "ok", "amount": 27323.0}, "JULIO": {"status": "baja", "amount": 0}, "AGOSTO": {"status": "baja", "amount": 0}, "SEPTIEMBRE": {"status": "baja", "amount": 0}}}, {"nombre": "OVIEDO MARCOS FERNANDO", "plan": "GS200", "integ": 1, "base": 80271.0, "activo": true, "meses": {"ENERO": {"status": "baja", "amount": 0}, "FEBRERO": {"status": "ok", "amount": 80271.0}, "MARZO": {"status": "ok", "amount": 80271.0}, "ABRIL": {"status": "ok", "amount": 80271.0}, "MAYO": {"status": "ok", "amount": 80271.0}, "JUNIO": {"status": "ok", "amount": 80271.0}, "JULIO": {"status": "ok", "amount": 80271.0}, "AGOSTO": {"status": "none", "amount": 0}, "SEPTIEMBRE": {"status": "custom", "amount": 220000.0}}}, {"nombre": "MOYANO JOSE LUIS", "plan": "GS200", "integ": 1, "base": 54798.0, "activo": false, "meses": {"ENERO": {"status": "ok", "amount": 54798.0}, "FEBRERO": {"status": "baja", "amount": 0}, "MARZO": {"status": "baja", "amount": 0}, "ABRIL": {"status": "baja", "amount": 0}, "MAYO": {"status": "baja", "amount": 0}, "JUNIO": {"status": "baja", "amount": 0}, "JULIO": {"status": "baja", "amount": 0}, "AGOSTO": {"status": "baja", "amount": 0}, "SEPTIEMBRE": {"status": "baja", "amount": 0}}}, {"nombre": "PELLEGRINO JUAN MARTIN", "plan": "GS200", "integ": 2, "base": 27530.0, "activo": true, "meses": {"ENERO": {"status": "ok", "amount": 27530.0}, "FEBRERO": {"status": "ok", "amount": 27530.0}, "MARZO": {"status": "ok", "amount": 27530.0}, "ABRIL": {"status": "ok", "amount": 27530.0}, "MAYO": {"status": "ok", "amount": 27530.0}, "JUNIO": {"status": "ok", "amount": 27530.0}, "JULIO": {"status": "ok", "amount": 27530.0}, "AGOSTO": {"status": "ok", "amount": 27530.0}, "SEPTIEMBRE": {"status": "custom", "amount": 220000.0}}}];
+const MESES_SUP_RES  = [{"mes": "ENERO", "cobrado": 1078687.0, "activos": 18}, {"mes": "FEBRERO", "cobrado": 1656290.78, "activos": 22}, {"mes": "MARZO", "cobrado": 1792397.78, "activos": 23}, {"mes": "ABRIL", "cobrado": 1819720.78, "activos": 24}, {"mes": "MAYO", "cobrado": 1923579.78, "activos": 25}, {"mes": "JUNIO", "cobrado": 1905947.64, "activos": 24}, {"mes": "JULIO", "cobrado": 1801500.64, "activos": 22}, {"mes": "AGOSTO", "cobrado": 1583284.31, "activos": 19}, {"mes": "SEPTIEMBRE", "cobrado": 3808312.0, "activos": 17}];
+const MESES_SUP_NAMES = ["ENERO","FEBRERO","MARZO","ABRIL","MAYO","JUNIO","JULIO","AGOSTO","SEPTIEMBRE"];
 
 // ── tabs ──────────────────────────────────────────────────────────────────────
 function showTab(name, btn) {
@@ -951,6 +1019,52 @@ function initPadronKpis() {
     </div>`).join('');
 }
 
+// ── INFORME GENERAL: superadores ─────────────────────────────────────────────
+let supFiltro = 'activos';
+
+function fmtSupMes(m) {
+  if (!m || m.status === 'none') return '<span style="color:var(--muted)">—</span>';
+  if (m.status === 'baja') return '<span style="color:var(--red);font-size:11px;font-weight:600">BAJA</span>';
+  return '<span style="color:#43A047;font-variant-numeric:tabular-nums">' + fmtArs(m.amount) + '</span>';
+}
+
+function filtrarSup(filtro, btn) {
+  supFiltro = filtro;
+  document.querySelectorAll('#btn-sup-activos,#btn-sup-todos').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderSuperadores();
+}
+
+function renderSuperadores() {
+  const data = supFiltro === 'activos' ? SUPERADORES.filter(s=>s.activo) : SUPERADORES;
+  document.getElementById('sup-count').textContent = ' — ' + data.length + ' superador' + (data.length!==1?'es':'');
+  const ABREV = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep'];
+  document.getElementById('tbody-superadores').innerHTML = data.length === 0
+    ? '<tr><td colspan="14" style="text-align:center;color:var(--muted);padding:20px">Sin resultados</td></tr>'
+    : data.map(s => {
+        const total = MESES_SUP_NAMES.reduce((acc,m) => acc + (s.meses[m]?.amount||0), 0);
+        const mesCells = MESES_SUP_NAMES.map((m,i) => {
+          const isSep = (i === 8);
+          const cell = fmtSupMes(s.meses[m]);
+          return `<td class="right"${isSep?' style="background:rgba(0,200,250,.06)"':''}>${cell}</td>`;
+        }).join('');
+        const planBadge = s.plan==='GS200'
+          ? '<span class="badge badge-blue">GS200</span>'
+          : '<span class="badge badge-grey">GS100</span>';
+        const actBadge  = s.activo
+          ? '<span class="badge badge-green" style="font-size:10px">Activo</span>'
+          : '<span class="badge badge-red"   style="font-size:10px">Baja</span>';
+        return `<tr>
+          <td><strong>${s.nombre}</strong> ${actBadge}</td>
+          <td>${planBadge}</td>
+          <td class="right">${s.integ}</td>
+          <td class="right">${fmtArs(s.base)}</td>
+          ${mesCells}
+          <td class="right bold-val">${fmtArs(total)}</td>
+        </tr>`;
+      }).join('');
+}
+
 // ── init ──────────────────────────────────────────────────────────────────────
 recalcInforme();
 filtrarSeguimiento();
@@ -959,6 +1073,7 @@ filtrarCobros();
 renderCobrosTabla();
 initPadronKpis();
 filtrarPadron();
+renderSuperadores();
 document.getElementById('period-bar-informe').style.display='flex';
 </script>
 </body>
