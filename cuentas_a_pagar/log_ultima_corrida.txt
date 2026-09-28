@@ -1,4 +1,4 @@
-Corrida: 24/09/2026 12:31:43
+Corrida: 28/09/2026 13:38:08
 
 PLANILLA OK: Planilla_Prestadores_01-2026.xlsx -> 01-2026 (Enero) (238 fact, $ 258,013,813.48)
 PLANILLA OK: Planilla_Prestadores_02-2026.xlsx -> 02-2026 (Febrero) (240 fact, $ 294,156,377.08)
@@ -264,16 +264,16 @@ FACTURA DUPLICADA descartada:  CUIT  factura nan 05-2026 (Mayo) (Planilla_Presta
 FACTURA DUPLICADA descartada:  CUIT  factura nan 05-2026 (Mayo) (Planilla_Prestadores_05-2026.xlsx)
 FACTURA DUPLICADA descartada:  CUIT  factura nan 05-2026 (Mayo) (Planilla_Prestadores_05-2026.xlsx)
 FACTURA DUPLICADA descartada:  CUIT  factura nan 05-2026 (Mayo) (Planilla_Prestadores_05-2026.xlsx)
-CHEQUES OK: ListadoChequesEmitidos - 2026-09-01T085054.545.csv (300 cheq, $ 931,988,690.91)
 CHEQUES OK: ListadoChequesEmitidos - 2026-09-17T155624.660.csv (275 cheq, $ 939,893,356.24)
 CHEQUES OK: ListadoChequesEmitidos - 2026-09-24T105540.703.csv (277 cheq, $ 953,032,434.36)
+CHEQUES OK: ListadoChequesEmitidos - 2026-09-28T133730.303.csv (300 cheq, $ 895,740,499.09)
 
 OPs: 520 prestador, 34 descartadas, 20 no cuadran
-  OPs procesadas: 154 / a revisar: 366
+  OPs procesadas: 127 / a revisar: 393
 
-A VENCER: 183 cheques · $ 615,704,932.64
-  Imputado: $ 498,939,704.43
-  Sin asignar: $ 116,765,228.21 (19.0%)
-  Modos imputacion: {'ESTRICTO': 123, 'OP': 33, 'FUERA': 27}
+A VENCER: 212 cheques · $ 635,360,757.67
+  Imputado: $ 531,561,648.01
+  Sin asignar: $ 103,799,109.66 (16.3%)
+  Modos imputacion: {'ESTRICTO': 166, 'FUERA': 24, 'OP': 22}
 
-Duracion: 4.7s
+Duracion: 8.6s

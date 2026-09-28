@@ -95,18 +95,18 @@
       <div class="clink" style="color:#29ABE2;">Abrir tablero &rarr;</div>
     </a>
 
-    <a class="card" href="facturacion/dashboard.php">
+    <a class="card" href="aportes/dashboard.php">
       <div class="crow">
-        <div class="ico" style="background:#3B5BC7;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/><path d="M9 13h6"/><path d="M9 17h6"/></svg>
+        <div class="ico" style="background:#1E8449;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/><circle cx="12" cy="12" r="4"/></svg>
         </div>
         <div>
-          <div class="cname">Facturacion</div>
-          <div class="ctag">Ingresos emitidos</div>
+          <div class="cname">Control Aportes</div>
+          <div class="ctag">Aportes y contribuciones</div>
         </div>
       </div>
-      <div class="cdesc">Facturas emitidas a obras sociales, IVA, IIBB y estado de cobranzas.</div>
-      <div class="clink" style="color:#3B5BC7;">Abrir tablero &rarr;</div>
+      <div class="cdesc">Aportes y contribuciones de afiliados por delegación, período y rango. Filtros por Bahía Blanca, menos $25k y $25k–$50k.</div>
+      <div class="clink" style="color:#1E8449;">Abrir tablero &rarr;</div>
     </a>
 
     <a class="card" href="flujo_bancario/tablero.php">
