@@ -45,6 +45,19 @@ body{font-family:'Segoe UI',sans-serif;background:var(--bg);color:var(--text);fo
 .btn.dl{border-color:var(--green);color:var(--green);font-weight:700}
 .btn.dl:hover{background:var(--green);color:#fff}
 select.sel{padding:5px 10px;border:1px solid var(--border);border-radius:6px;font-size:12px;cursor:pointer}
+/* multi-select delegaciones */
+.ms-wrap{position:relative;display:inline-block}
+.ms-btn{padding:5px 28px 5px 10px;border:1px solid var(--border);border-radius:6px;font-size:12px;cursor:pointer;background:#fff;min-width:200px;text-align:left;position:relative;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:340px}
+.ms-btn::after{content:'▾';position:absolute;right:8px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:10px}
+.ms-btn.has-sel{border-color:var(--green);color:var(--green);font-weight:600}
+.ms-panel{display:none;position:absolute;top:calc(100% + 4px);left:0;z-index:200;background:#fff;border:1px solid var(--border);border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.12);min-width:260px;max-height:300px;overflow-y:auto}
+.ms-panel.open{display:block}
+.ms-search{padding:8px 10px;border-bottom:1px solid var(--border);position:sticky;top:0;background:#fff}
+.ms-search input{width:100%;padding:5px 8px;border:1px solid var(--border);border-radius:5px;font-size:12px;outline:none}
+.ms-item{display:flex;align-items:center;gap:8px;padding:6px 12px;cursor:pointer;font-size:12px;transition:background .1s}
+.ms-item:hover{background:#f5f5f5}
+.ms-item input[type=checkbox]{accent-color:var(--green);width:14px;height:14px;cursor:pointer;flex-shrink:0}
+.ms-item.all-item{border-bottom:1px solid var(--border);font-weight:700;background:#fafafa;position:sticky;top:37px}
 input.srch{padding:6px 12px;border:1px solid var(--border);border-radius:6px;font-size:13px;width:240px;outline:none}
 input.srch:focus{border-color:var(--green)}
 /* panel/tabs */
@@ -79,6 +92,16 @@ tr:hover td{background:#fafafa}
 .pb:hover:not(.active){border-color:var(--green)}
 .pag-info{font-size:12px;color:var(--muted);margin-left:6px}
 .loading{text-align:center;padding:50px;color:var(--muted);font-size:15px}
+/* filtro interno tab grupos */
+.tab-filter-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:10px 0 12px;border-bottom:1px solid var(--border);margin-bottom:12px}
+.tab-filter-bar label{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.4px;margin-right:2px}
+.tf-group{display:flex;align-items:center;gap:5px;background:#f5f6f8;border-radius:8px;padding:5px 10px}
+.tf-btn{padding:3px 10px;border:1px solid var(--border);border-radius:14px;background:#fff;cursor:pointer;font-size:11px;transition:all .12s;white-space:nowrap}
+.tf-btn:hover{border-color:var(--green);color:var(--green)}
+.tf-btn.active{background:var(--green);color:#fff;border-color:var(--green)}
+.tf-inp{padding:3px 7px;border:1px solid var(--border);border-radius:5px;font-size:12px;width:90px;outline:none}
+.tf-inp:focus{border-color:var(--green)}
+.tf-sep{width:1px;height:18px;background:var(--border);margin:0 4px}
 .nota{font-size:11px;color:var(--muted);margin-top:10px;padding:8px 12px;background:#f9f9f9;border-radius:6px;border-left:3px solid var(--border)}
 </style>
 </head>
@@ -103,7 +126,7 @@ tr:hover td{background:#fafafa}
     <!-- KPIs -->
     <div class="kpi-row">
       <div class="kpi blue"><div class="kpi-label">Grupos familiares</div><div class="kpi-value" id="k-grupos">—</div><div class="kpi-sub">Únicos en período</div></div>
-      <div class="kpi blue"><div class="kpi-label">Total miembros</div><div class="kpi-value" id="k-miem">—</div><div class="kpi-sub">Personas cubiertas</div></div>
+      <div class="kpi blue" id="k-miem-card"><div class="kpi-label">Miembros</div><div class="kpi-value" id="k-miem">—</div><div class="kpi-sub">Personas cubiertas</div></div>
       <div class="kpi red"><div class="kpi-label">Grupos &lt; $25k pc</div><div class="kpi-value" id="k-m25">—</div><div class="kpi-sub">Per cápita bajo</div></div>
       <div class="kpi yellow"><div class="kpi-label">Grupos $25k–$50k pc</div><div class="kpi-value" id="k-r25">—</div><div class="kpi-sub">Per cápita medio</div></div>
       <div class="kpi"><div class="kpi-label">Total aportado</div><div class="kpi-value" id="k-tot">—</div><div class="kpi-sub">Aportes + contribuciones</div></div>
@@ -119,7 +142,16 @@ tr:hover td{background:#fafafa}
       </div>
       <div class="fila">
         <span class="fila-lbl">Delegación</span>
-        <select id="sel-deleg" class="sel" onchange="render()"><option value="">Todas</option></select>
+        <div class="ms-wrap" id="ms-wrap">
+          <button class="ms-btn" id="ms-btn" onclick="toggleMs(event)">Todas las delegaciones</button>
+          <div class="ms-panel" id="ms-panel">
+            <div class="ms-search"><input id="ms-srch" placeholder="Buscar delegación..." oninput="filtrarMs(this.value)"></div>
+            <div class="ms-item all-item" onclick="toggleAll()">
+              <input type="checkbox" id="chk-all" checked> Seleccionar todas
+            </div>
+            <div id="ms-lista"></div>
+          </div>
+        </div>
       </div>
       <div class="fila" style="align-items:center">
         <span class="fila-lbl">Per cápita</span>
@@ -157,6 +189,7 @@ tr:hover td{background:#fafafa}
         <button class="tab-btn active" onclick="setTab('resumen',this)">Por Delegación</button>
         <button class="tab-btn"        onclick="setTab('grupos',this)">Grupos Familiares</button>
         <button class="tab-btn"        onclick="setTab('mensual',this)">Por Mes</button>
+        <button class="tab-btn"        onclick="setTab('singrupo',this)" id="tab-btn-sg" style="color:var(--red)">⚠ Sin identificar</button>
       </div>
 
       <!-- Resumen por delegación -->
@@ -180,9 +213,46 @@ tr:hover td{background:#fafafa}
 
       <!-- Grupos familiares -->
       <div id="tab-grupos" class="tab-pane">
-        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:12px">
+        <!-- Filtros internos del tab -->
+        <div class="tab-filter-bar">
+          <div class="tf-group">
+            <label>Mes</label>
+            <select id="tf-mes" class="sel" style="font-size:11px;padding:3px 6px" onchange="gfChange()">
+              <option value="">Todos</option>
+            </select>
+          </div>
+          <div class="tf-sep"></div>
+          <div class="tf-group">
+            <label>Delegación</label>
+            <input id="tf-deleg" class="tf-inp" placeholder="Escribir..." oninput="gfChange()" style="width:160px">
+          </div>
+          <div class="tf-sep"></div>
+          <div class="tf-group">
+            <label>Miembros</label>
+            <button class="tf-btn active" id="tf-tam-0" onclick="gfTam(0,this)">Todos</button>
+            <button class="tf-btn" onclick="gfTam(1,this)">Solo titular</button>
+            <button class="tf-btn" onclick="gfTam(2,this)">2</button>
+            <button class="tf-btn" onclick="gfTam(3,this)">3+</button>
+          </div>
+          <div class="tf-sep"></div>
+          <div class="tf-group">
+            <label>Per cápita</label>
+            <span style="font-size:11px;color:var(--muted)">$</span>
+            <input type="number" id="tf-pcmin" class="tf-inp" placeholder="Desde" oninput="gfChange()">
+            <span style="font-size:11px;color:var(--muted)">–</span>
+            <input type="number" id="tf-pcmax" class="tf-inp" placeholder="Hasta" oninput="gfChange()">
+          </div>
+          <div class="tf-sep"></div>
+          <div class="tf-group">
+            <label>Orden</label>
+            <button class="tf-btn active" id="tf-ord-asc" onclick="gfOrden('asc',this)">↑ Menor pc</button>
+            <button class="tf-btn" id="tf-ord-desc" onclick="gfOrden('desc',this)">↓ Mayor pc</button>
+          </div>
+          <button class="tf-btn" onclick="gfReset()" style="margin-left:auto">↺ Limpiar filtros</button>
+        </div>
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:10px">
           <div class="p-title" style="margin:0">Grupos <span class="cnt" id="cnt-grp">—</span></div>
-          <input class="srch" id="srch" placeholder="Buscar por titular, delegación..." oninput="renderGrupos()">
+          <input class="srch" id="srch" placeholder="Buscar por titular..." oninput="renderGrupos()">
           <div class="pag-info" id="grp-pag-info"></div>
         </div>
         <table>
@@ -201,6 +271,33 @@ tr:hover td{background:#fafafa}
           <tbody id="tb-grp"></tbody>
         </table>
         <div class="pag" id="pag-grp"></div>
+      </div>
+
+      <!-- Sin identificar -->
+      <div id="tab-singrupo" class="tab-pane">
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:12px">
+          <div class="p-title" style="margin:0;color:var(--red)">⚠ Sin identificar en padrón <span class="cnt" id="cnt-sg" style="background:var(--red-lt);color:var(--red)">—</span></div>
+          <input class="srch" id="srch-sg" placeholder="Buscar por CUIL, DNI o nombre..." oninput="renderSinGrupo()">
+          <select id="sel-sg-mes" class="sel" onchange="renderSinGrupo()"><option value="">Todos los meses</option></select>
+          <button class="btn dl" onclick="descargarSinGrupo()">⬇ Descargar Excel</button>
+          <div class="pag-info" id="sg-pag-info"></div>
+        </div>
+        <div class="nota" style="border-left-color:var(--red);margin-bottom:10px">
+          Estos CUIL aportaron pero no se encontraron en el padrón de afiliados. Pueden ser bajas recientes, nuevos aún no incorporados, o categorías especiales. No se incluyen en los grupos familiares ni en los KPIs principales.
+        </div>
+        <table>
+          <thead><tr>
+            <th>CUIL</th>
+            <th>DNI</th>
+            <th>Nombre</th>
+            <th>Mes</th>
+            <th class="r">Aportes</th>
+            <th class="r">Contribuciones</th>
+            <th class="r">Total</th>
+          </tr></thead>
+          <tbody id="tb-sg"></tbody>
+        </table>
+        <div class="pag" id="pag-sg"></div>
       </div>
 
       <!-- Por mes -->
@@ -235,9 +332,12 @@ tr:hover td{background:#fafafa}
 })();
 
 // ── estado ────────────────────────────────────────────────────────────────────
-let F = { meses: [], deleg: '', pcMin: null, pcMax: null, tam: 0 };
+let F = { meses: [], delegs: [], pcMin: null, pcMax: null, tam: 0 };
+// delegs vacío = todas
 let SS = { res:{c:'deleg',a:true}, grp:{c:'pc',a:true} };
 let grpPage = 0;
+// Filtros locales del tab grupos
+let GF = { mes:'', deleg:'', tam:0, pcMin:null, pcMax:null, orden:'asc' };
 const PS = 60;
 
 // ── init ──────────────────────────────────────────────────────────────────────
@@ -255,13 +355,27 @@ function init() {
       return `<button class="btn" onclick="setMes('${m}',this)">${L}</button>`;
     }).join('');
 
-  // Delegación
-  const sel = document.getElementById('sel-deleg');
+  // Delegaciones multi-select
+  const lista = document.getElementById('ms-lista');
   APORTES_META.delegaciones.forEach(d => {
-    const o = document.createElement('option'); o.value = d; o.textContent = d; sel.appendChild(o);
+    const div = document.createElement('div');
+    div.className = 'ms-item';
+    div.dataset.deleg = d;
+    div.innerHTML = `<input type="checkbox" class="chk-deleg" value="${d}" checked onchange="onDelegChange()"> ${d}`;
+    lista.appendChild(div);
+  });
+  // cerrar al click fuera
+  document.addEventListener('click', e => {
+    if(!document.getElementById('ms-wrap').contains(e.target)) closeMs();
   });
 
   render();
+  initSinGrupo();
+  // poblar selector de mes del tab grupos
+  const tfMes = document.getElementById('tf-mes');
+  APORTES_META.meses.forEach(m=>{
+    const o=document.createElement('option'); o.value=m; o.textContent=m; tfMes.appendChild(o);
+  });
 }
 
 // ── datos filtrados ───────────────────────────────────────────────────────────
@@ -270,7 +384,7 @@ function getData() {
   const pcMax = F.pcMax !== null ? F.pcMax :  Infinity;
   return APORTES_DATA.filter(r => {
     if (F.meses.length && !F.meses.includes(r.mes)) return false;
-    if (F.deleg && r.deleg !== F.deleg) return false;
+    if (F.delegs.length && !F.delegs.includes(r.deleg)) return false;
     if (r.pc < pcMin || r.pc > pcMax) return false;
     if (F.tam === 1 && r.miembros !== 1) return false;
     if (F.tam === 2 && r.miembros !== 2) return false;
@@ -290,14 +404,20 @@ function render() {
 
 // ── KPIs ──────────────────────────────────────────────────────────────────────
 function renderKpis(d) {
-  const gids = new Set(d.map(r=>r.gid));
-  const miem = d.reduce((s,r)=>s+r.miembros,0);
-  const tot  = d.reduce((s,r)=>s+r.tot,0);
-  const m25  = d.filter(r=>r.rango==='menos25').length;
-  const r25  = d.filter(r=>r.rango==='entre25y50').length;
-  const pcProm = miem > 0 ? tot/miem : 0;
+  const gids  = new Set(d.map(r=>r.gid));
+  const meses_u = new Set(d.map(r=>r.mes));
+  const nMeses = meses_u.size || 1;
+  const miemTotal = d.reduce((s,r)=>s+r.miembros,0);
+  const miemProm  = Math.round(miemTotal / nMeses);
+  const tot   = d.reduce((s,r)=>s+r.tot,0);
+  const m25   = d.filter(r=>r.rango==='menos25').length;
+  const r25   = d.filter(r=>r.rango==='entre25y50').length;
+  const pcProm = miemTotal > 0 ? tot/miemTotal : 0;
   set('k-grupos', gids.size.toLocaleString('es-AR'));
-  set('k-miem',   miem.toLocaleString('es-AR'));
+  set('k-miem',   miemProm.toLocaleString('es-AR'));
+  // subtítulo dinámico
+  const subMiem = document.querySelector('#k-miem-card .kpi-sub');
+  if(subMiem) subMiem.textContent = nMeses > 1 ? `Promedio mensual (${nMeses} meses)` : 'Total miembros';
   set('k-m25',    m25.toLocaleString('es-AR'));
   set('k-r25',    r25.toLocaleString('es-AR'));
   set('k-tot',    arsMM(tot));
@@ -349,12 +469,58 @@ const RBADGE = {
   entre25y50: '<span class="badge b-25y50">$25k–$50k</span>',
   mas50:      '<span class="badge b-mas50">> $50k</span>',
 };
+function gfChange(){
+  GF.mes   = document.getElementById('tf-mes').value;
+  GF.deleg = document.getElementById('tf-deleg').value.toLowerCase();
+  const mn = parseFloat(document.getElementById('tf-pcmin').value);
+  const mx = parseFloat(document.getElementById('tf-pcmax').value);
+  GF.pcMin = isNaN(mn) ? null : mn;
+  GF.pcMax = isNaN(mx) ? null : mx;
+  grpPage=0; renderGrupos();
+}
+function gfTam(t,btn){
+  GF.tam=t;
+  document.querySelectorAll('[id^="tf-tam-"], .tab-filter-bar .tf-btn').forEach(b=>{
+    if(b.getAttribute('onclick')&&b.getAttribute('onclick').includes('gfTam')) b.classList.remove('active');
+  });
+  btn.classList.add('active');
+  grpPage=0; renderGrupos();
+}
+function gfOrden(o,btn){
+  GF.orden=o;
+  ['tf-ord-asc','tf-ord-desc'].forEach(id=>document.getElementById(id)?.classList.remove('active'));
+  btn.classList.add('active');
+  grpPage=0; renderGrupos();
+}
+function gfReset(){
+  GF={mes:'',deleg:'',tam:0,pcMin:null,pcMax:null,orden:'asc'};
+  document.getElementById('tf-mes').value='';
+  document.getElementById('tf-deleg').value='';
+  document.getElementById('tf-pcmin').value='';
+  document.getElementById('tf-pcmax').value='';
+  document.querySelectorAll('.tab-filter-bar .tf-btn').forEach(b=>{
+    if(b.getAttribute('onclick')&&b.getAttribute('onclick').includes('gfTam')) b.classList.remove('active');
+    if(b.getAttribute('onclick')&&b.getAttribute('onclick').includes('gfOrden')) b.classList.remove('active');
+  });
+  document.getElementById('tf-tam-0')?.classList.add('active');
+  document.getElementById('tf-ord-asc')?.classList.add('active');
+  grpPage=0; renderGrupos();
+}
 function renderGrupos() {
   const srch = (document.getElementById('srch')?.value||'').toLowerCase();
   let data = getData();
-  if (srch) data = data.filter(r=>(r.titular||'').toLowerCase().includes(srch)||(r.deleg||'').toLowerCase().includes(srch));
-  const ss = SS.grp;
-  data.sort((a,b)=>{ const v=typeof a[ss.c]==='string'?a[ss.c].localeCompare(b[ss.c]):a[ss.c]-b[ss.c]; return ss.a?v:-v; });
+  // aplicar filtros locales del tab
+  if(GF.mes)   data = data.filter(r=>r.mes===GF.mes);
+  if(GF.deleg) data = data.filter(r=>(r.deleg||'').toLowerCase().includes(GF.deleg)||(r.titular||'').toLowerCase().includes(GF.deleg));
+  if(GF.tam===1) data=data.filter(r=>r.miembros===1);
+  else if(GF.tam===2) data=data.filter(r=>r.miembros===2);
+  else if(GF.tam===3) data=data.filter(r=>r.miembros>=3);
+  if(GF.pcMin!==null) data=data.filter(r=>r.pc>=GF.pcMin);
+  if(GF.pcMax!==null) data=data.filter(r=>r.pc<=GF.pcMax);
+  if(srch) data=data.filter(r=>(r.titular||'').toLowerCase().includes(srch));
+  // ordenar por pc según GF.orden
+  const asc = GF.orden === 'asc';
+  data.sort((a,b)=>asc ? a.pc-b.pc : b.pc-a.pc);
   const total=data.length, pages=Math.ceil(total/PS);
   if(grpPage>=pages) grpPage=0;
   const sl = data.slice(grpPage*PS,(grpPage+1)*PS);
@@ -423,6 +589,58 @@ function setMes(m,btn){
   }
   render();
 }
+// ── multi-select delegaciones ─────────────────────────────────────────────────
+function toggleMs(e){ e.stopPropagation(); document.getElementById('ms-panel').classList.toggle('open'); }
+function closeMs(){ document.getElementById('ms-panel').classList.remove('open'); }
+function filtrarMs(q){
+  document.querySelectorAll('#ms-lista .ms-item').forEach(el=>{
+    el.style.display = el.dataset.deleg.toLowerCase().includes(q.toLowerCase()) ? '' : 'none';
+  });
+}
+function toggleAll(){
+  const chkAll = document.getElementById('chk-all');
+  const checked = chkAll.checked;
+  // si estaban todas marcadas → desmarcar todas; si no → marcar todas
+  const newState = !checked; // invertir porque el click ya cambió el estado
+  // forzar al estado correcto
+  chkAll.checked = newState;
+  document.querySelectorAll('.chk-deleg').forEach(c=>{ c.checked = newState; });
+  F.delegs = newState ? [] : ['__ninguna__'];
+  actualizarBtnDeleg();
+  render();
+}
+function onDelegChange(){
+  const todas = [...document.querySelectorAll('.chk-deleg')];
+  const sel = todas.filter(c=>c.checked).map(c=>c.value);
+  const chkAll = document.getElementById('chk-all');
+  chkAll.checked = sel.length === todas.length;
+  chkAll.indeterminate = sel.length > 0 && sel.length < todas.length;
+  F.delegs = sel.length === todas.length ? [] : sel;
+  actualizarBtnDeleg();
+  render();
+}
+function actualizarBtnDeleg(){
+  const btn = document.getElementById('ms-btn');
+  if(!F.delegs.length){
+    btn.textContent = 'Todas las delegaciones';
+    btn.classList.remove('has-sel');
+  } else if(F.delegs.length === 1){
+    btn.textContent = F.delegs[0];
+    btn.classList.add('has-sel');
+  } else {
+    btn.textContent = F.delegs.length + ' delegaciones seleccionadas';
+    btn.classList.add('has-sel');
+  }
+}
+function setDelegs(arr){ // arr vacío = todas
+  document.querySelectorAll('.chk-deleg').forEach(c=>{ c.checked = arr.length===0 || arr.includes(c.value); });
+  const chkAll = document.getElementById('chk-all');
+  chkAll.checked = arr.length===0;
+  chkAll.indeterminate = false;
+  F.delegs = arr;
+  actualizarBtnDeleg();
+}
+
 function setAtajo(min, max, btn){
   document.getElementById('pc-min').value = min || '';
   document.getElementById('pc-max').value = max || '';
@@ -447,11 +665,11 @@ function setTam(t,btn){
 }
 function presetBahia(){
   resetFiltros(true);
-  F.deleg='OSPIF BAHIA BLANCA'; F.pcMin=25000; F.pcMax=50000;
-  document.getElementById('sel-deleg').value='OSPIF BAHIA BLANCA';
+  F.pcMin=25000; F.pcMax=50000;
   document.getElementById('pc-min').value='25000';
   document.getElementById('pc-max').value='50000';
   document.getElementById('b-r25').classList.add('active');
+  setDelegs(['OSPIF BAHIA BLANCA']);
   render();
 }
 function descargarExcel(){
@@ -498,13 +716,14 @@ function descargarExcel(){
   // nombre de archivo con filtros aplicados
   const parts = ['aportes'];
   if(F.meses.length===1) parts.push(F.meses[0]);
-  if(F.deleg) parts.push(F.deleg.replace(/\s+/g,'_'));
+  if(F.delegs.length===1) parts.push(F.delegs[0].replace(/\s+/g,'_'));
+  else if(F.delegs.length>1) parts.push(F.delegs.length+'delegs');
   if(F.pcMin!==null||F.pcMax!==null) parts.push('pc'+(F.pcMin||0)+'a'+(F.pcMax||'max'));
   XLSX.writeFile(wb, parts.join('-')+'.xlsx');
 }
 function resetFiltros(silent){
-  F={meses:[],deleg:'',pcMin:null,pcMax:null,tam:0};
-  document.getElementById('sel-deleg').value='';
+  F={meses:[],delegs:[],pcMin:null,pcMax:null,tam:0};
+  setDelegs([]);
   document.getElementById('pc-min').value='';
   document.getElementById('pc-max').value='';
   document.querySelectorAll('#mes-btns .btn').forEach(b=>b.classList.remove('active'));
@@ -515,6 +734,73 @@ function resetFiltros(silent){
   if(!silent) render();
 }
 
+// ── Sin grupo ─────────────────────────────────────────────────────────────────
+let sgPage = 0;
+function initSinGrupo() {
+  // poblar selector de mes
+  const sel = document.getElementById('sel-sg-mes');
+  const meses = [...new Set(APORTES_SIN_GRUPO.map(r=>r.mes))].sort((a,b)=>{
+    const[am,ay]=a.split('-'),[bm,by]=b.split('-');return(+ay*100+ +am)-(+by*100+ +bm);
+  });
+  meses.forEach(m=>{ const o=document.createElement('option');o.value=m;o.textContent=m;sel.appendChild(o); });
+  // badge en la pestaña
+  document.getElementById('tab-btn-sg').innerHTML =
+    `⚠ Sin identificar <span style="background:var(--red);color:#fff;border-radius:10px;padding:1px 6px;font-size:10px;font-weight:700">${APORTES_SIN_GRUPO.length.toLocaleString('es-AR')}</span>`;
+  set('cnt-sg', APORTES_SIN_GRUPO.length.toLocaleString('es-AR') + ' registros');
+  renderSinGrupo();
+}
+function getSinGrupoData() {
+  const srch = (document.getElementById('srch-sg')?.value||'').toLowerCase();
+  const mes  = document.getElementById('sel-sg-mes')?.value||'';
+  return APORTES_SIN_GRUPO.filter(r=>{
+    if(mes && r.mes!==mes) return false;
+    if(srch && !r.cuil.includes(srch) && !r.dni.includes(srch) && !(r.nombre||'').toLowerCase().includes(srch)) return false;
+    return true;
+  });
+}
+function renderSinGrupo() {
+  const data = getSinGrupoData();
+  const pages = Math.ceil(data.length/PS);
+  if(sgPage>=pages) sgPage=0;
+  const sl = data.slice(sgPage*PS,(sgPage+1)*PS);
+  set('cnt-sg', data.length.toLocaleString('es-AR') + ' registros');
+  set('sg-pag-info', `${sgPage*PS+1}–${Math.min((sgPage+1)*PS,data.length)} de ${data.length}`);
+  document.getElementById('tb-sg').innerHTML = sl.map(r=>`<tr>
+    <td style="font-family:monospace;font-size:12px">${r.cuil||'—'}</td>
+    <td style="font-family:monospace;font-size:12px">${r.dni||'—'}</td>
+    <td>${r.nombre||'—'}</td>
+    <td>${r.mes}</td>
+    <td class="r">${ars(r.ap)}</td>
+    <td class="r">${ars(r.co)}</td>
+    <td class="r bold">${ars(r.tot)}</td>
+  </tr>`).join('')||'<tr><td colspan="7" style="text-align:center;color:var(--muted);padding:20px">Sin resultados</td></tr>';
+  let ph='';
+  if(pages>1){
+    if(sgPage>0) ph+=`<button class="pb" onclick="goSg(${sgPage-1})">‹</button>`;
+    const s=Math.max(0,sgPage-2),e=Math.min(pages-1,sgPage+2);
+    for(let i=s;i<=e;i++) ph+=`<button class="pb${i===sgPage?' active':''}" onclick="goSg(${i})">${i+1}</button>`;
+    if(sgPage<pages-1) ph+=`<button class="pb" onclick="goSg(${sgPage+1})">›</button>`;
+  }
+  document.getElementById('pag-sg').innerHTML = ph;
+}
+function goSg(p){sgPage=p;renderSinGrupo();}
+function descargarSinGrupo(){
+  const data = getSinGrupoData();
+  const filas = data.map(r=>({
+    'CUIL':              r.cuil||'',
+    'DNI':               r.dni||'',
+    'Nombre':            r.nombre||'',
+    'Mes':               r.mes,
+    'Aportes ($)':       r.ap,
+    'Contribuciones ($)':r.co,
+    'Total ($)':         r.tot,
+  }));
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(filas), 'Sin identificar');
+  const mes = document.getElementById('sel-sg-mes')?.value||'todos';
+  XLSX.writeFile(wb, `aportes-sin-identificar-${mes}.xlsx`);
+}
+
 // ── tabs ──────────────────────────────────────────────────────────────────────
 function setTab(name,btn){
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
@@ -522,6 +808,7 @@ function setTab(name,btn){
   btn.classList.add('active');
   document.getElementById('tab-'+name).classList.add('active');
   if(name==='grupos') renderGrupos();
+  if(name==='singrupo') renderSinGrupo();
 }
 
 // ── sort ──────────────────────────────────────────────────────────────────────

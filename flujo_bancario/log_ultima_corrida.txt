@@ -1,4 +1,4 @@
-Corrida: 28/09/2026 13:39:37
+Corrida: 28/09/2026 13:57:16
 
 SALDOS OK: saldos.csv (1 regs)
 CHEQUES OK: ListadoChequesEmitidos - 2026-09-17T155624.660.csv (275 cheq, $ 939,893,356.24)
@@ -8,4 +8,4 @@ CHEQUES OK: ListadoChequesEmitidos - 2026-09-28T133730.303.csv (300 cheq, $ 895,
   Deficit primero: 2026-09-28 $ 34,840,646.40
   Ventanas excedente: 0
 
-Duracion: 2.2s
+Duracion: 1.4s
