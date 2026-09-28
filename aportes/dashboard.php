@@ -189,7 +189,8 @@ tr:hover td{background:#fafafa}
         <button class="tab-btn active" onclick="setTab('resumen',this)">Por Delegación</button>
         <button class="tab-btn"        onclick="setTab('grupos',this)">Grupos Familiares</button>
         <button class="tab-btn"        onclick="setTab('mensual',this)">Por Mes</button>
-        <button class="tab-btn"        onclick="setTab('singrupo',this)" id="tab-btn-sg" style="color:var(--red)">⚠ Sin identificar</button>
+        <button class="tab-btn"        onclick="setTab('bajas',this)"   id="tab-btn-bajas"  style="color:var(--yellow)">📁 Bajas</button>
+        <button class="tab-btn"        onclick="setTab('sinclasif',this)" id="tab-btn-sc"  style="color:var(--red)">❓ Sin clasificar</button>
       </div>
 
       <!-- Resumen por delegación -->
@@ -273,41 +274,60 @@ tr:hover td{background:#fafafa}
         <div class="pag" id="pag-grp"></div>
       </div>
 
-      <!-- Sin identificar -->
-      <div id="tab-singrupo" class="tab-pane">
+      <!-- Bajas con aportes -->
+      <div id="tab-bajas" class="tab-pane">
         <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:10px">
-          <div class="p-title" style="margin:0;color:var(--red)">⚠ Sin identificar en padrón <span class="cnt" id="cnt-sg" style="background:var(--red-lt);color:var(--red)">—</span></div>
-          <input class="srch" id="srch-sg" placeholder="Buscar por CUIL, DNI, nombre..." oninput="sgPage=0;renderSinGrupo()">
-          <select id="sel-sg-estado" class="sel" onchange="sgPage=0;renderSinGrupo()">
-            <option value="">Todos los estados</option>
+          <div class="p-title" style="margin:0;color:var(--yellow)">📁 Dados de Baja con Aportes <span class="cnt" id="cnt-bajas" style="background:var(--yellow-lt);color:var(--yellow)">—</span></div>
+          <input class="srch" id="srch-bajas" placeholder="Buscar por CUIL, DNI, nombre..." oninput="bajasPage=0;renderBajas()">
+          <select id="sel-bajas-estado" class="sel" onchange="bajasPage=0;renderBajas()">
+            <option value="">Todos</option>
             <option value="Baja 2026">🔴 Baja 2026</option>
             <option value="baja_anterior">📁 Baja anterior 2026</option>
+            <option value="Desafiliado">Desafiliado</option>
+            <option value="Bloqueo">Bloqueo</option>
             <option value="Activo (sin padrón)">🟢 Activo sin padrón</option>
-            <option value="Sin registro">⚪ Sin registro</option>
           </select>
           <label style="font-size:12px;display:flex;align-items:center;gap:5px;cursor:pointer">
-            <input type="checkbox" id="chk-con-ap" onchange="sgPage=0;renderSinGrupo()"> Solo con aportes
+            <input type="checkbox" id="chk-bajas-conap" onchange="bajasPage=0;renderBajas()" checked> Solo con aportes
           </label>
-          <select id="sel-sg-deleg"  class="sel" onchange="sgPage=0;renderSinGrupo()"><option value="">Todas las delegaciones</option></select>
-          <button class="btn dl" onclick="descargarSinGrupo()">⬇ Descargar Excel</button>
-          <div class="pag-info" id="sg-pag-info" style="margin-left:auto"></div>
+          <select id="sel-bajas-deleg" class="sel" onchange="bajasPage=0;renderBajas()"><option value="">Todas las delegaciones</option></select>
+          <button class="btn dl" onclick="descargarBajas()">⬇ Descargar Excel</button>
+          <div class="pag-info" id="bajas-pag-info" style="margin-left:auto"></div>
         </div>
-        <div id="sg-resumen" class="nota" style="border-left-color:var(--red);margin-bottom:10px"></div>
+        <div id="bajas-resumen" style="font-size:12px;color:var(--muted);padding:8px 0 10px;border-bottom:1px solid var(--border);margin-bottom:12px"></div>
         <table>
           <thead><tr>
-            <th>Nombre</th>
-            <th>CUIL</th>
-            <th>Estado</th>
-            <th>Fecha baja</th>
-            <th>Meses con aportes</th>
-            <th>Delegación</th>
-            <th class="r">Aportes</th>
-            <th class="r">Contribuciones</th>
-            <th class="r">Total</th>
+            <th>Nombre</th><th>CUIL</th><th>Estado</th><th>Fecha baja</th>
+            <th>Meses con aportes</th><th>Delegación</th>
+            <th class="r">Aportes</th><th class="r">Contribuciones</th><th class="r">Total</th>
           </tr></thead>
-          <tbody id="tb-sg"></tbody>
+          <tbody id="tb-bajas"></tbody>
         </table>
-        <div class="pag" id="pag-sg"></div>
+        <div class="pag" id="pag-bajas"></div>
+      </div>
+
+      <!-- Sin clasificar -->
+      <div id="tab-sinclasif" class="tab-pane">
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:10px">
+          <div class="p-title" style="margin:0;color:var(--red)">❓ Sin clasificar <span class="cnt" id="cnt-sc" style="background:var(--red-lt);color:var(--red)">—</span></div>
+          <input class="srch" id="srch-sc" placeholder="Buscar por CUIL, DNI, nombre..." oninput="scPage=0;renderSinClasif()">
+          <label style="font-size:12px;display:flex;align-items:center;gap:5px;cursor:pointer">
+            <input type="checkbox" id="chk-sc-conap" onchange="scPage=0;renderSinClasif()"> Solo con aportes
+          </label>
+          <select id="sel-sc-deleg" class="sel" onchange="scPage=0;renderSinClasif()"><option value="">Todas las delegaciones</option></select>
+          <button class="btn dl" onclick="descargarSinClasif()">⬇ Descargar Excel</button>
+          <div class="pag-info" id="sc-pag-info" style="margin-left:auto"></div>
+        </div>
+        <p style="font-size:12px;color:var(--muted);margin-bottom:10px">Personas que aportaron pero <strong>no figuran en ningún padrón</strong> (ni activo, ni histórico, ni bajas). En un mundo ideal esta lista debería ser cero.</p>
+        <table>
+          <thead><tr>
+            <th>Nombre</th><th>CUIL</th><th>DNI</th>
+            <th>Meses con aportes</th><th>Delegación</th>
+            <th class="r">Aportes</th><th class="r">Contribuciones</th><th class="r">Total</th>
+          </tr></thead>
+          <tbody id="tb-sc"></tbody>
+        </table>
+        <div class="pag" id="pag-sc"></div>
       </div>
 
       <!-- Por mes -->
@@ -380,7 +400,8 @@ function init() {
   });
 
   render();
-  initSinGrupo();
+  initBajas();
+  initSinClasif();
   // poblar selector de mes del tab grupos
   const tfMes = document.getElementById('tf-mes');
   APORTES_META.meses.forEach(m=>{
@@ -744,69 +765,73 @@ function resetFiltros(silent){
   if(!silent) render();
 }
 
-// ── Sin grupo ─────────────────────────────────────────────────────────────────
-let sgPage = 0;
-function initSinGrupo() {
-  // badge pestaña
-  document.getElementById('tab-btn-sg').innerHTML =
-    `⚠ Sin identificar <span style="background:var(--red);color:#fff;border-radius:10px;padding:1px 6px;font-size:10px;font-weight:700">${APORTES_SIN_GRUPO.length.toLocaleString('es-AR')}</span>`;
+// ── helpers de badge ──────────────────────────────────────────────────────────
+function ebadge(estado) {
+  if(estado==='Baja 2026')           return '<span class="badge" style="background:#ffebee;color:#C62828">🔴 Baja 2026</span>';
+  if(estado==='Activo (sin padrón)') return '<span class="badge" style="background:#e8f5e9;color:#1E8449">🟢 Activo</span>';
+  if(estado==='Sin clasificar')      return '<span class="badge" style="background:#fce4ec;color:#880E4F">❓ Sin clasificar</span>';
+  if(estado==='Desafiliado')         return '<span class="badge" style="background:#f3e5f5;color:#6A1B9A">Desafiliado</span>';
+  if(estado==='Bloqueo')             return '<span class="badge" style="background:#fff3e0;color:#E65100">Bloqueo</span>';
+  if((estado||'').startsWith('Baja anterior')) return `<span class="badge" style="background:#fff8e1;color:#F57F17">📁 ${estado}</span>`;
+  return `<span class="badge" style="background:#f5f5f5;color:#555">${estado||'—'}</span>`;
+}
+
+// ── Tab Bajas ─────────────────────────────────────────────────────────────────
+let bajasPage = 0;
+function initBajas() {
+  const bajaData = APORTES_SIN_GRUPO.filter(r=>
+    (r.estado||'').startsWith('Baja') || r.estado==='Desafiliado' || r.estado==='Bloqueo' || r.estado==='Activo (sin padrón)'
+  );
+  const conAp = bajaData.filter(r=>r.con_ap).length;
+  document.getElementById('tab-btn-bajas').innerHTML =
+    `📁 Bajas <span style="background:var(--yellow);color:#fff;border-radius:10px;padding:1px 6px;font-size:10px;font-weight:700">${bajaData.length.toLocaleString('es-AR')}</span>`;
 
   // Delegaciones
-  const delegs = [...new Set(APORTES_SIN_GRUPO.map(r=>r.deleg||''))].filter(Boolean).sort();
-  const selDel = document.getElementById('sel-sg-deleg');
+  const delegs = [...new Set(bajaData.map(r=>r.deleg||''))].filter(Boolean).sort();
+  const selDel = document.getElementById('sel-bajas-deleg');
   delegs.forEach(d=>{ const o=document.createElement('option');o.value=d;o.textContent=d;selDel.appendChild(o); });
 
-  // Resumen por motivo (con datos de META si están disponibles)
-  if(APORTES_META.sin_estados){
-    const est  = APORTES_META.sin_estados;
-    const total = APORTES_META.sin_dni || 0;
-    const baja2026    = est['Baja 2026'] || 0;
-    const activo      = est['Activo (sin padrón)'] || 0;
-    const sinReg      = est['Sin registro'] || 0;
-    // bajas anteriores = todo lo que no es baja2026, activo, ni sin registro
-    const bajaAntes   = Object.entries(est)
-      .filter(([k])=>k.startsWith('Baja anterior'))
-      .reduce((s,[,v])=>s+v,0);
-    document.getElementById('sg-resumen').innerHTML =
-      `<strong>${total.toLocaleString('es-AR')} DNIs únicos</strong> aportaron pero no están en el padrón activo. ` +
-      `&nbsp;🔴 <strong>${baja2026}</strong> con baja en 2026 ` +
-      `&nbsp;📁 <strong>${bajaAntes}</strong> con baja anterior a 2026 ` +
-      `&nbsp;🟢 <strong>${activo}</strong> activos sin padrón ` +
-      `&nbsp;⚪ <strong>${sinReg}</strong> sin registro en histórico`;
-  }
+  // Resumen
+  const est = APORTES_META.sin_estados || {};
+  const b26 = est['Baja 2026']||0;
+  const bAnt = Object.entries(est).filter(([k])=>k.startsWith('Baja anterior')).reduce((s,[,v])=>s+v,0);
+  const activo = est['Activo (sin padrón)']||0;
+  document.getElementById('bajas-resumen').innerHTML =
+    `<strong>${bajaData.length}</strong> personas no están en el padrón activo pero registran aportes/contribuciones. ` +
+    `&nbsp;🔴 <strong>${b26}</strong> baja 2026` +
+    `&nbsp;📁 <strong>${bAnt}</strong> baja anterior` +
+    `&nbsp;🟢 <strong>${activo}</strong> activos sin padrón` +
+    `&nbsp; · <strong>${conAp}</strong> con aportes > $0`;
 
-  renderSinGrupo();
+  renderBajas();
 }
-function getSinGrupoData() {
-  const srch   = (document.getElementById('srch-sg')?.value||'').toLowerCase();
-  const estado = document.getElementById('sel-sg-estado')?.value||'';
-  const deleg  = document.getElementById('sel-sg-deleg')?.value||'';
-  const conAp  = document.getElementById('chk-con-ap')?.checked||false;
+function getBajasData() {
+  const srch  = (document.getElementById('srch-bajas')?.value||'').toLowerCase();
+  const estado= document.getElementById('sel-bajas-estado')?.value||'';
+  const deleg = document.getElementById('sel-bajas-deleg')?.value||'';
+  const conAp = document.getElementById('chk-bajas-conap')?.checked||false;
   return APORTES_SIN_GRUPO.filter(r=>{
+    const est = r.estado||'';
+    // Solo mostrar bajas/desafiliado/bloqueo/activo-sin-padron
+    const esBaja = est.startsWith('Baja') || est==='Desafiliado' || est==='Bloqueo' || est==='Activo (sin padrón)';
+    if(!esBaja) return false;
     if(conAp && !r.con_ap) return false;
-    if(estado === 'baja_anterior' && !(r.estado||'').startsWith('Baja anterior')) return false;
-    else if(estado && estado !== 'baja_anterior' && r.estado !== estado) return false;
-    if(deleg  && r.deleg  !== deleg)  return false;
+    if(estado==='baja_anterior' && !est.startsWith('Baja anterior')) return false;
+    else if(estado && estado!=='baja_anterior' && est!==estado) return false;
+    if(deleg && r.deleg!==deleg) return false;
     if(srch && !(r.cuil||'').includes(srch) && !(r.dni||'').includes(srch)
-            && !(r.nombre||'').toLowerCase().includes(srch)) return false;
+           && !(r.nombre||'').toLowerCase().includes(srch)) return false;
     return true;
   });
 }
-function renderSinGrupo() {
-  const data  = getSinGrupoData();
+function renderBajas() {
+  const data  = getBajasData();
   const pages = Math.ceil(data.length/PS)||1;
-  if(sgPage>=pages) sgPage=0;
-  const sl = data.slice(sgPage*PS,(sgPage+1)*PS);
-  set('cnt-sg', data.length.toLocaleString('es-AR') + ' registros');
-  set('sg-pag-info', data.length ? `${sgPage*PS+1}–${Math.min((sgPage+1)*PS,data.length)} de ${data.length}` : '');
-  function ebadge(estado) {
-    if(estado==='Baja 2026')          return '<span class="badge" style="background:#ffebee;color:#C62828">🔴 Baja 2026</span>';
-    if(estado==='Activo (sin padrón)')return '<span class="badge" style="background:#e8f5e9;color:#1E8449">🟢 Activo</span>';
-    if(estado==='Sin registro')       return '<span class="badge" style="background:#f5f5f5;color:#757575">⚪ Sin registro</span>';
-    if((estado||'').startsWith('Baja anterior')) return `<span class="badge" style="background:#fff8e1;color:#F57F17">📁 ${estado}</span>`;
-    return `<span class="badge" style="background:#f5f5f5;color:#555">${estado||'—'}</span>`;
-  }
-  document.getElementById('tb-sg').innerHTML = sl.map(r=>`<tr>
+  if(bajasPage>=pages) bajasPage=0;
+  const sl = data.slice(bajasPage*PS,(bajasPage+1)*PS);
+  set('cnt-bajas', data.length.toLocaleString('es-AR') + ' personas');
+  set('bajas-pag-info', data.length ? `${bajasPage*PS+1}–${Math.min((bajasPage+1)*PS,data.length)} de ${data.length}` : '');
+  document.getElementById('tb-bajas').innerHTML = sl.map(r=>`<tr>
     <td><strong>${r.nombre||'—'}</strong></td>
     <td style="font-family:monospace;font-size:11px">${r.cuil||'—'}</td>
     <td>${ebadge(r.estado)}</td>
@@ -819,36 +844,92 @@ function renderSinGrupo() {
   </tr>`).join('')||'<tr><td colspan="9" style="text-align:center;color:var(--muted);padding:20px">Sin resultados</td></tr>';
   let ph='';
   if(pages>1){
-    if(sgPage>0) ph+=`<button class="pb" onclick="goSg(${sgPage-1})">‹</button>`;
-    const s=Math.max(0,sgPage-2),e=Math.min(pages-1,sgPage+2);
-    for(let i=s;i<=e;i++) ph+=`<button class="pb${i===sgPage?' active':''}" onclick="goSg(${i})">${i+1}</button>`;
-    if(sgPage<pages-1) ph+=`<button class="pb" onclick="goSg(${sgPage+1})">›</button>`;
+    if(bajasPage>0) ph+=`<button class="pb" onclick="goBajas(${bajasPage-1})">‹</button>`;
+    const s=Math.max(0,bajasPage-2),e=Math.min(pages-1,bajasPage+2);
+    for(let i=s;i<=e;i++) ph+=`<button class="pb${i===bajasPage?' active':''}" onclick="goBajas(${i})">${i+1}</button>`;
+    if(bajasPage<pages-1) ph+=`<button class="pb" onclick="goBajas(${bajasPage+1})">›</button>`;
   }
-  document.getElementById('pag-sg').innerHTML = ph;
+  document.getElementById('pag-bajas').innerHTML = ph;
 }
-function goSg(p){sgPage=p;renderSinGrupo();}
-function descargarSinGrupo(){
-  const data = getSinGrupoData();
+function goBajas(p){bajasPage=p;renderBajas();}
+function descargarBajas(){
+  const data = getBajasData();
   const filas = data.map(r=>({
-    'Nombre':         r.nombre||'',
-    'CUIL':           r.cuil||'',
-    'Estado':         r.estado||'',
-    'Fecha baja':     r.fecha_baja||'',
-    'Mes aporte':     r.mes,
-    'Meses con ap.':  r.meses_ap||'',
-    'Delegación':     r.deleg||'',
-    'Convenio':       r.convenio||'',
-    'Aportes ($)':    r.ap,
-    'Contrib. ($)':   r.co,
-    'Total ($)':      r.tot,
+    'Nombre':r.nombre||'','CUIL':r.cuil||'','Estado':r.estado||'',
+    'Fecha baja':r.fecha_baja||'','Meses con ap.':r.meses_ap||'',
+    'Delegación':r.deleg||'','Convenio':r.convenio||'',
+    'Aportes ($)':r.ap,'Contrib. ($)':r.co,'Total ($)':r.tot,
   }));
   const wb = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(filas), 'Sin identificar');
-  const suf = [
-    document.getElementById('sel-sg-mes')?.value||'',
-    document.getElementById('sel-sg-motivo')?.value?.split(' ')[0]||'',
-  ].filter(Boolean).join('-')||'todos';
-  XLSX.writeFile(wb, `aportes-sin-identificar-${suf}.xlsx`);
+  XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(filas), 'Bajas');
+  XLSX.writeFile(wb, `aportes-bajas-${new Date().toISOString().slice(0,10)}.xlsx`);
+}
+
+// ── Tab Sin clasificar ────────────────────────────────────────────────────────
+let scPage = 0;
+function initSinClasif() {
+  const scData = APORTES_SIN_GRUPO.filter(r=>r.estado==='Sin clasificar');
+  const conAp  = scData.filter(r=>r.con_ap).length;
+  document.getElementById('tab-btn-sc').innerHTML =
+    `❓ Sin clasificar <span style="background:var(--red);color:#fff;border-radius:10px;padding:1px 6px;font-size:10px;font-weight:700">${scData.length.toLocaleString('es-AR')}</span>`;
+
+  // Delegaciones
+  const delegs = [...new Set(scData.map(r=>r.deleg||''))].filter(Boolean).sort();
+  const selDel = document.getElementById('sel-sc-deleg');
+  delegs.forEach(d=>{ const o=document.createElement('option');o.value=d;o.textContent=d;selDel.appendChild(o); });
+
+  renderSinClasif();
+}
+function getSinClasifData() {
+  const srch  = (document.getElementById('srch-sc')?.value||'').toLowerCase();
+  const deleg = document.getElementById('sel-sc-deleg')?.value||'';
+  const conAp = document.getElementById('chk-sc-conap')?.checked||false;
+  return APORTES_SIN_GRUPO.filter(r=>{
+    if(r.estado !== 'Sin clasificar') return false;
+    if(conAp && !r.con_ap) return false;
+    if(deleg && r.deleg !== deleg) return false;
+    if(srch && !(r.cuil||'').includes(srch) && !(r.dni||'').includes(srch)
+           && !(r.nombre||'').toLowerCase().includes(srch)) return false;
+    return true;
+  });
+}
+function renderSinClasif() {
+  const data  = getSinClasifData();
+  const pages = Math.ceil(data.length/PS)||1;
+  if(scPage>=pages) scPage=0;
+  const sl = data.slice(scPage*PS,(scPage+1)*PS);
+  set('cnt-sc', data.length.toLocaleString('es-AR') + ' personas');
+  set('sc-pag-info', data.length ? `${scPage*PS+1}–${Math.min((scPage+1)*PS,data.length)} de ${data.length}` : '');
+  document.getElementById('tb-sc').innerHTML = sl.map(r=>`<tr>
+    <td><strong>${r.nombre||'—'}</strong></td>
+    <td style="font-family:monospace;font-size:11px">${r.cuil||'—'}</td>
+    <td style="font-family:monospace;font-size:11px">${r.dni||'—'}</td>
+    <td style="font-size:11px;color:var(--muted)">${r.meses_ap||'—'}</td>
+    <td>${r.deleg||'—'}</td>
+    <td class="r">${r.ap>0 ? ars(r.ap) : '<span style="color:var(--muted)">—</span>'}</td>
+    <td class="r">${r.co>0 ? ars(r.co) : '<span style="color:var(--muted)">—</span>'}</td>
+    <td class="r bold">${ars(r.tot)}</td>
+  </tr>`).join('')||'<tr><td colspan="8" style="text-align:center;color:var(--muted);padding:20px">Sin resultados</td></tr>';
+  let ph='';
+  if(pages>1){
+    if(scPage>0) ph+=`<button class="pb" onclick="goSc(${scPage-1})">‹</button>`;
+    const s=Math.max(0,scPage-2),e=Math.min(pages-1,scPage+2);
+    for(let i=s;i<=e;i++) ph+=`<button class="pb${i===scPage?' active':''}" onclick="goSc(${i})">${i+1}</button>`;
+    if(scPage<pages-1) ph+=`<button class="pb" onclick="goSc(${scPage+1})">›</button>`;
+  }
+  document.getElementById('pag-sc').innerHTML = ph;
+}
+function goSc(p){scPage=p;renderSinClasif();}
+function descargarSinClasif(){
+  const data = getSinClasifData();
+  const filas = data.map(r=>({
+    'Nombre':r.nombre||'','CUIL':r.cuil||'','DNI':r.dni||'',
+    'Meses con ap.':r.meses_ap||'','Delegación':r.deleg||'','Convenio':r.convenio||'',
+    'Aportes ($)':r.ap,'Contrib. ($)':r.co,'Total ($)':r.tot,
+  }));
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(filas), 'Sin clasificar');
+  XLSX.writeFile(wb, `aportes-sin-clasificar-${new Date().toISOString().slice(0,10)}.xlsx`);
 }
 
 // ── tabs ──────────────────────────────────────────────────────────────────────
@@ -858,7 +939,8 @@ function setTab(name,btn){
   btn.classList.add('active');
   document.getElementById('tab-'+name).classList.add('active');
   if(name==='grupos') renderGrupos();
-  if(name==='singrupo') renderSinGrupo();
+  if(name==='bajas') renderBajas();
+  if(name==='sinclasif') renderSinClasif();
 }
 
 // ── sort ──────────────────────────────────────────────────────────────────────
