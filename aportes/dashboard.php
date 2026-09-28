@@ -275,22 +275,32 @@ tr:hover td{background:#fafafa}
 
       <!-- Sin identificar -->
       <div id="tab-singrupo" class="tab-pane">
-        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:12px">
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:10px">
           <div class="p-title" style="margin:0;color:var(--red)">⚠ Sin identificar en padrón <span class="cnt" id="cnt-sg" style="background:var(--red-lt);color:var(--red)">—</span></div>
-          <input class="srch" id="srch-sg" placeholder="Buscar por CUIL, DNI o nombre..." oninput="renderSinGrupo()">
-          <select id="sel-sg-mes" class="sel" onchange="renderSinGrupo()"><option value="">Todos los meses</option></select>
+          <input class="srch" id="srch-sg" placeholder="Buscar por CUIL, DNI, nombre..." oninput="sgPage=0;renderSinGrupo()">
+          <select id="sel-sg-estado" class="sel" onchange="sgPage=0;renderSinGrupo()">
+            <option value="">Todos los estados</option>
+            <option value="Baja 2026">🔴 Baja 2026</option>
+            <option value="baja_anterior">📁 Baja anterior 2026</option>
+            <option value="Activo (sin padrón)">🟢 Activo sin padrón</option>
+            <option value="Sin registro">⚪ Sin registro</option>
+          </select>
+          <label style="font-size:12px;display:flex;align-items:center;gap:5px;cursor:pointer">
+            <input type="checkbox" id="chk-con-ap" onchange="sgPage=0;renderSinGrupo()"> Solo con aportes
+          </label>
+          <select id="sel-sg-deleg"  class="sel" onchange="sgPage=0;renderSinGrupo()"><option value="">Todas las delegaciones</option></select>
           <button class="btn dl" onclick="descargarSinGrupo()">⬇ Descargar Excel</button>
-          <div class="pag-info" id="sg-pag-info"></div>
+          <div class="pag-info" id="sg-pag-info" style="margin-left:auto"></div>
         </div>
-        <div class="nota" style="border-left-color:var(--red);margin-bottom:10px">
-          Estos CUIL aportaron pero no se encontraron en el padrón de afiliados. Pueden ser bajas recientes, nuevos aún no incorporados, o categorías especiales. No se incluyen en los grupos familiares ni en los KPIs principales.
-        </div>
+        <div id="sg-resumen" class="nota" style="border-left-color:var(--red);margin-bottom:10px"></div>
         <table>
           <thead><tr>
-            <th>CUIL</th>
-            <th>DNI</th>
             <th>Nombre</th>
-            <th>Mes</th>
+            <th>CUIL</th>
+            <th>Estado</th>
+            <th>Fecha baja</th>
+            <th>Meses con aportes</th>
+            <th>Delegación</th>
             <th class="r">Aportes</th>
             <th class="r">Contribuciones</th>
             <th class="r">Total</th>
@@ -737,43 +747,76 @@ function resetFiltros(silent){
 // ── Sin grupo ─────────────────────────────────────────────────────────────────
 let sgPage = 0;
 function initSinGrupo() {
-  // poblar selector de mes
-  const sel = document.getElementById('sel-sg-mes');
-  const meses = [...new Set(APORTES_SIN_GRUPO.map(r=>r.mes))].sort((a,b)=>{
-    const[am,ay]=a.split('-'),[bm,by]=b.split('-');return(+ay*100+ +am)-(+by*100+ +bm);
-  });
-  meses.forEach(m=>{ const o=document.createElement('option');o.value=m;o.textContent=m;sel.appendChild(o); });
-  // badge en la pestaña
+  // badge pestaña
   document.getElementById('tab-btn-sg').innerHTML =
     `⚠ Sin identificar <span style="background:var(--red);color:#fff;border-radius:10px;padding:1px 6px;font-size:10px;font-weight:700">${APORTES_SIN_GRUPO.length.toLocaleString('es-AR')}</span>`;
-  set('cnt-sg', APORTES_SIN_GRUPO.length.toLocaleString('es-AR') + ' registros');
+
+  // Delegaciones
+  const delegs = [...new Set(APORTES_SIN_GRUPO.map(r=>r.deleg||''))].filter(Boolean).sort();
+  const selDel = document.getElementById('sel-sg-deleg');
+  delegs.forEach(d=>{ const o=document.createElement('option');o.value=d;o.textContent=d;selDel.appendChild(o); });
+
+  // Resumen por motivo (con datos de META si están disponibles)
+  if(APORTES_META.sin_estados){
+    const est  = APORTES_META.sin_estados;
+    const total = APORTES_META.sin_dni || 0;
+    const baja2026    = est['Baja 2026'] || 0;
+    const activo      = est['Activo (sin padrón)'] || 0;
+    const sinReg      = est['Sin registro'] || 0;
+    // bajas anteriores = todo lo que no es baja2026, activo, ni sin registro
+    const bajaAntes   = Object.entries(est)
+      .filter(([k])=>k.startsWith('Baja anterior'))
+      .reduce((s,[,v])=>s+v,0);
+    document.getElementById('sg-resumen').innerHTML =
+      `<strong>${total.toLocaleString('es-AR')} DNIs únicos</strong> aportaron pero no están en el padrón activo. ` +
+      `&nbsp;🔴 <strong>${baja2026}</strong> con baja en 2026 ` +
+      `&nbsp;📁 <strong>${bajaAntes}</strong> con baja anterior a 2026 ` +
+      `&nbsp;🟢 <strong>${activo}</strong> activos sin padrón ` +
+      `&nbsp;⚪ <strong>${sinReg}</strong> sin registro en histórico`;
+  }
+
   renderSinGrupo();
 }
 function getSinGrupoData() {
-  const srch = (document.getElementById('srch-sg')?.value||'').toLowerCase();
-  const mes  = document.getElementById('sel-sg-mes')?.value||'';
+  const srch   = (document.getElementById('srch-sg')?.value||'').toLowerCase();
+  const estado = document.getElementById('sel-sg-estado')?.value||'';
+  const deleg  = document.getElementById('sel-sg-deleg')?.value||'';
+  const conAp  = document.getElementById('chk-con-ap')?.checked||false;
   return APORTES_SIN_GRUPO.filter(r=>{
-    if(mes && r.mes!==mes) return false;
-    if(srch && !r.cuil.includes(srch) && !r.dni.includes(srch) && !(r.nombre||'').toLowerCase().includes(srch)) return false;
+    if(conAp && !r.con_ap) return false;
+    if(estado === 'baja_anterior' && !(r.estado||'').startsWith('Baja anterior')) return false;
+    else if(estado && estado !== 'baja_anterior' && r.estado !== estado) return false;
+    if(deleg  && r.deleg  !== deleg)  return false;
+    if(srch && !(r.cuil||'').includes(srch) && !(r.dni||'').includes(srch)
+            && !(r.nombre||'').toLowerCase().includes(srch)) return false;
     return true;
   });
 }
 function renderSinGrupo() {
-  const data = getSinGrupoData();
-  const pages = Math.ceil(data.length/PS);
+  const data  = getSinGrupoData();
+  const pages = Math.ceil(data.length/PS)||1;
   if(sgPage>=pages) sgPage=0;
   const sl = data.slice(sgPage*PS,(sgPage+1)*PS);
   set('cnt-sg', data.length.toLocaleString('es-AR') + ' registros');
-  set('sg-pag-info', `${sgPage*PS+1}–${Math.min((sgPage+1)*PS,data.length)} de ${data.length}`);
+  set('sg-pag-info', data.length ? `${sgPage*PS+1}–${Math.min((sgPage+1)*PS,data.length)} de ${data.length}` : '');
+  function ebadge(estado) {
+    if(estado==='Baja 2026')          return '<span class="badge" style="background:#ffebee;color:#C62828">🔴 Baja 2026</span>';
+    if(estado==='Activo (sin padrón)')return '<span class="badge" style="background:#e8f5e9;color:#1E8449">🟢 Activo</span>';
+    if(estado==='Sin registro')       return '<span class="badge" style="background:#f5f5f5;color:#757575">⚪ Sin registro</span>';
+    if((estado||'').startsWith('Baja anterior')) return `<span class="badge" style="background:#fff8e1;color:#F57F17">📁 ${estado}</span>`;
+    return `<span class="badge" style="background:#f5f5f5;color:#555">${estado||'—'}</span>`;
+  }
   document.getElementById('tb-sg').innerHTML = sl.map(r=>`<tr>
-    <td style="font-family:monospace;font-size:12px">${r.cuil||'—'}</td>
-    <td style="font-family:monospace;font-size:12px">${r.dni||'—'}</td>
-    <td>${r.nombre||'—'}</td>
-    <td>${r.mes}</td>
-    <td class="r">${ars(r.ap)}</td>
-    <td class="r">${ars(r.co)}</td>
+    <td><strong>${r.nombre||'—'}</strong></td>
+    <td style="font-family:monospace;font-size:11px">${r.cuil||'—'}</td>
+    <td>${ebadge(r.estado)}</td>
+    <td style="font-size:12px">${r.fecha_baja||'—'}</td>
+    <td style="font-size:11px;color:var(--muted)">${r.meses_ap||'—'}</td>
+    <td>${r.deleg||'—'}</td>
+    <td class="r">${r.ap>0 ? ars(r.ap) : '<span style="color:var(--muted)">—</span>'}</td>
+    <td class="r">${r.co>0 ? ars(r.co) : '<span style="color:var(--muted)">—</span>'}</td>
     <td class="r bold">${ars(r.tot)}</td>
-  </tr>`).join('')||'<tr><td colspan="7" style="text-align:center;color:var(--muted);padding:20px">Sin resultados</td></tr>';
+  </tr>`).join('')||'<tr><td colspan="9" style="text-align:center;color:var(--muted);padding:20px">Sin resultados</td></tr>';
   let ph='';
   if(pages>1){
     if(sgPage>0) ph+=`<button class="pb" onclick="goSg(${sgPage-1})">‹</button>`;
@@ -787,18 +830,25 @@ function goSg(p){sgPage=p;renderSinGrupo();}
 function descargarSinGrupo(){
   const data = getSinGrupoData();
   const filas = data.map(r=>({
-    'CUIL':              r.cuil||'',
-    'DNI':               r.dni||'',
-    'Nombre':            r.nombre||'',
-    'Mes':               r.mes,
-    'Aportes ($)':       r.ap,
-    'Contribuciones ($)':r.co,
-    'Total ($)':         r.tot,
+    'Nombre':         r.nombre||'',
+    'CUIL':           r.cuil||'',
+    'Estado':         r.estado||'',
+    'Fecha baja':     r.fecha_baja||'',
+    'Mes aporte':     r.mes,
+    'Meses con ap.':  r.meses_ap||'',
+    'Delegación':     r.deleg||'',
+    'Convenio':       r.convenio||'',
+    'Aportes ($)':    r.ap,
+    'Contrib. ($)':   r.co,
+    'Total ($)':      r.tot,
   }));
   const wb = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(filas), 'Sin identificar');
-  const mes = document.getElementById('sel-sg-mes')?.value||'todos';
-  XLSX.writeFile(wb, `aportes-sin-identificar-${mes}.xlsx`);
+  const suf = [
+    document.getElementById('sel-sg-mes')?.value||'',
+    document.getElementById('sel-sg-motivo')?.value?.split(' ')[0]||'',
+  ].filter(Boolean).join('-')||'todos';
+  XLSX.writeFile(wb, `aportes-sin-identificar-${suf}.xlsx`);
 }
 
 // ── tabs ──────────────────────────────────────────────────────────────────────
