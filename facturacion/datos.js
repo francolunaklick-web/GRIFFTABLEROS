@@ -1,6 +1,6 @@
 // Auto-generado por actualizar.py - No editar manualmente
 window.DATOS = {
-  "timestamp": "2026-09-28 16:16",
+  "timestamp": "2026-09-30 16:19",
   "facturas": [
     {
       "fecha": "2026-05-01 00:00:00",
