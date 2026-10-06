@@ -4,3 +4,13 @@
 9_archivo/
 ACTUALIZAR_TODO.bat
 0_LEEME.txt
+
+# Contraseña — nunca al repo
+config/clave.php
+
+# Archivos de datos generados (se regeneran con actualizar.py)
+# Se sirven a través de datos.php con auth, no como estáticos
+*/datos.js
+
+# CSVs con datos del cliente — no subir al repo
+**/*.csv

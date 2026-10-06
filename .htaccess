@@ -1,5 +1,11 @@
 DirectoryIndex login.php
 
+# Bloquear acceso directo a archivos de datos sensibles
 <FilesMatch "\.(csv|xlsx|xls|pdf)$">
+    Require all denied
+</FilesMatch>
+
+# Bloquear acceso directo a datos.js (los datos ahora se sirven por datos.php con auth)
+<FilesMatch "^datos\.js$">
     Require all denied
 </FilesMatch>

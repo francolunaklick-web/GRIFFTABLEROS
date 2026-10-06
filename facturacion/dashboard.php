@@ -14,7 +14,7 @@ function _tryInit(){
 }
 (function() {
   const s = document.createElement('script');
-  s.src = 'datos.js?v=' + Date.now();
+  s.src = 'datos.php?v=' + Date.now();
   s.onload = () => { window._datosCargado = true; _tryInit(); };
   s.onerror = () => {
     window._datosCargado = true;

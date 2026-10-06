@@ -355,7 +355,7 @@ tr:hover td{background:#fafafa}
 <script>
 (function(){
   const s = document.createElement('script');
-  s.src = 'datos.js?v=' + Date.now();
+  s.src = 'datos.php?v=' + Date.now();
   s.onload = () => init();
   s.onerror = () => { document.getElementById('loading').textContent = '❌ Error — corré actualizar.py primero.'; };
   document.head.appendChild(s);
