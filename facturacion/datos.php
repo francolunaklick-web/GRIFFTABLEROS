@@ -1,7 +1,7 @@
 <?php require_once '../auth_check.php'; header('Content-Type: application/javascript'); ?>
 // Auto-generado por actualizar.py - No editar manualmente
 window.DATOS = {
-  "timestamp": "2026-10-21 11:15",
+  "timestamp": "2026-10-23 11:30",
   "facturas": [
     {
       "fecha": "2026-05-01 00:00:00",
