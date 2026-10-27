@@ -1,4 +1,4 @@
-Corrida: 23/10/2026 11:30:39
+Corrida: 27/10/2026 10:54:08
 
 ER OK: Estado de Resultado 01-2026.xlsx -> Enero 2026 (15374 afil, $ 414,610,785.10)
 ER OK: Estado de Resultado 02-2026.xlsx -> Febrero 2026 (14951 afil, $ 442,431,094.72)
@@ -13,7 +13,10 @@ CP OK: Planilla_Prestadores_03-2026.xlsx -> Marzo 2026 (324 fact, $ 344,300,866.
 CP OK: Planilla_Prestadores_04-2026.xlsx -> Abril 2026 (300 fact, $ 307,914,146.21)
 CP OK: Planilla_Prestadores_05-2026.xlsx -> Mayo 2026 (292 fact, $ 265,018,688.18)
 CP OK: Planilla_Prestadores_06-2026.xlsx -> Junio 2026 (263 fact, $ 311,803,903.68)
-CP OK: Planilla_Prestadores_07-2026.xlsx -> Julio 2026 (281 fact, $ 306,437,432.58)
+CP OK: Planilla_Prestadores_07-2026.xlsx -> Julio 2026 (292 fact, $ 317,065,886.43)
+CP OK: Planilla_Prestadores_07-2026_ANTERIOR.xlsx -> Julio 2026 (281 fact, $ 306,437,432.58)
+CP OK: Planilla_Prestadores_08-2026.xlsx -> Agosto 2026 (325 fact, $ 392,776,428.37)
+CP OK: Planilla_Prestadores_09-2026.xlsx -> Septiembre 2026 (280 fact, $ 377,436,881.47)
 IMPUESTOS 01-2026: $ 13,726,170.49
 IMPUESTOS 02-2026: $ 578,976.49
 IMPUESTOS 03-2026: $ 378,071.79
@@ -32,7 +35,9 @@ PERIODO 04-2026: ER $9,170,911 | CP $307,914,146
 PERIODO 05-2026: ER $34,795,752 | CP $265,018,688
 PERIODO 06-2026: ER $7,885,058 | CP $311,803,904
 PERIODO 07-2026: ER $-49,041,602 | CP $306,437,433
+PERIODO 08-2026: ER -- | CP $392,776,428
+PERIODO 09-2026: ER -- | CP $377,436,881
 
 Excel generado: TABLERO_Resumen.xlsx
 
-Duracion: 2.7s
+Duracion: 3.3s
