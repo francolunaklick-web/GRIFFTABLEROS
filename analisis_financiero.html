@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Análisis Financiero — Griff Salud</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',sans-serif;background:#0f1117;color:#e2e8f0;padding:16px;font-size:12px}
+h1{color:#60a5fa;font-size:15px;margin-bottom:2px}
+.sub{color:#475569;font-size:10px;margin-bottom:12px}
+
+/* SELECTOR */
+.mes-bar{display:flex;gap:4px;margin-bottom:14px;flex-wrap:wrap;align-items:center}
+.mes-bar label{font-size:9px;color:#475569;font-weight:700;text-transform:uppercase;margin-right:4px}
+.mb{padding:4px 12px;border:1px solid #334155;border-radius:18px;cursor:pointer;
+  font-size:10px;font-weight:700;color:#64748b;background:none;transition:all .15s}
+.mb.on{background:#1e3a5f;border-color:#3b82f6;color:#60a5fa}
+.mb.real.on{background:#052e16;border-color:#34d399;color:#34d399}
+.mb.est.on {background:#1c1507;border-color:#f59e0b;color:#f59e0b}
+.mb.proy.on{background:#1e1b4b;border-color:#a78bfa;color:#a78bfa}
+
+/* KPIs */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
+.kpi{background:#1a1f2e;border-radius:9px;padding:12px 14px;border-left:3px solid}
+.kpi-l{font-size:9px;color:#64748b;font-weight:700;text-transform:uppercase;letter-spacing:.3px;margin-bottom:2px}
+.kpi-v{font-size:20px;font-weight:800;line-height:1.1}
+.kpi-s{font-size:9px;color:#475569;margin-top:3px}
+.kpi-s b{font-weight:700}
+
+/* PANELES */
+.panels{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.panel{background:#1a1f2e;border-radius:9px;overflow:hidden}
+.ph{padding:9px 13px;border-bottom:1px solid #252d40;display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none}
+.ph h2{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#94a3b8}
+.ph-static{cursor:default}
+.pbadge{font-size:9px;padding:2px 7px;border-radius:9px;font-weight:700}
+.toggle-arr{font-size:9px;color:#475569;margin-left:4px;transition:transform .2s}
+.toggle-arr.open{transform:rotate(90deg)}
+.collap{overflow:hidden;transition:max-height .3s ease;max-height:0}
+.collap.open{max-height:600px}
+.pb{padding:11px 13px}
+
+/* tabla OS */
+table.os{width:100%;border-collapse:collapse;font-size:11px}
+table.os th{font-size:9px;color:#475569;font-weight:700;text-transform:uppercase;
+  padding:0 5px 5px;border-bottom:1px solid #252d40}
+table.os th:not(:first-child){text-align:right}
+table.os td{padding:3px 5px}
+table.os td:not(:first-child){text-align:right}
+table.os .tot-r td{border-top:1px solid #252d40;font-weight:700;padding-top:5px}
+.efield{background:transparent;border:none;border-bottom:1px dashed #f59e0b55;
+  color:#f59e0b;font-size:11px;font-weight:700;text-align:right;width:72px;
+  font-family:inherit;outline:none;padding:0}
+.efield:focus{border-bottom-color:#3b82f6;color:#60a5fa}
+.efield-s{background:transparent;border:none;border-bottom:1px dashed #64748b55;
+  color:#94a3b8;font-size:11px;text-align:right;width:72px;font-family:inherit;outline:none;padding:0}
+.efield-s:focus{border-bottom-color:#f59e0b;color:#f59e0b}
+
+/* sub-sección colapsable extras */
+.sub-hdr{display:flex;align-items:center;gap:4px;cursor:pointer;padding:5px 0;
+  border-top:1px solid #1e2535;margin-top:6px}
+.sub-hdr span{font-size:9px;color:#475569;font-weight:700;text-transform:uppercase;letter-spacing:.3px}
+.sub-arr{font-size:8px;color:#475569;transition:transform .2s}
+.sub-arr.open{transform:rotate(90deg)}
+.sub-body{overflow:hidden;max-height:0;transition:max-height .2s}
+.sub-body.open{max-height:200px}
+.extras-sum{font-size:10px;color:#64748b;margin-left:auto}
+
+/* posición */
+.ln{display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-bottom:1px solid #1e2535}
+.ln:last-child{border:none}
+.ln .l{color:#94a3b8;font-size:11px}.ln .l small{font-size:9px;color:#475569;margin-left:3px}
+.ln .v{font-weight:700;font-size:11px}
+.ln.tot{background:#0f1117;padding:5px 8px;border-radius:6px;margin-top:5px;border:none}
+.ln.tot .l{color:#e2e8f0;font-weight:700}
+.ln.gran{background:#162032;padding:9px 11px;border-radius:8px;margin-top:8px;
+  border:none;border-left:3px solid #3b82f6}
+.ln.gran .l{color:#60a5fa;font-weight:800;font-size:12px}
+.ln.gran .v{font-size:16px}
+.sep{height:1px;background:#252d40;margin:7px 0}
+.stitle{font-size:9px;color:#475569;font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin:7px 0 3px}
+.sl-row{display:flex;align-items:center;gap:6px;padding:3px 0}
+.sl-row label{font-size:10px;color:#64748b;min-width:135px}
+input[type=range]{width:85px;accent-color:#3b82f6}
+.rv{font-size:10px;color:#60a5fa;font-weight:700;min-width:32px}
+
+/* desfasaje */
+.dfbox{background:#0d1420;border:1px solid #1e3a5f;border-radius:7px;padding:9px 11px;margin-top:8px}
+.dfbox .dt{font-size:9px;color:#475569;font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px}
+.df-line{font-size:10px;margin-bottom:4px;display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+.tag{padding:2px 7px;border-radius:9px;font-size:9px;font-weight:700}
+.tag-ing{background:#052e1688;color:#34d399;border:1px solid #34d39944}
+.tag-ch {background:#2d120088;color:#fb923c;border:1px solid #fb923c44}
+.tag-lag{background:#1e1b4b88;color:#a78bfa;border:1px solid #a78bfa44}
+.df-gap{font-size:9px;color:#60a5fa;margin-top:5px;padding-top:5px;border-top:1px solid #1e3a5f}
+
+/* proyección */
+.proy-wrap{overflow-x:auto}
+table.proy{border-collapse:collapse;width:100%;min-width:580px;font-size:11px}
+table.proy th{background:#0f1117;padding:7px 9px;font-size:9px;color:#475569;
+  font-weight:700;text-transform:uppercase;letter-spacing:.3px;text-align:right;white-space:nowrap}
+table.proy th:first-child{text-align:left;min-width:140px}
+table.proy td{padding:4px 9px;text-align:right;border-bottom:1px solid #0f1117;white-space:nowrap}
+table.proy td:first-child{text-align:left;color:#94a3b8}
+table.proy .ctx td{color:#2a3a52;font-size:9px;font-style:italic;background:#0d111a}
+table.proy .ctx td:first-child{padding-left:14px}
+table.proy .sub td:first-child{padding-left:16px;color:#475569;font-size:10px}
+table.proy .sub td{color:#64748b}
+table.proy .tot td{background:#0f1117;font-weight:700;border-top:1px solid #252d40}
+table.proy .gran td{background:#162032;font-weight:800;font-size:12px;
+  border-top:2px solid #3b82f6;color:#60a5fa}
+table.proy .spacer td{height:5px;background:transparent;border:none}
+.pos{color:#34d399}.neg{color:#f87171}.warn{color:#f59e0b}.dim{color:#475569}
+table.proy th.ac{color:#60a5fa;border-left:2px solid #3b82f6;border-right:2px solid #3b82f6}
+table.proy td.ac{border-left:2px solid #3b82f655;border-right:2px solid #3b82f655}
+table.proy .gran td.ac{border-left:2px solid #60a5fa;border-right:2px solid #60a5fa}
+.bth{display:block;font-size:8px;font-weight:700;padding:1px 5px;border-radius:8px;margin:2px auto 0;width:fit-content}
+.br{background:#052e1688;color:#34d399}.be{background:#1c150788;color:#f59e0b}
+.bp{background:#1e1b4b88;color:#a78bfa}.ba{background:#1e3a5f88;color:#60a5fa}
+</style>
+</head>
+<body>
+
+<h1>💰 Análisis Financiero — Griff Salud</h1>
+<p class="sub">Vista de caja · lo que entra y sale cada mes · Jul 2026 → Ene 2027</p>
+
+<!-- SELECTOR -->
+<div class="mes-bar">
+  <label>Mes:</label>
+  <div id="mes-btns"></div>
+</div>
+
+<!-- KPIs -->
+<div class="kpis" id="kpis"></div>
+
+<!-- PANELES -->
+<div class="panels">
+
+  <!-- Panel A: Ingresos (colapsable) -->
+  <div class="panel">
+    <div class="ph" onclick="togglePanel()">
+      <span class="toggle-arr" id="panel-arr">▶</span>
+      <h2>📥 Ingresos por obra social</h2>
+      <span class="pbadge" id="ing-badge" style="background:#052e16;color:#34d399">REAL</span>
+      <span style="font-size:9px;color:#475569;margin-left:auto" id="ing-nota"></span>
+    </div>
+    <div class="collap" id="panel-collap">
+      <div class="pb">
+        <table class="os">
+          <thead><tr>
+            <th style="text-align:left">Obra Social</th>
+            <th>Afil.</th>
+            <th>Cápita</th>
+            <th>Total</th>
+          </tr></thead>
+          <tbody id="os-body"></tbody>
+        </table>
+        <!-- Sub-sección colapsable: extras -->
+        <div class="sub-hdr" onclick="toggleExtras(event)">
+          <span class="sub-arr" id="sub-arr">▶</span>
+          <span>Refuerzo · NC/ND · Otros</span>
+          <span class="extras-sum" id="extras-sum"></span>
+        </div>
+        <div class="sub-body" id="sub-body">
+          <table class="os"><tbody id="extras-body"></tbody></table>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;
+          padding:7px 5px 0;border-top:1px solid #252d40;margin-top:5px">
+          <span style="font-size:11px;font-weight:700;color:#e2e8f0">= TOTAL INGRESOS</span>
+          <span style="font-size:15px;font-weight:800;color:#34d399" id="ing-total-lbl"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel B: Posición (siempre visible) -->
+  <div class="panel">
+    <div class="ph ph-static">
+      <h2>📊 Posición del mes</h2>
+      <span style="font-size:9px;color:#475569;margin-left:auto" id="pos-lbl"></span>
+    </div>
+    <div class="pb">
+      <div class="stitle">Ingresos cobrados</div>
+      <div class="ln"><span class="l">Capitas <small id="cap-de"></small></span><span class="v pos" id="r-ing"></span></div>
+
+      <div class="sep"></div>
+      <div class="stitle">Compromisos que vencen</div>
+      <div id="ch-lines"></div>
+      <div class="sl-row" style="margin-top:4px">
+        <label>Nuevas emisiones este mes:</label>
+        <input type="range" min="0" max="200" value="80" step="5" oninput="setNE(+this.value)">
+        <span class="rv" id="rv-ne">$80M</span>
+      </div>
+
+      <div class="sep"></div>
+      <div class="stitle">Costos fijos</div>
+      <div class="ln"><span class="l">Estimado mensual</span><span class="v neg" id="r-cf">-$60M</span></div>
+      <div class="sl-row">
+        <label>Ajustar CF:</label>
+        <input type="range" min="30" max="100" value="60" step="5" oninput="setCF(+this.value)">
+        <span class="rv" id="rv-cf">$60M</span>
+      </div>
+
+      <div class="ln gran">
+        <span class="l">✦ DISPONIBLE P/ EMITIR</span>
+        <span class="v" id="r-disp"></span>
+      </div>
+
+      <!-- DESFASAJE -->
+      <div class="dfbox">
+        <div class="dt">🔄 Desfasaje temporal</div>
+        <div class="df-line">
+          <span class="tag tag-ing" id="df-ing-per"></span>
+          <span style="color:#334155">→ factura el 01 →</span>
+          <span style="color:#94a3b8;font-size:10px" id="df-ing-cobro"></span>
+        </div>
+        <div class="df-line">
+          <span class="tag tag-ch" id="df-ch-per"></span>
+          <span style="color:#334155">→ vencen en</span>
+          <span style="color:#94a3b8;font-size:10px" id="df-ch-vence"></span>
+        </div>
+        <div class="df-line" style="margin-top:2px">
+          <span class="tag tag-lag" id="df-lag"></span>
+        </div>
+        <div class="df-gap" id="df-gap"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- PROYECCIÓN -->
+<div class="panel">
+  <div class="ph ph-static">
+    <h2>📅 Proyección Jul–Ene</h2>
+    <span style="font-size:9px;color:#475569;margin-left:6px;flex:1">Fila gris = período de origen de esos fondos / cheques</span>
+    <div class="sl-row" style="margin-left:auto;gap:6px">
+      <label style="font-size:10px;color:#64748b;white-space:nowrap">NE oct:</label>
+      <input type="range" min="0" max="200" value="80" step="5" oninput="setNE(+this.value);document.getElementById('rv-ne').textContent='$'+this.value+'M'">
+      <span class="rv" id="rv-ne2">$80M</span>
+    </div>
+  </div>
+  <div class="proy-wrap pb" style="padding:6px 0">
+    <table class="proy" id="proy-table"></table>
+  </div>
+</div>
+
+<script>
+// ═══════════════════ DATOS ═══════════════════
+const OS_NAMES=['OSPEVIC','OSPIF','OSPLYFC','OSPM','OSSURRBAC','AMSURRBAC','UOM','Otras FC'];
+const OS_DOTS=['#60a5fa','#34d399','#f59e0b','#a78bfa','#fb7185','#22d3ee','#fbbf24','#94a3b8'];
+
+const DATA={
+  'JUL-26':{tipo:'real',pc:'JUN-26',
+    os:[175000000,96000000,38000000,28000000,19000000,11000000,8000000,7118127],
+    af:[4200,2180,1050,850,480,290,230,190],
+    ref:12000000,nc:-16731419,ot:49232898,
+    chp:'JUN-26 (meses anteriores)',chk:'JUL-26'},
+  'AGO-26':{tipo:'real',pc:'JUL-26',
+    os:[200000000,110000000,44000000,32000000,22000000,13000000,9000000,7258357],
+    af:[4500,2350,1100,900,510,310,245,195],
+    ref:12000000,nc:-33144984,ot:34833665,
+    chp:'JUL-26',chk:'AGO-26'},
+  'SEP-26':{tipo:'est',pc:'AGO-26',
+    os:[180000000,98000000,39000000,29000000,20000000,11000000,8000000,6036945],
+    af:[4500,2350,1100,900,510,310,245,195],
+    ref:12000000,nc:-19212167,ot:36844063,
+    chp:'JUL-AGO-26',chk:'SEP-26'},
+  'OCT-26':{tipo:'est',pc:'SEP-26',
+    os:[180000000,98000000,39000000,29000000,20000000,11000000,8000000,6036945],
+    af:[4500,2350,1100,900,510,310,245,195],
+    ref:12000000,nc:-19212167,ot:36844063,
+    chp:'AGO-SEP-26 (60-90 días)',chk:'OCT-26'},
+  'NOV-26':{tipo:'proy',pc:'OCT-26',
+    os:[180000000,98000000,39000000,29000000,20000000,11000000,8000000,6036945],
+    af:[4500,2350,1100,900,510,310,245,195],
+    ref:12000000,nc:-19212167,ot:36844063,
+    chp:'AGO-OCT-26 (60-90 días)',chk:'NOV-26'},
+  'DIC-26':{tipo:'proy',pc:'NOV-26',
+    os:[180000000,98000000,39000000,29000000,20000000,11000000,8000000,6036945],
+    af:[4500,2350,1100,900,510,310,245,195],
+    ref:12000000,nc:-19212167,ot:36844063,
+    chp:'SEP-NOV-26 (90 días)',chk:'DIC-26'},
+  'ENE-27':{tipo:'proy',pc:'DIC-26',
+    os:[180000000,98000000,39000000,29000000,20000000,11000000,8000000,6036945],
+    af:[4500,2350,1100,900,510,310,245,195],
+    ref:12000000,nc:-19212167,ot:36844063,
+    chp:'OCT-NOV-26 (90 días)',chk:'ENE-27'},
+};
+const CH={
+  'JUL-26':{p:0,       np:0,        n:0},
+  'AGO-26':{p:1408273, np:0,        n:1},
+  'SEP-26':{p:1637564, np:0,        n:3},
+  'OCT-26':{p:203534788,np:5000000, n:62},
+  'NOV-26':{p:167533246,np:22324645,n:48},
+  'DIC-26':{p:67904755,np:0,        n:12},
+  'ENE-27':{p:16332505,np:0,        n:2},
+};
+const MESES=['JUL-26','AGO-26','SEP-26','OCT-26','NOV-26','DIC-26','ENE-27'];
+const MES_ACT='OCT-26';
+
+let sel='OCT-26', cfM=60e6, ne=80e6;
+let edOS={}, edEx={};
+let panelOpen=false, extrasOpen=false;
+
+function getOS(m){return edOS[m]?edOS[m]:[...DATA[m].os]}
+function getEx(m){return edEx[m]?edEx[m]:{ref:DATA[m].ref,nc:DATA[m].nc,ot:DATA[m].ot}}
+function ingTot(m){const os=getOS(m).reduce((a,b)=>a+b,0);const ex=getEx(m);return os+ex.ref+ex.nc+ex.ot}
+function chTot(m){const c=CH[m]||{p:0,np:0};const ex=(m==='OCT-26')?ne:0;return c.p+c.np+ex}
+function disp(m){return ingTot(m)-chTot(m)-cfM}
+
+// helpers
+function f(n,d=1){const a=Math.abs(n);return a>=1e9?(a/1e9).toFixed(d)+'B':a>=1e6?(a/1e6).toFixed(d)+'M':(a/1e3).toFixed(0)+'K'}
+function fM(n,d=1){return(n<0?'-$':'$')+f(n,d)}
+function span(n,tag='span'){const c=n>0?'pos':n<0?'neg':'dim';return`<${tag} class="${c}">${fM(n)}</${tag}>`}
+
+// ═══════════════════ SELECTOR ═══════════════════
+function renderSel(){
+  const tm={real:'real',est:'est',proy:'proy'};
+  document.getElementById('mes-btns').innerHTML=MESES.map(m=>{
+    const d=DATA[m],on=m===sel?'on':'';
+    return`<button class="mb ${tm[d.tipo]} ${on}" onclick="selMes('${m}')">${m}${m===MES_ACT?' ★':''}</button>`;
+  }).join('');
+}
+
+// ═══════════════════ KPIs ═══════════════════
+function renderKPIs(){
+  const ing=ingTot(sel);
+  const ch=chTot(sel);
+  const d=disp(sel);
+  // cobertura: cuántos meses de compromisos cubro con este ingreso
+  const cob=ch>0?((ing/ch)*100):999;
+  // total compromisos pendientes todos los meses futuros desde sel
+  const idxSel=MESES.indexOf(sel);
+  const totalPend=MESES.slice(idxSel).reduce((s,m)=>{
+    const c=CH[m]||{p:0,np:0};const ex=(m==='OCT-26')?ne:0;return s+c.p+c.np+ex;
+  },0);
+
+  document.getElementById('kpis').innerHTML=`
+    <div class="kpi" style="border-color:#34d399">
+      <div class="kpi-l">Ingresos del mes</div>
+      <div class="kpi-v" style="color:#34d399">${fM(ing)}</div>
+      <div class="kpi-s">Capitas <b>${DATA[sel].pc}</b> cobradas el 01/${sel.slice(0,3)}</div>
+    </div>
+    <div class="kpi" style="border-color:#f87171">
+      <div class="kpi-l">Compromisos que vencen</div>
+      <div class="kpi-v" style="color:#f87171">${fM(ch)}</div>
+      <div class="kpi-s">${(CH[sel]?.n||0)} cheques${sel==='OCT-26'&&ne>0?' + $'+Math.round(ne/1e6)+'M NE':''} · Período: <b>${DATA[sel].chp.split('(')[0].trim()}</b></div>
+    </div>
+    <div class="kpi" style="border-color:${d>=0?'#60a5fa':'#f87171'}">
+      <div class="kpi-l">Disponible para emitir</div>
+      <div class="kpi-v" style="color:${d>=0?'#60a5fa':'#f87171'}">${d>=0?'+':''}${fM(d)}</div>
+      <div class="kpi-s">Después de compromisos + CF</div>
+    </div>
+    <div class="kpi" style="border-color:#a78bfa">
+      <div class="kpi-l">Compromisos pendientes (${sel}→)</div>
+      <div class="kpi-v" style="color:#a78bfa">${fM(totalPend)}</div>
+      <div class="kpi-s">Cobertura este mes: <b style="color:${cob>=100?'#34d399':'#f87171'}">${cob>=999?'∞':cob.toFixed(0)+'%'}</b></div>
+    </div>`;
+}
+
+// ═══════════════════ PANEL A ═══════════════════
+function renderPanelA(){
+  const d=DATA[sel], os=getOS(sel), ex=getEx(sel);
+  const editable=d.tipo!=='real';
+  const bm={real:{bg:'#052e16',col:'#34d399',l:'REAL'},est:{bg:'#1c1507',col:'#f59e0b',l:'ESTIMADO'},proy:{bg:'#1e1b4b',col:'#a78bfa',l:'PROYECTADO'}};
+  const b=bm[d.tipo];
+  const el=document.getElementById('ing-badge');
+  el.style.background=b.bg; el.style.color=b.col; el.textContent=b.l;
+  document.getElementById('ing-nota').textContent='Capitas '+d.pc;
+
+  let rows='';
+  OS_NAMES.forEach((name,i)=>{
+    const v=os[i], cap=d.af[i]>0?v/d.af[i]:0;
+    const dot=`<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:${OS_DOTS[i]};margin-right:4px;vertical-align:middle"></span>`;
+    const valCell=editable
+      ?`<input class="efield" type="number" value="${Math.round(v/1e6)}" onchange="setOS('${sel}',${i},+this.value*1e6)">`
+      :`<span style="color:#e2e8f0;font-weight:700">${fM(v)}</span>`;
+    rows+=`<tr><td>${dot}${name}</td>
+      <td style="color:#475569">${d.af[i].toLocaleString()}</td>
+      <td style="color:#475569">${cap>0?'$'+Math.round(cap/1e3)+'K':'—'}</td>
+      <td>${valCell}</td></tr>`;
+  });
+  rows+=`<tr class="tot-r"><td colspan="3">= Subtotal cápitas</td>
+    <td style="color:#34d399">${fM(os.reduce((a,b)=>a+b,0))}</td></tr>`;
+  document.getElementById('os-body').innerHTML=rows;
+
+  // extras
+  const extItems=[
+    {k:'ref',l:'Refuerzo cápita',col:'#34d399'},
+    {k:'nc', l:'NC / ND (descuentos)',col:'#f87171'},
+    {k:'ot', l:'Otros / Auditoría',col:'#94a3b8'},
+  ];
+  let extRows='';
+  extItems.forEach(it=>{
+    const v=ex[it.k];
+    const valCell=editable
+      ?`<input class="efield-s" type="number" value="${Math.round(v/1e6)}" onchange="setEx('${sel}','${it.k}',+this.value*1e6)">`
+      :`<span style="color:${it.col}">${fM(v)}</span>`;
+    extRows+=`<tr><td colspan="3" style="color:#475569;font-size:10px;padding-left:5px">${it.l}</td><td>${valCell}</td></tr>`;
+  });
+  document.getElementById('extras-body').innerHTML=extRows;
+  document.getElementById('extras-sum').textContent=fM(ex.ref+ex.nc+ex.ot);
+  document.getElementById('ing-total-lbl').textContent=fM(ingTot(sel));
+}
+
+function togglePanel(){
+  panelOpen=!panelOpen;
+  document.getElementById('panel-arr').classList.toggle('open',panelOpen);
+  document.getElementById('panel-collap').classList.toggle('open',panelOpen);
+}
+function toggleExtras(e){
+  e.stopPropagation();
+  extrasOpen=!extrasOpen;
+  document.getElementById('sub-arr').classList.toggle('open',extrasOpen);
+  document.getElementById('sub-body').classList.toggle('open',extrasOpen);
+}
+function setOS(m,i,v){if(!edOS[m])edOS[m]=[...DATA[m].os];edOS[m][i]=v;renderAll()}
+function setEx(m,k,v){if(!edEx[m])edEx[m]={...getEx(m)};edEx[m][k]=v;renderAll()}
+
+// ═══════════════════ PANEL B ═══════════════════
+function renderPanelB(){
+  const d=DATA[sel];
+  const ch=CH[sel]||{p:0,np:0,n:0};
+  const extra=(sel==='OCT-26')?ne:0;
+  const tot=ch.p+ch.np+extra;
+  const res=disp(sel);
+
+  document.getElementById('pos-lbl').textContent=sel+(sel===MES_ACT?' ★ HOY':'');
+  document.getElementById('cap-de').textContent='de '+d.pc;
+  document.getElementById('r-ing').textContent=fM(ingTot(sel));
+  document.getElementById('r-cf').textContent='-'+fM(cfM);
+
+  let lines='';
+  if(ch.p>0) lines+=`<div class="ln"><span class="l">Prestacionales <small>(${ch.n} cheques)</small></span><span class="v neg">${fM(-ch.p)}</span></div>`;
+  if(ch.np>0) lines+=`<div class="ln"><span class="l">No prestacionales</span><span class="v warn">${fM(-ch.np)}</span></div>`;
+  if(extra>0) lines+=`<div class="ln"><span class="l">Nuevas emisiones (est.)</span><span class="v warn">${fM(-extra)}</span></div>`;
+  if(tot>0) lines+=`<div class="ln tot"><span class="l">= Total compromisos</span><span class="v neg">${fM(-tot)}</span></div>`;
+  else lines=`<div class="ln"><span class="l" style="color:#475569">Sin cheques pendientes</span><span class="v dim">$0</span></div>`;
+  document.getElementById('ch-lines').innerHTML=lines;
+
+  const de=document.getElementById('r-disp');
+  de.textContent=(res>=0?'+':'')+fM(res);
+  de.style.color=res>=0?'#34d399':'#f87171';
+
+  // DESFASAJE
+  document.getElementById('df-ing-per').textContent='Capitas '+d.pc;
+  document.getElementById('df-ing-cobro').textContent='cobradas el 01/'+sel.slice(0,3)+' (este mes)';
+  document.getElementById('df-ch-per').textContent='Chqs de '+d.chp.split('(')[0].trim();
+  document.getElementById('df-ch-vence').textContent=sel+' ('+d.chp.split('(')[1]?.replace(')','')+')</span>';
+
+  // Calcular lag en meses aproximado
+  const ingMesNum={'JUL-26':7,'AGO-26':8,'SEP-26':9,'OCT-26':10,'NOV-26':11,'DIC-26':12,'ENE-27':1};
+  const chMeses={'JUL-26':6,'AGO-26':7,'SEP-26':[7,8],'OCT-26':[8,9],'NOV-26':[8,10],'DIC-26':[9,11],'ENE-27':[10,11]};
+  const lagMap={
+    'JUL-26':'Desfasaje 1 mes — situación normal',
+    'AGO-26':'Desfasaje 1 mes — situación normal',
+    'SEP-26':'Desfasaje 1-2 meses — leve presión',
+    'OCT-26':'Desfasaje 2-3 meses — alta presión de caja',
+    'NOV-26':'Desfasaje 2-3 meses — se empieza a liberar',
+    'DIC-26':'Desfasaje 2-3 meses — liberación progresiva',
+    'ENE-27':'Desfasaje ~3 meses — cheques residuales',
+  };
+  document.getElementById('df-lag').textContent=lagMap[sel]||'';
+  const msgs={
+    'OCT-26':'⚠ Cobrás capitas de SEP pero los cheques son de AGO-SEP (plazo 60-90d). El desfasaje te comprime la liquidez este mes.',
+    'NOV-26':'ℹ La concentración de cheques de AGO-SEP se empieza a liberar. Mejor posición que oct.',
+    'JUL-26':'✓ Cheques ya casi liquidados. Posición holgada.',
+    'AGO-26':'✓ Cheques mínimos. Posición muy holgada.',
+    'SEP-26':'ℹ Cheques bajos. Comenzás a acumular los de AGO que vencen en OCT.',
+    'DIC-26':'✓ Solo cheques de plazo largo restantes. Posición se recupera.',
+    'ENE-27':'✓ Cheques residuales de OCT-NOV. Posición normalizada.',
+  };
+  document.getElementById('df-gap').textContent=msgs[sel]||'';
+}
+
+// ═══════════════════ PROYECCIÓN ═══════════════════
+function renderProy(){
+  const t=document.getElementById('proy-table');
+  const tm={real:'br',est:'be',proy:'bp'};
+  const tl={real:'REAL',est:'EST.','proy':'PROY.'};
+
+  let hdr=`<thead><tr><th>Concepto</th>`;
+  MESES.forEach(m=>{
+    const d=DATA[m]; const ac=m===sel?'ac':'';
+    hdr+=`<th class="${ac}">${m}<span class="bth ${m===MES_ACT?'ba':tm[d.tipo]}">${m===MES_ACT?'HOY':tl[d.tipo]}</span></th>`;
+  });
+  hdr+=`</tr></thead>`;
+
+  function row(lbl,vals,cls,indent){
+    let r=`<tr class="${cls||''}"><td${indent?' style="padding-left:16px;font-size:10px;color:#475569"':''}>${lbl}</td>`;
+    MESES.forEach((m,i)=>{
+      const v=vals[i]; const ac=m===sel?'ac':'';
+      if(typeof v==='number'){
+        const c=v>0?'pos':v<0?'neg':'dim';
+        const abs=Math.abs(v);
+        const s=abs>=1e9?(abs/1e9).toFixed(1)+'B':abs>=1e6?(abs/1e6).toFixed(1)+'M':(abs/1e3).toFixed(0)+'K';
+        r+=`<td class="${c} ${ac}">${v<0?'-$':'$'}${s}</td>`;
+      } else {
+        r+=`<td class="dim ${ac}">${v||'—'}</td>`;
+      }
+    });
+    return r+'</tr>';
+  }
+  function ctx(vals){
+    let r=`<tr class="ctx"><td></td>`;
+    MESES.forEach((m,i)=>{const ac=m===sel?'ac':'';r+=`<td class="${ac}">${vals[i]||''}</td>`;});
+    return r+'</tr>';
+  }
+
+  let b='<tbody>';
+  b+=`<tr class="spacer"><td colspan="${MESES.length+1}"></td></tr>`;
+
+  // INGRESOS
+  b+=row('INGRESOS COBRADOS',MESES.map(m=>ingTot(m)),'tot',false);
+  b+=ctx(MESES.map(m=>'↳ capitas '+DATA[m].pc));
+  [0,1,2].forEach(i=>b+=row(OS_NAMES[i],MESES.map(m=>getOS(m)[i]),'sub',true));
+  b+=row('Otros OS + extras',MESES.map(m=>{
+    const os=getOS(m).slice(3).reduce((a,b)=>a+b,0);
+    const ex=getEx(m); return os+ex.ref+ex.nc+ex.ot;
+  }),'sub',true);
+
+  b+=`<tr class="spacer"><td colspan="${MESES.length+1}"></td></tr>`;
+
+  // COMPROMISOS
+  b+=row('COMPROMISOS (cheques)',MESES.map(m=>-chTot(m)),'tot',false);
+  b+=ctx(MESES.map(m=>'↳ período '+DATA[m].chp.split('(')[0].trim()));
+  b+=row('Prestacionales',MESES.map(m=>-(CH[m]?.p||0)),'sub',true);
+  b+=row('No prest. + NE',MESES.map(m=>{const c=CH[m]||{np:0};const ex=(m==='OCT-26')?ne:0;return-(c.np+ex);}),'sub',true);
+
+  b+=`<tr class="spacer"><td colspan="${MESES.length+1}"></td></tr>`;
+  b+=row('COSTOS FIJOS',MESES.map(()=>-cfM),'tot',false);
+
+  b+=`<tr class="spacer"><td colspan="${MESES.length+1}"></td></tr>`;
+
+  let gr=`<tr class="gran"><td>✦ DISPONIBLE P/ EMITIR</td>`;
+  MESES.forEach(m=>{
+    const v=disp(m); const ac=m===sel?'ac':'';
+    gr+=`<td class="${v>=0?'pos':'neg'} ${ac}">${v>=0?'+':'-'}$${Math.abs(v/1e6).toFixed(1)}M</td>`;
+  });
+  b+=gr+'</tr>';
+  b+='</tbody>';
+  t.innerHTML=hdr+b;
+}
+
+// ═══════════════════ CONTROLES ═══════════════════
+function selMes(m){sel=m;renderAll()}
+function setCF(v){cfM=v*1e6;document.getElementById('rv-cf').textContent='$'+v+'M';renderAll()}
+function setNE(v){ne=v*1e6;document.getElementById('rv-ne').textContent='$'+v+'M';document.getElementById('rv-ne2').textContent='$'+v+'M';renderAll()}
+function renderAll(){renderSel();renderKPIs();renderPanelA();renderPanelB();renderProy()}
+renderAll();
+</script>
+</body>
+</html>
