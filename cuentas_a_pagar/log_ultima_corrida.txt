@@ -1,4 +1,4 @@
-Corrida: 30/10/2026 14:12:56
+Corrida: 02/11/2026 11:05:33
 
 PLANILLA OK: Planilla_Prestadores_01-2026.xlsx -> 01-2026 (Enero) (238 fact, $ 258,013,813.48)
 PLANILLA OK: Planilla_Prestadores_02-2026.xlsx -> 02-2026 (Febrero) (240 fact, $ 294,156,377.08)
@@ -1140,13 +1140,14 @@ FACTURA DUPLICADA descartada: San Francisco Salud Consorsio De Cooperacion CUIT 
 CHEQUES OK: ListadoChequesEmitidos - 2026-10-23T112646.693.csv (247 cheq, $ 899,701,391.64)
 CHEQUES OK: ListadoChequesEmitidos - 2026-10-27T104836.730.csv (240 cheq, $ 866,685,479.71)
 CHEQUES OK: ListadoChequesEmitidos - 2026-10-30T141127.846.csv (237 cheq, $ 857,902,247.06)
+CHEQUES OK: ListadoChequesEmitidos - 2026-11-02T110428.997.csv (210 cheq, $ 755,625,534.87)
 
 OPs: 520 prestador, 34 descartadas, 20 no cuadran
   OPs procesadas: 113 / a revisar: 407
 
-A VENCER: 127 cheques · $ 466,233,671.26
-  Imputado: $ 389,952,588.68
-  Sin asignar: $ 76,281,082.58 (16.4%)
-  Modos imputacion: {'ESTRICTO': 105, 'FUERA': 16, 'OP': 6}
+A VENCER: 171 cheques · $ 591,825,494.38
+  Imputado: $ 499,352,814.95
+  Sin asignar: $ 92,472,679.43 (15.6%)
+  Modos imputacion: {'ESTRICTO': 145, 'FUERA': 20, 'OP': 6}
 
-Duracion: 9.0s
+Duracion: 8.2s
