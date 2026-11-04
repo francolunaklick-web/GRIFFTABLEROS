@@ -1,4 +1,4 @@
-Corrida: 04/11/2026 13:42:27
+Corrida: 04/11/2026 14:12:51
 
 ER OK: Estado de Resultado 01-2026.xlsx -> Enero 2026 (15374 afil, $ 414,610,785.10)
 ER OK: Estado de Resultado 02-2026.xlsx -> Febrero 2026 (14951 afil, $ 442,431,094.72)
@@ -31,7 +31,7 @@ CV Mayo 2026: $ 2,835,841.31
 CV Junio 2026: $ 14,177,230.91
 CV Julio 2026: $ 6,895,271.37
 CV Agosto 2026: $ 5,349,118.87
-FB OK: 174 cheques pendientes, 0 sin clasificar
+FB OK: 174 cheques pendientes, 1 sin clasificar
 PERIODO 01-2026: ER $93,192,706 | CP $258,013,813
 PERIODO 02-2026: ER $89,249,441 | CP $294,156,377
 PERIODO 03-2026: ER $10,384,253 | CP $344,300,866
@@ -45,4 +45,4 @@ PERIODO 10-2026: ER $339,770,165 | CP --
 
 Excel generado: TABLERO_Resumen.xlsx
 
-Duracion: 8.7s
+Duracion: 7.8s
