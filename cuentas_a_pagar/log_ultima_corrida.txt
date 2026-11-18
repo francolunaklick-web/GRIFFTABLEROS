@@ -1,4 +1,4 @@
-Corrida: 04/11/2026 14:12:43
+Corrida: 18/11/2026 10:46:56
 
 PLANILLA OK: Planilla_Prestadores_01-2026.xlsx -> 01-2026 (Enero) (238 fact, $ 258,013,813.48)
 PLANILLA OK: Planilla_Prestadores_02-2026.xlsx -> 02-2026 (Febrero) (240 fact, $ 294,156,377.08)
@@ -8,7 +8,7 @@ PLANILLA OK: Planilla_Prestadores_05-2026.xlsx -> 05-2026 (Mayo) (531 fact, $ 26
 PLANILLA OK: Planilla_Prestadores_06-2026.xlsx -> 06-2026 (Junio) (263 fact, $ 311,803,903.68)
 PLANILLA OK: Planilla_Prestadores_07-2026.xlsx -> 07-2026 (Julio) (511 fact, $ 317,065,886.43)
 PLANILLA OK: Planilla_Prestadores_07-2026_ANTERIOR.xlsx -> 07-2026 (Julio) (281 fact, $ 306,437,432.58)
-PLANILLA OK: Planilla_Prestadores_08-2026.xlsx -> 08-2026 (Agosto) (325 fact, $ 392,776,428.37)
+PLANILLA OK: Planilla_Prestadores_08-2026.xlsx -> 08-2026 (Agosto) (284 fact, $ 373,443,206.31)
 PLANILLA OK: Planilla_Prestadores_09-2026.xlsx -> 09-2026 (Septiembre) (281 fact, $ 377,436,881.47)
 FACTURA DUPLICADA descartada: CLINICA CHUTRO S R L CUIT 30545996991 factura 5981-04-01 00:00:00 01-2026 (Enero) (Planilla_Prestadores_01-2026.xlsx)
 FACTURA DUPLICADA descartada: CLINICA PRIVADA CARAFFA SRL CUIT 30596272165 factura 12-118 01-2026 (Enero) (Planilla_Prestadores_01-2026.xlsx)
@@ -769,62 +769,19 @@ FACTURA DUPLICADA descartada:  CUIT  factura nan 07-2026 (Julio) (Planilla_Prest
 FACTURA DUPLICADA descartada:  CUIT  factura nan 07-2026 (Julio) (Planilla_Prestadores_07-2026.xlsx)
 FACTURA DUPLICADA descartada:  CUIT  factura nan 07-2026 (Julio) (Planilla_Prestadores_07-2026.xlsx)
 FACTURA DUPLICADA descartada: ARTRO S.A. CUIT 30623845881 factura 00006-00003458 07-2026 (Julio) (Planilla_Prestadores_07-2026.xlsx)
-FACTURA DUPLICADA descartada: MONLA MYRIAM BEATRIZ CUIT 27222272403 factura 00002-00000064 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: MONLA MYRIAM BEATRIZ CUIT 27222272403 factura 00002-00000061 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: MONLA MYRIAM BEATRIZ CUIT 27222272403 factura 00002-00000062 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: MONLA MYRIAM BEATRIZ CUIT 27222272403 factura 00002-00000063 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: CARRILLO ROMAN MARCEL CUIT 20178729730 factura 00004-00000146 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: CARRILLO ROMAN MARCEL CUIT 20178729730 factura 00004-00000147 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: HUERGO FEDERICO CUIT 20282468787 factura 00001-00000087 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: HUERGO FEDERICO CUIT 20282468787 factura 00001-00000088 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: HUERGO FEDERICO CUIT 20282468787 factura 00001-00000089 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: COCCO NATALIA CUIT 27405059202 factura 00003-00000328 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: REBERTE MARICEL EDITH CUIT 27230899199 factura 00003-00000219 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: ROGGERO NORMA BEATRIZ CUIT 27179300988 factura 00002-00000026 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: MOLINA MARIA FERNANDA CUIT 27307653406 factura 00003-00000316 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: MOLINA MARIA FERNANDA CUIT 27307653406 factura 00003-00000315 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: RIOS DARIO EDUARDO CUIT 20161589862 factura 00003-00000212 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: FESER MARIA LAURA CUIT 23202343104 factura 00002-00000482 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: FESER MARIA LAURA CUIT 23202343104 factura 00002-00000483 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: CARDOSO FERNANDO MIGUEL CUIT 20288604208 factura 00006-00000152 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: DELFINO IRINA MARIEL CUIT 27235506276 factura 00002-00000840 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: RUCCI SILVANA LORENA CUIT 27261075739 factura 00001-00000032 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: RUFFIN ESTEBAN MAURICIO CUIT 20264366896 factura 00002-00000254 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: RUFFIN ESTEBAN MAURICIO CUIT 20264366896 factura 00002-00000255 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: LOYEAU ARIEL MAXIMILIANO CUIT 20282716101 factura 00003-00000357 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: CARNERO JORGE ALBERTO DEL VALLE CUIT 23264829119 factura 00002-00000197 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: NIEVA MARIA EMILIA CUIT 27361283843 factura 00002-00000255 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: NIEVA MARIA EMILIA CUIT 27361283843 factura 00002-00000256 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: VILLALBA MARIA EUGENIA CUIT 23261030314 factura 00002-00000120 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: MARIN DANIEL ALBERTO CUIT 20170008007 factura 00005-00000211 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: VILLAGRA JORGE LUIS CUIT 20209977827 factura 00002-00000139 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: ARRAMBIDE MARIA DE LA PAZ CUIT 23261781344 factura 00002-00000561 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: TOLEDO YOHANA ELIZABETH CUIT 27355742003 factura 00003-00000114 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: GILETTA CLAUDIA VIVIANA CUIT 27208730768 factura 00002-00000052 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: HEREDIA MARIA PAULA CUIT 23402492074 factura 00001-00000027 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: ARNODO DANIEL CUIT 20282488796 factura 00003-00000246 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: SANCHEZ LUIS FERNANDO CUIT 20927934281 factura 00002-00000175 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: AGUERO RAMACCIONI NORBERTO AUGUSTO CUIT 20316867937 factura 00004-00000174 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: BUGIA MARCELO LUIS CUIT 20182544907 factura 00002-00000181 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: LOYEAU EDUARDO JORGE CUIT 20101728820 factura 00002-00000194 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: LOYEAU EDUARDO JORGE CUIT 20101728820 factura 00002-00000195 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: MIRANDA VERONICA ANABEL CUIT 27220344814 factura 00002-00000277 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
-FACTURA DUPLICADA descartada: MIRANDA VERONICA ANABEL CUIT 27220344814 factura 00002-00000276 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
 FACTURA DUPLICADA descartada: PABLO GABRIEL MIGLIERINI (MICAM) CUIT 20253634872 factura 00004-00000314 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
 FACTURA DUPLICADA descartada: PABLO GABRIEL MIGLIERINI (MICAM) CUIT 20253634872 factura 00004-00000315 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
 FACTURA DUPLICADA descartada: CLINICA CHUTRO S R L CUIT 30545996991 factura 00004-00006182 09-2026 (Septiembre) (Planilla_Prestadores_09-2026.xlsx)
-CHEQUES OK: ListadoChequesEmitidos - 2026-10-23T112646.693.csv (247 cheq, $ 899,701,391.64)
-CHEQUES OK: ListadoChequesEmitidos - 2026-10-27T104836.730.csv (240 cheq, $ 866,685,479.71)
-CHEQUES OK: ListadoChequesEmitidos - 2026-10-30T141127.846.csv (237 cheq, $ 857,902,247.06)
 CHEQUES OK: ListadoChequesEmitidos - 2026-11-02T110428.997.csv (210 cheq, $ 755,625,534.87)
 CHEQUES OK: ListadoChequesEmitidos - 2026-11-03T090403.389.csv (210 cheq, $ 755,625,534.87)
+CHEQUES OK: ListadoChequesEmitidos - 2026-11-18T103304.726.csv (227 cheq, $ 831,276,851.24)
 
 OPs: 520 prestador, 34 descartadas, 20 no cuadran
-  OPs procesadas: 113 / a revisar: 407
+  OPs procesadas: 107 / a revisar: 413
 
-A VENCER: 170 cheques · $ 565,335,393.49
-  Imputado: $ 473,690,987.13
-  Sin asignar: $ 91,644,406.36 (16.2%)
-  Modos imputacion: {'ESTRICTO': 144, 'FUERA': 20, 'OP': 6}
+A VENCER: 165 cheques · $ 565,224,140.23
+  Imputado: $ 484,845,616.47
+  Sin asignar: $ 80,378,523.76 (14.2%)
+  Modos imputacion: {'ESTRICTO': 143, 'FUERA': 19, 'OP': 3}
 
-Duracion: 6.6s
+Duracion: 9.5s
