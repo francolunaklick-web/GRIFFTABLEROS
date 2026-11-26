@@ -1,4 +1,4 @@
-Corrida: 18/11/2026 12:04:06
+Corrida: 26/11/2026 09:57:17
 
 PLANILLA OK: Planilla_Prestadores_01-2026.xlsx -> 01-2026 (Enero) (238 fact, $ 258,013,813.48)
 PLANILLA OK: Planilla_Prestadores_02-2026.xlsx -> 02-2026 (Febrero) (240 fact, $ 294,156,377.08)
@@ -772,16 +772,16 @@ FACTURA DUPLICADA descartada: ARTRO S.A. CUIT 30623845881 factura 00006-00003458
 FACTURA DUPLICADA descartada: PABLO GABRIEL MIGLIERINI (MICAM) CUIT 20253634872 factura 00004-00000314 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
 FACTURA DUPLICADA descartada: PABLO GABRIEL MIGLIERINI (MICAM) CUIT 20253634872 factura 00004-00000315 08-2026 (Agosto) (Planilla_Prestadores_08-2026.xlsx)
 FACTURA DUPLICADA descartada: CLINICA CHUTRO S R L CUIT 30545996991 factura 00004-00006182 09-2026 (Septiembre) (Planilla_Prestadores_09-2026.xlsx)
-CHEQUES OK: ListadoChequesEmitidos - 2026-11-02T110428.997.csv (210 cheq, $ 755,625,534.87)
 CHEQUES OK: ListadoChequesEmitidos - 2026-11-03T090403.389.csv (210 cheq, $ 755,625,534.87)
 CHEQUES OK: ListadoChequesEmitidos - 2026-11-18T103304.726.csv (227 cheq, $ 831,276,851.24)
+CHEQUES OK: ListadoChequesEmitidos - 2026-11-26T095610.756.csv (219 cheq, $ 807,363,786.20)
 
 OPs: 520 prestador, 34 descartadas, 20 no cuadran
   OPs procesadas: 107 / a revisar: 413
 
-A VENCER: 165 cheques · $ 565,224,140.23
-  Imputado: $ 484,845,616.47
-  Sin asignar: $ 80,378,523.76 (14.2%)
-  Modos imputacion: {'ESTRICTO': 143, 'FUERA': 19, 'OP': 3}
+A VENCER: 154 cheques · $ 543,564,884.14
+  Imputado: $ 453,384,108.42
+  Sin asignar: $ 90,180,775.72 (16.6%)
+  Modos imputacion: {'ESTRICTO': 131, 'FUERA': 20, 'OP': 3}
 
-Duracion: 6.0s
+Duracion: 14.0s
